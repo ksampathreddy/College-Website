@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DRK Institute of Science and Technology</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" href="static/drk.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <header>
     <div class="top-bar">
-      <ul>
-        <li>GRIEVANCE</li>
-        <li>STUDENTS</li>
-        <li>CAREERS</li>
-        <li>WEBMAIL</li>
-        <li>CONTACT US</li>
-      </ul>
+      <div class="center-logo">
+        <img src="static/K.png" alt="DRKIST Logo" class="main-logo">
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
     </div>
     <nav class="main-nav">
       <div class="logo">
@@ -36,13 +38,15 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="overlay">
-      <div class="hero-content">
-        <h2>Discover The World Of<br>Possibility With <span>DRK College!</span></h2>
-        <button class="btn">Admissions</button>
-      </div>
+  <div class="image-slider">
+    <div class="slider-content">
+      <h1>DISCOVER THE WORLD OF POSSIBILITY WITH DRK College!</h1>
+      <button class="admissions-btn">Admissions</button>
     </div>
-  </section>
+    <img src="static/1.jpg" class="active">
+    <img src="static/2.jpg">
+  </div>
+
+  <script src="static/script.js"></script>
 </body>
 </html>
