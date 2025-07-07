@@ -360,3 +360,310 @@ body {
     font-size: 1rem;
   }
 }
+/* Previous CSS remains the same until .mission-section */
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.welcome-content {
+  flex: 1;
+}
+
+.welcome-image {
+  flex: 1;
+}
+
+.welcome-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.welcome-section h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.welcome-section h2 span {
+  color: #911c24;
+  font-weight: 700;
+}
+
+.welcome-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.read-more-btn {
+  background-color: #911c24;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.read-more-btn:hover {
+  background-color: #7a161d;
+}
+
+/* Mission Section */
+.mission-section {
+  margin-top: 70px;
+}
+
+.mission-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.mission-section h3 span {
+  color: #911c24;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.mission-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.mission-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background-color: #f9f0f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.mission-card h4 {
+  color: #911c24;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.mission-list {
+  list-style: none;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.mission-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.mission-list li:last-child {
+  border-bottom: none;
+}
+
+/* Studying Section */
+.studying-section {
+  margin: 80px 0;
+}
+
+.studying-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.studying-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #911c24;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.department-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+}
+
+.department-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.department-card h4 {
+  padding: 20px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Life Section */
+.life-section {
+  display: flex;
+  gap: 40px;
+  margin: 80px 0;
+  align-items: center;
+}
+
+.life-content {
+  flex: 1;
+}
+
+.life-image {
+  flex: 1;
+}
+
+.life-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.life-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+.life-section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.life-btn {
+  background-color: #911c24;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.life-btn:hover {
+  background-color: #7a161d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .welcome-section,
+  .life-section {
+    flex-direction: column;
+  }
+  
+  .welcome-image,
+  .life-image {
+    order: -1;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  
+  .department-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section h2,
+  .mission-section h3,
+  .studying-section h3,
+  .life-section h3 {
+    font-size: 1.6rem;
+  }
+  
+  .mission-grid,
+  .department-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mission-card,
+  .department-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section h2,
+  .mission-section h3,
+  .studying-section h3,
+  .life-section h3 {
+    font-size: 1.4rem;
+  }
+  
+  .mission-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .mission-icon img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .department-card h4 {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
