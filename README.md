@@ -1,35 +1,46 @@
 # DRK Institute of Science & Technology - Official Website
 
-Welcome to the official repository for the DRK Institute of Science & Technology website. This website provides comprehensive information about the institution, including academic departments, admissions, faculty, events, gallery, and contact information.
+![Website Preview](static/screenshot.png)
 
-## Project Overview
-This is the official website for DRK Institute of Science and Technology, featuring:
-- Responsive design for all devices
-- Image slider with zoom effect
-- Clean, modern interface
-- Easy-to-navigate structure
+Welcome to the official repository for the DRK Institute of Science & Technology website. This responsive website showcases the institution's academic programs, campus life, and achievements.
 
-## Features
-- **Header Section**:
-  - Centered institutional logo
-  - Quick access links
-  - Functional search bar
-- **Hero Section**:
-  - Auto-rotating image slider
-  - Zoom animation effect
-  - Prominent call-to-action button
-- **Navigation**:
-  - Comprehensive menu system
-  - Hover effects
-- **Breaking News** section
+## Project Highlights
+- 🚀 Modern, responsive design for all devices
+- 🎓 Comprehensive academic information
+- 📱 Mobile-first approach
+- ✨ Interactive elements and animations
+
+## Key Features
+### Header & Navigation
+- Centered institutional logo
+- Quick access top links (Grievance, Students, Careers, etc.)
+- Functional search bar with icon
+- Main navigation with hover effects
+
+### Hero Section
+- Auto-rotating image slider with zoom effect
+- Bold call-to-action "Admissions" button
+- Responsive text overlays
+
+### Content Sections
+- **Welcome Section**: Institutional introduction with "Read More" button
+- **Statistics**: Key institutional metrics and achievements
+- **Founder's Message**: Highlighting the vision of Sri. D.B. Chandra Sekhar Rao
+- **Academic Programs**: Department cards with images
+- **Campus Life**: Student experience overview
+- **News & Updates**: Latest institutional news
+
+### Footer
+- Organized link sections (About, Quick Links)
+- Social media integration
+- Copyright information
 
 ## Technologies Used
-- HTML5
-- CSS3
-- JavaScript (for slider functionality)
-- Font Awesome (for icons)
+- **Frontend**:
+  - HTML5 (Semantic markup)
+  - CSS3 (Flexbox, Grid, animations)
+  - JavaScript (Image slider functionality)
+- **Icons**: Font Awesome (v6)
+- **Design**: Responsive breakpoints for all devices
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/drk-institute-website.git
+## File Structure
