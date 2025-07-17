@@ -225,14 +225,17 @@ Our organization aim is to provide the finest environment for teaching, learning
     </div>
 
     <div class="footer-bottom">
-     <p>&copy; 2025 DRK Institute of Science and Technology. All Rights Reserved.</p>
+     <p>&copy; <span id="year"></span> DRK Institute of Science and Technology. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
   <div class="scroll-to-top">
         <img src="static/ar.png" alt="Scroll to top" id="scrollTopBtn">
   </div>
-    
+   <script>
+    // Get current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 <style>
 /* Add this to your CSS */
 .scroll-to-top {
