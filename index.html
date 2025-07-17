@@ -229,6 +229,71 @@ Our organization aim is to provide the finest environment for teaching, learning
     </div>
   </div>
 </footer>
+  <div class="scroll-to-top">
+        <img src="static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    
+<style>
+/* Add this to your CSS */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 99;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    top:65%;
+}
+
+.scroll-to-top:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.scroll-to-top img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .scroll-to-top img {
+        width: 40px;
+    }
+}
+</style>
+
+<script>
+// Add this JavaScript
+document.getElementById('scrollTopBtn').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Optional: Show/hide button based on scroll position
+window.addEventListener('scroll', function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (window.pageYOffset > 300) {
+        scrollTopBtn.parentElement.style.display = 'block';
+    } else {
+        scrollTopBtn.parentElement.style.display = 'none';
+    }
+});
+
+// Initially hide the button
+document.querySelector('.scroll-to-top').style.display = 'none';
+</script>
+
+
  
 <!--CHATBOT-->
 <!-- Chatbot Container -->
