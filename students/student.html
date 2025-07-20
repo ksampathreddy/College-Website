@@ -12,7 +12,7 @@
   <div id="header"></div>
   <!-- Breadcrumb -->
   <div class="breadcrumb">
-    <a href="index.html">Home</a> / <span>Students</span>
+    <a href="#">Home</a> / <span>Students</span>
   </div>
 
   <main class="student-main">
@@ -272,7 +272,7 @@
   <div id="chatbot"></div>
  <!-- footer and header and chatbot -->
    <script>
-    fetch('header.html')
+    fetch('../header.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -283,7 +283,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('footer.html')
+    fetch('../footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -294,7 +294,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('chatbot.html')
+    fetch('../chatbot.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
