@@ -9,41 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <div class="top-links">
-        <ul>
-          <li><a href="#">GRIEVANCE</a></li>
-          <li><a href="#">STUDENTS</a></li>
-          <li><a href="#">CAREERS</a></li>
-          <li><a href="#">WEBMAIL</a></li>
-          <li><a href="#">CONTACT US</a></li>
-        </ul>
-      </div>
-      <div class="logo-container">
-        <img src="../static/K.png" alt="DRKIST Logo" class="main-logo">
-      </div>
-      <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-    </div>
-    <nav class="main-nav">
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Departments</a></li>
-        <li><a href="#">Academics</a></li>
-        <li><a href="#">Placements</a></li>
-        <li><a href="#">Life @ DRK</a></li>
-        <li><a href="#">Facilities</a></li>
-        <li><a href="#">NAAC</a></li>
-        <li><a href="#">IQAC Cell</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-      </ul>
-    </nav>
-  </header>
-
+  <div id="header"></div>
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     <a href="index.html">Home</a> / <span>Students</span>
@@ -105,61 +71,7 @@
       </div>
     </div>
   </main>
-
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Logo placed outside the footer content -->
-    <div class="footer-logo-container">
-      <img src="static/K1.png" alt="DRKIST Logo" class="footer-logo">
-      <h5>DRK Institute of Science and Technology and Management features excellent infrastructure, modern engineering labs with the latest equipment, experienced faculties and lots of opportunities for development through our collaborations</h5>
-      
-    </div>
-
-    <div class="footer-content">
-      <div class="footer-about">
-        <h4>About</h4>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Courses</a>
-          <li><a href="#">News</a>
-          <li><a href="#">Events</a>
-          <li><a href="#">Contact</a>
-        </ul>
-      </div>
-</div>
- <div class="footer-content">
-      <div class="footer-links">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="#">Mandatory Disclosures</a></li>
-          <li><a href="#">Students</a></li>
-          <li><a href="#">Faculty & Staffs</a></li>
-          <li><a href="#">Alumni</a></li>
-          <li><a href="#">Visit</a></li>
-          <li><a href="#">Media Relations</a></li>
-        </ul>
-      </div>
-</div>
- <div class="footer-content"></div>
-      <div class="footer-connect">
-        <h4>Connect Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-           <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-     <p>&copy; <span id="year"></span> DRK Institute of Science and Technology. All Rights Reserved.</p>
-    </div>
-  </div>
-</footer>
-
+<div id="footer"></div>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
