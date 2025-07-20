@@ -9,40 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <div class="top-links">
-        <ul>
-          <li><a href="#">GRIEVANCE</a></li>
-          <li><a href="students/student.html">STUDENTS</a></li>
-          <li><a href="#">CAREERS</a></li>
-          <li><a href="#">WEBMAIL</a></li>
-          <li><a href="#">CONTACT US</a></li>
-        </ul>
-      </div>
-      <div class="logo-container">
-        <img src="static/K.png" alt="DRKIST Logo" class="main-logo">
-      </div>
-      <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-    </div>
-    <nav class="main-nav">
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Departments</a></li>
-        <li><a href="#">Academics</a></li>
-        <li><a href="#">Placements</a></li>
-        <li><a href="#">Life @ DRK</a></li>
-        <li><a href="#">Facilities</a></li>
-        <li><a href="#">NAAC</a></li>
-        <li><a href="#">IQAC Cell</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header">Loading header...</div>
 
   <div class="image-slider">
     <div class="slider-content">
@@ -743,6 +710,21 @@ document.getElementById('input-box').addEventListener('keypress', function (e) {
 // Hide chat initially
 document.getElementById('chatbox').style.display = 'none';
 </script>
+
+<!-- footer and header -->
+   <script>
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+  </script>
 
 <script src="static/script.js"></script>
 </body>
