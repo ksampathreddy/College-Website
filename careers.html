@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="icon" href="static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/style.css">
     <title>Careers - DRK Institute of Science and Technology</title>
     <style>
         * {
@@ -402,7 +403,7 @@
     <div id="footer"></div>
  <!-- footer and header and chatbot -->
    <script>
-    fetch('../header.html')
+    fetch('header.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -413,7 +414,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('../footer.html')
+    fetch('footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -424,7 +425,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('../chatbot.html')
+    fetch('chatbot.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('chatbot').innerHTML = data;

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students - DRK Institute of Science and Technology</title>
-  <link rel="stylesheet" href="../static/style.css">
-  <link rel="icon" href="../static/drk.png" type="image/x-icon">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" href="static/drk.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -272,18 +272,21 @@
   <div id="chatbot"></div>
  <!-- footer and header and chatbot -->
    <script>
-    fetch('../header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
-    fetch('../footer.html')
+      fetch('header.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Header not found: ' + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error loading header:', error);
+      document.getElementById('header').innerHTML = "<p style='color:red;'>Header failed to load.</p>";
+    });
+    fetch('footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -294,7 +297,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('../chatbot.html')
+    fetch('chatbot.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('chatbot').innerHTML = data;
