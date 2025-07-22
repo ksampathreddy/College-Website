@@ -18,47 +18,49 @@
       </div>
     </div>
     
-    <!-- Mobile Menu Toggle Button -->
-    <button class="mobile-menu-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    
-    <nav class="main-nav">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-            <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-              <a href="#about-drkist">About DRKIST</a>
-              <a href="#management">Management</a>
-              <a href="#principal-desk">Principal Desk's</a>
-              <a href="#organisation-chart">Organisation Chart</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-              <a href="#cse">Computer Science Engineering</a>
-              <a href="#ece">Electronics & Communications</a>
-              <a href="#eee">Electrical & Electronics</a>
-              <a href="#aiml">AI & Machine Learning</a>
-              <a href="#mech">Mechanical Engineering</a>
-              <a href="#ds">Data Science</a>
-              <a href="#hs">H & S Department</a>
-              <a href="#mba">MBA</a>
-            </div>
-        </li>
-        <li><a href="#">Academics</a></li>
-        <li><a href="#">Placements</a></li>
-        <li><a href="#">Life @ DRK</a></li>
-        <li><a href="#">Facilities</a></li>
-        <li><a href="#">NAAC</a></li>
-        <li><a href="#">IQAC Cell</a></li>
-        <li><a href="#">Mandatory Disclosures</a></li>
-      </ul>
-    </nav>
+    <!-- Mobile Menu Toggle Button - Only for main navigation -->
+    <div class="nav-container">
+      <button class="mobile-menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+              <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-content">
+                <a href="#about-drkist">About DRKIST</a>
+                <a href="#management">Management</a>
+                <a href="#principal-desk">Principal Desk's</a>
+                <a href="#organisation-chart">Organisation Chart</a>
+              </div>
+          </li>
+          <li class="dropdown">
+              <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-content">
+                <a href="#cse">Computer Science Engineering</a>
+                <a href="#ece">Electronics & Communications</a>
+                <a href="#eee">Electrical & Electronics</a>
+                <a href="#aiml">AI & Machine Learning</a>
+                <a href="#mech">Mechanical Engineering</a>
+                <a href="#ds">Data Science</a>
+                <a href="#hs">H & S Department</a>
+                <a href="#mba">MBA</a>
+              </div>
+          </li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#">Placements</a></li>
+          <li><a href="#">Life @ DRK</a></li>
+          <li><a href="#">Facilities</a></li>
+          <li><a href="#">NAAC</a></li>
+          <li><a href="#">IQAC Cell</a></li>
+          <li><a href="#">Mandatory Disclosures</a></li>
+        </ul>
+      </nav>
+    </div>
     
     <!-- Mobile Navigation -->
     <div class="mobile-overlay"></div>
@@ -284,6 +286,10 @@
     }
     
     /* Responsive Styles */
+    .nav-container {
+      position: relative;
+    }
+    
     @media (max-width: 1024px) {
       .mobile-menu-toggle {
         display: block;
@@ -293,7 +299,18 @@
         display: none;
       }
       
-      .top-links ul,
+      .top-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+      }
+      
+      .top-links ul li {
+        margin: 0;
+      }
+      
       .search-container {
         display: none;
       }
@@ -304,8 +321,16 @@
       }
       
       .top-bar {
-        justify-content: center;
-        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .top-links ul {
+        font-size: 14px;
+        gap: 5px;
       }
     }
     
@@ -316,4 +341,3 @@
       }
     }
   </style>
-  
