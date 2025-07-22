@@ -5,7 +5,7 @@
           <li><a href="#">GRIEVANCE</a></li>
           <li><a href="student.html">STUDENTS</a></li>
           <li><a href="careers.html">CAREERS</a></li>
-          <li><a href="index.html">WEBMAIL</a></li>
+          <li><a href="#">WEBMAIL</a></li>
           <li><a href="contact.html">CONTACT US</a></li>
         </ul>
       </div>
@@ -19,9 +19,29 @@
     </div>
     <nav class="main-nav">
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Departments</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="#about-drkist">About DRKIST</a>
+              <a href="#management">Management</a>
+              <a href="#principal-desk">Principal Desk's</a>
+              <a href="#organisation-chart">Organisation Chart</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="#cse">Computer Science Engineering</a>
+              <a href="#ece">Electronics & Communications</a>
+              <a href="#eee">Electrical & Electronics</a>
+              <a href="#aiml">AI & Machine Learning</a>
+              <a href="#mech">Mechanical Engineering</a>
+              <a href="#ds">Data Science</a>
+              <a href="#hs">H & S Department</a>
+              <a href="#mba">MBA</a>
+            </div>
+          </li>
         <li><a href="#">Academics</a></li>
         <li><a href="#">Placements</a></li>
         <li><a href="#">Life @ DRK</a></li>
@@ -32,3 +52,89 @@
       </ul>
     </nav>
   </header>
+  <style>
+    
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn i {
+  font-size: 10px;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn i {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  border: 1px solid #e0e0e0;
+}
+
+.dropdown-content a {
+  color: #333 !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f8f9fa;
+  color: #8B2635 !important;
+  padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .nav-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #8B2635, #A73A47);
+    display: none;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: rgba(255,255,255,0.95);
+    margin-left: 20px;
+    border-radius: 4px;
+  }
+}
+  </style>
