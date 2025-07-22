@@ -162,16 +162,15 @@ Our organization aim is to provide the finest environment for teaching, learning
  <!-- footer and header and chatbot and scroll -->
    <script>
     fetch('header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = 'static/menu.js';
+      document.body.appendChild(script);
+    });
     fetch('footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
