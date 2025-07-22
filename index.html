@@ -196,7 +196,7 @@ Our organization aim is to provide the finest environment for teaching, learning
     fetch('scroll.html')
     .then(response => response.text())
     .then(data => {
-      document.getElementById('scroll-to-top').innerHTML = data;
+      document.getElementById('scrollTopBtn').innerHTML = data;
 
       // Load JS separately if needed
       const script = document.createElement('script');
