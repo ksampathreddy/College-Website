@@ -1,11 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait for DOM to be fully loaded
+function initMobileMenu() {
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileOverlay = document.querySelector('.mobile-overlay');
   const mobileClose = document.querySelector('.mobile-close-btn');
 
-  // Check if elements exist before adding event listeners
   if (mobileToggle && mobileNav && mobileOverlay) {
     // Toggle mobile menu
     mobileToggle.addEventListener('click', function(e) {
@@ -47,4 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-});
+}
+
+// Initialize when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initMobileMenu);

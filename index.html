@@ -165,10 +165,16 @@ Our organization aim is to provide the finest environment for teaching, learning
     .then(response => response.text())
     .then(data => {
       document.getElementById('header').innerHTML = data;
-
-      // Load JS separately if needed
+      
+      // Then load and execute menu.js
       const script = document.createElement('script');
       script.src = 'static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
       document.body.appendChild(script);
     });
     fetch('footer.html')
