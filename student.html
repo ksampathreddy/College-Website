@@ -272,19 +272,21 @@
   <div id="chatbot"></div>
  <!-- footer and header and chatbot -->
    <script>
-      fetch('header.html')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Header not found: ' + response.status);
-      }
-      return response.text();
-    })
+    fetch('header.html')
+    .then(response => response.text())
     .then(data => {
       document.getElementById('header').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading header:', error);
-      document.getElementById('header').innerHTML = "<p style='color:red;'>Header failed to load.</p>";
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = 'static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
     });
     fetch('footer.html')
       .then(response => {
