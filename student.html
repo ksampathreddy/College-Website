@@ -12,7 +12,7 @@
   <div id="header"></div>
   <!-- Breadcrumb -->
   <div class="breadcrumb">
-    <a href="#">Home</a> / <span>Students</span>
+    <a href="index.html">Home</a> / <span>Students</span>
   </div>
 
   <main class="student-main">
@@ -269,6 +269,9 @@
       }
     }
   </style>
+  <div class="scroll-to-top">
+        <img src="static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
   <div id="chatbot"></div>
  <!-- footer and header and chatbot -->
    <script>
@@ -307,6 +310,16 @@
       // Load JS separately if needed
       const script = document.createElement('script');
       script.src = 'static/chatbot.js';
+      document.body.appendChild(script);
+    });
+    fetch('scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = 'static/scroll.js';
       document.body.appendChild(script);
     });
   </script>
