@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Results</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <div class="container">
+    <h2 id="search-title">Search Results</h2>
+    <div id="search-results"></div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load header and footer
+    fetch("header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+    fetch("footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+
+    // Parse query from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get("q")?.toLowerCase();
+
+    document.getElementById("search-title").innerText = `Search results for: "${query}"`;
+
+    fetch("static/search-index.json")
+      .then(res => res.json())
+      .then(pages => {
+        const results = pages.filter(page =>
+          page.keywords.toLowerCase().includes(query)
+        );
+
+        const resultsDiv = document.getElementById("search-results");
+
+        if (results.length > 0) {
+          resultsDiv.innerHTML = results.map(result => `
+            <div class="result-card">
+              <h3><a href="${result.url}">${result.title}</a></h3>
+              <p>${result.keywords}</p>
+            </div>
+          `).join("");
+        } else {
+          resultsDiv.innerHTML = "<p>No results found.</p>";
+        }
+      });
+  </script>
+</body>
+</html>

@@ -12,11 +12,10 @@
       <div class="logo-container">
         <img src="static/K.png" alt="DRKIST Logo" class="main-logo">
       </div>
-      <div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search..." />
-  <div id="search-results" class="search-results"></div>
-  <button type="button" id="searchBtn"><i class="fas fa-search"></i></button>
-</div>
+      <form id="searchForm" action="search.html" method="GET">
+  <input type="text" name="q" placeholder="Search..." required />
+  <button type="submit"><i class="fas fa-search"></i></button>
+</form>
     </div>
     
     <!-- Mobile Menu Toggle Button - Only for main navigation -->

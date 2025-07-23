@@ -1,17 +1,17 @@
 [
   {
-    "title": "About DRKIST",
-    "url": "about.html",
-    "keywords": "about drkist college history vision mission principal desk"
+    "title": "Principal Desk's",
+    "url": "principal.html",
+    "keywords": "principal head of institution leadership drkist"
   },
   {
-    "title": "CSE Department",
+    "title": "IQAC",
+    "url": "iqac.html",
+    "keywords": "quality assurance cell iqac accreditation"
+  },
+  {
+    "title": "Computer Science and Engineering",
     "url": "cse.html",
-    "keywords": "cse computer science engineering syllabus faculty labs"
-  },
-  {
-    "title": "Placements",
-    "url": "placements.html",
-    "keywords": "placement officer training drives recruitment"
+    "keywords": "cse department labs programming syllabus"
   }
 ]
