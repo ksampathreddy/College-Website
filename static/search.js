@@ -1,55 +1,45 @@
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const searchBtn = document.querySelector(".search-container button");
-    const searchInput = document.querySelector(".search-container input");
-
-    searchBtn.addEventListener("click", function () {
-      const query = searchInput.value.trim().toLowerCase();
-
-      // Basic search example — you can replace this with your own logic
-      if (query.includes("attendance")) {
-        window.location.href = "https://drkist.infinityfreeapp.com/";
-      } else if (query.includes("results")) {
-        window.location.href = "https://drkresults.kesug.com/";
-      } else if (query.includes("placement")) {
-        window.location.href = "placements.html"; // Example: your placement page
-      } else {
-        alert("No results found for: " + query);
-      }
-    });
-
-    // Optional: Pressing Enter triggers the button
-    searchInput.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        searchBtn.click();
-      }
-    });
-  });
-
-  function searchPage(query) {
-  const textNodes = document.body.innerText.toLowerCase();
-  if (textNodes.includes(query.toLowerCase())) {
-    alert("Found match on page!");
-  } else {
-    alert("No results found.");
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  const searchBtn = document.querySelector(".search-container button");
-  const searchInput = document.querySelector(".search-container input");
+  const input = document.querySelector(".search-container input");
+  const resultsContainer = document.getElementById("search-results");
 
-  searchBtn.addEventListener("click", function () {
-    const query = searchInput.value.trim();
-    if (query) {
-      searchPage(query);
+  input.addEventListener("input", function () {
+    const query = this.value.trim().toLowerCase();
+    if (query.length < 2) {
+      resultsContainer.style.display = "none";
+      return;
     }
+
+    fetch("static/search-index.json")
+      .then((res) => res.json())
+      .then((pages) => {
+        const matches = pages.filter((page) =>
+          page.keywords.toLowerCase().includes(query)
+        );
+
+        if (matches.length > 0) {
+          resultsContainer.innerHTML = matches
+            .map(
+              (match) =>
+                `<a href="${match.url}">${match.title}</a>`
+            )
+            .join("");
+          resultsContainer.style.display = "block";
+        } else {
+          resultsContainer.innerHTML = "<div>No results found.</div>";
+          resultsContainer.style.display = "block";
+        }
+      })
+      .catch((err) => {
+        console.error("Search error:", err);
+        resultsContainer.innerHTML = "<div>Error loading results.</div>";
+        resultsContainer.style.display = "block";
+      });
   });
 
-  searchInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      searchBtn.click();
+  // Optional: Hide results on click outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".search-container")) {
+      resultsContainer.style.display = "none";
     }
   });
 });
-

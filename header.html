@@ -13,9 +13,10 @@
         <img src="static/K.png" alt="DRKIST Logo" class="main-logo">
       </div>
       <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
+  <input type="text" id="searchInput" placeholder="Search..." />
+  <div id="search-results" class="search-results"></div>
+  <button type="button" id="searchBtn"><i class="fas fa-search"></i></button>
+</div>
     </div>
     
     <!-- Mobile Menu Toggle Button - Only for main navigation -->
@@ -170,6 +171,7 @@
       </ul>
     </nav>
 <script src="static/menu.js"></script>
+<script src="static/search.js"></script>
   </header>
   <style>
     /* Mobile Menu Styles */
@@ -412,4 +414,4 @@
       }
     }
   </style>
-  <script src="static/search.js"></script>
+ 
