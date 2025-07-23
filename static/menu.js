@@ -49,3 +49,20 @@ function initMobileMenu() {
 
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initMobileMenu);
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.querySelector('.search-container form');
+  
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      const searchInput = this.querySelector('input[name="q"]');
+      
+      // If search input is empty, prevent form submission
+      if (!searchInput.value.trim()) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
+});
