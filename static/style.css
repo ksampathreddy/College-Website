@@ -1262,34 +1262,105 @@ body {
     font-size: 15px;
   }
 }
-.search-results {
-  position: absolute;
-  top: 100%;
-  background: white;
-  border: 1px solid #ccc;
-  z-index: 1000;
-  width: 100%;
-  max-height: 300px;
-  overflow-y: auto;
-  display: none;
-  font-size: 14px;
-}
-.search-results a {
-  display: block;
-  padding: 8px;
-  color: #333;
-  text-decoration: none;
-}
-.search-results a:hover {
-  background: #f5f5f5;
-}
+
+/* ==== Search Bar ==== */
 .search-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
 }
-.search-container input {
-  padding: 5px 10px;
+
+.search-container input[type="text"] {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 8px 12px;
+  background-color: #a30c2d;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #8a0b24;
+}
+
+/* ==== Search Results Page ==== */
+.search-results {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.search-results h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.result-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.2s ease;
+  background-color: #f9f9f9;
+}
+
+.result-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.result-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #a30c2d;
+}
+
+.result-card p {
   font-size: 14px;
-  width: 150px;
+  color: #555;
+}
+
+/* ==== Footer ==== */
+footer {
+  background-color: #a30c2d;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 50px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
 }

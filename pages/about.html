@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>About - DRK Institute of Science and Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: #c41e3a;
+            border-radius: 5px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .search-cart {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 200px;
+        }
+
+        .cart-icon {
+            position: relative;
+            background: #c41e3a;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation Styles */
+        .navigation {
+            background: #c41e3a;
+            padding: 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.3s;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-item.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23f0f0f0" width="1200" height="400"/><text x="600" y="200" text-anchor="middle" fill="%23999" font-size="24">Institute Building</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #c41e3a;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .about-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+
+        .about-image {
+            flex: 0 0 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .institute-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-title {
+            font-size: 32px;
+            color: #c41e3a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Vision Mission Quality Cards */
+        .cards-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            border: 2px solid #c41e3a;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.1);
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #c41e3a;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-links {
+                display: none;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+            }
+
+            .nav-item {
+                padding: 12px 15px;
+                font-size: 12px;
+            }
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .about-image {
+                flex: none;
+            }
+
+            .cards-section {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .about-title {
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="breadcrumb">
+            <a href="#">Home</a> / About
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="about-section">
+            <div class="about-image">
+                <div class="institute-image">
+                    Institute Campus View
+                </div>
+            </div>
+            <div class="about-content">
+                <h1 class="about-title">About Us</h1>
+                <p class="about-text">
+                    The era of success of DRK Institute of Science & Technology has started way back in 2004 when it was established by Mr. D.B Chandra Sekhar Rao in the fond memory of his late father Sri Dasari Rama Kotaiah garu. Mr. D.B Chandra Shekar Rao is an eminent & successful entrepreneur, who has subsequently decided to focus on high quality education with the philanthropic motive, to act as a leader to promote economic & industrial growth of the country.
+                </p>
+                <p class="about-text">
+                    DRK Institute of Science & Technology has envisaged significant investment of capital and resources to give shape to the development of the institute, in terms of Infrastructure, academic resources and career development for its students. A vibrant effort has been made to consciously invest to improve the conceptual and technical skill of the students.
+                </p>
+                <p class="about-text">
+                    DRK Institutes of Science & Technology features excellent Infrastructure, modern engineering labs with the latest equipment, experienced faculties and lots of opportunities for development through our collaborations with our other organizations of the DRK Group and close ties with the best companies of the IT Sector.
+                </p>
+            </div>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="cards-section">
+            <div class="card">
+                <h2 class="card-title">Vision</h2>
+                <p class="card-content">
+                    To be a Premier Institution with sky-scraping educational values and research built on communal trust and instill high pattern of discipline to serve the nation and the world.
+                </p>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Mission</h2>
+                <p class="card-content">
+                    To implant in students, the aptitude values and vision that will prepare them to lead lives of personal integrity and civic responsibility.
+                </p>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Quality</h2>
+                <p class="card-content">
+                    To Provide Quality Education to the Students to excel in the fields of Engineering & Management to cater to the ever Challenging needs.
+                </p>
+            </div>
+        </div>
+    </main>
+ <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('../header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('../footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('../chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>
