@@ -382,7 +382,7 @@
     <div id="footer"></div>
  <!-- footer and header and chatbot -->
    <script>
-    fetch('header.html')
+    fetch('../header.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('header').innerHTML = data;
@@ -398,7 +398,7 @@
       };
       document.body.appendChild(script);
     });
-    fetch('footer.html')
+    fetch('../footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
@@ -409,7 +409,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('chatbot.html')
+    fetch('../chatbot.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('chatbot').innerHTML = data;
