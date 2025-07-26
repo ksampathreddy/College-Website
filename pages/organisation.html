@@ -248,30 +248,10 @@
 <body>
     <div class="breadcrumb">
         <a href="../index.html">Home</a> / <span>Organisation Chart</span>
+        <img src="../static/chart.jpg" alt="chart" class="chart">
     </div>
 
-    <div class="container">
-        <h1 class="page-title">Organisation Chart</h1>
-    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
-
     <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollButton = document.querySelector('.scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollButton.style.display = 'block';
-            } else {
-                scrollButton.style.display = 'none';
-            }
-        });
-
         // Add hover effects and animations
         document.querySelectorAll('.org-box').forEach(box => {
             box.addEventListener('mouseenter', function() {
