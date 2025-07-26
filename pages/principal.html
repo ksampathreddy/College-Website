@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Principal Desk's - DRK Institute of Science and Technology</title>
+    <style>
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text {
+            color: #8B0000;
+            font-weight: bold;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .search-cart {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .cart-icon {
+            background-color: #8B0000;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navigation {
+            background: linear-gradient(135deg, #8B0000, #B22222);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+        }
+
+        .nav-menu {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #8B0000;
+        }
+
+        .principal-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .principal-photo {
+            width: 220px;
+            height: 280px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 4px solid white;
+        }
+
+        .principal-name {
+            font-size: 2em;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+
+        .principal-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #8B0000;
+        }
+
+        .principal-description {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        .principal-description p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #8B0000;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .page-title {
+                font-size: 2em;
+            }
+
+            .principal-photo {
+                width: 180px;
+                height: 220px;
+            }
+
+            .principal-description {
+                padding: 25px;
+            }
+
+            .search-box {
+                width: 150px;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #B22222;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="breadcrumb">
+        <a href="#home">Home</a> / <span>Principal Desk's</span>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Principal Desk's</h1>
+
+        <div class="principal-section">
+            <img src="../static/p.jpg" alt="Dr. Gnaneswara Rao Nitta" class="principal-photo">
+            
+            <h2 class="principal-name">Dr. Gnaneswara Rao Nitta</h2>
+
+            <div class="principal-description">
+                <p>Dr. Gnaneswara Rao Nitta is a <span class="highlight">Professor and Principal</span> at the JNTUH-affiliated DRK Institute of Science and Technology in Hyderabad. He has <span class="highlight">26 years of academic training and teaching experience</span> and nine years of research experience. His formal education includes a Bachelor of Engineering in Electronics and Communication Engineering from SRKR Engineering College, which is affiliated with Andhra University, in 1996, a Master of Technology in Computer Science and Engineering from JNTUH in Hyderabad in 2002, and a Doctor of Philosophy in Computer Science and Engineering from JNTUK in Kakinada in 2012.</p>
+
+                <p>His areas of expertise include <span class="highlight">data analytics, computer vision, machine learning, deep learning, data classification, and retrieval</span>. He has published over 33 international journals and conferences, indexed in Scopus, Web of Science, and SCI. Since 2002, he has been a member of IEEE and ACM on an annual basis, in addition to being a Life Member of MISTE, MIET, MISRS, MCRSI, MCSI, MIETE, MIAPR, MIENG, MISC, MISCA. He has served as a session chair for conferences such as RTI2R 2018 and ICBDACI-2017, as well as a reviewer for journals such as Multimedia Tools and Applications (SCIE), Springer, KSII Transactions on Internet and Information Systems (SCIE), KETI, Journal of Internet Technology (SCIE), International Journal of Information Technology and Decision Making (IJITDM), and others.</p>
+
+                <p>He published two books: <span class="highlight">Big Data Analytics and Human Resource Management Strategies</span>. Under his guidance, eight research scholars have successfully completed their Ph.D. degrees, and currently, six research scholars are pursuing their Ph.D. He has organized several workshops, conferences, and faculty development programs. He received research grants from various funding agencies totaling Rs. 25 lakhs.</p>
+
+                <p>As an academician and administrator, Dr. Nitta is committed to fostering an environment of excellence in education, research, and innovation. His leadership continues to drive the institution towards achieving greater heights in technical education and research endeavors.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-menu a, .header-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Add smooth scrolling logic here if you have sections with matching IDs
+            });
+        });
+
+        // Search functionality placeholder
+        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                // Add search functionality here
+                console.log('Search for:', this.value);
+            }
+        });
+    </script>
+     <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>

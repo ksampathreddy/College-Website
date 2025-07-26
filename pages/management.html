@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Management - DRK Institute of Science and Technology</title>
+    <style>
+        .nav-menu {
+            background-color: #8B0000;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #8B0000;
+        }
+
+        .management-card {
+            background: linear-gradient(135deg, #fff9c4, #f4e68c);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-photo {
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .member-name {
+            font-size: 1.8em;
+            color: #8B0000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .member-position {
+            font-size: 1.1em;
+            color: #B22222;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .member-department {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .member-description {
+            line-height: 1.6;
+            text-align: justify;
+            font-size: 0.95em;
+        }
+
+        .member-quote {
+            font-style: italic;
+            color: #444;
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #8B0000;
+        }
+
+        @media (max-width: 768px) {
+            .management-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .member-photo {
+                width: 150px;
+                height: 180px;
+            }
+
+            .page-title {
+                font-size: 2em;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #B22222;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+     <div id="header"></div>
+    <div class="breadcrumb">
+        <a href="#home">Home</a> / <span>Management</span>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Management</h1>
+
+        <div class="management-card">
+            <div class="member-info">
+                <h2 class="member-name">Sri D.B Chandra Sekhara Rao,</h2>
+                <div class="member-position">Chairman,</div>
+                <div class="member-department">DRK Group of Institutions.</div>
+                
+                <div class="member-description">
+                    At DRK group of institutions, We believe that success comes from relentless focus on shared vision, innovation and execution. Our Organization is strongly committed to hard work and strongly emphasizing on learning and thriving for academic excellence and professional growth. Learning should be based on doing new innovative and not merely knowing them. Until and unless learning solutions relate to real life and motivate the learner to acquire and apply the knowledge, the whole fetched knowledge remains wasted. Our institution has set specific objectives and planned activities for achieving excellence in all spheres of technical education.
+                </div>
+
+                <div class="member-quote">
+                    Our organization aim is to provide the finest environment for teaching, learning, research and innovation with the support of our highly qualified and experienced faculty.
+                </div>
+            </div>
+            <img src="../static/chairman.jpg" alt="Sri D.B Chandra Sekhara Rao" class="member-photo">
+        </div>
+
+        <div class="management-card">
+            <div class="member-info">
+                <h2 class="member-name">Sri D. Santosh</h2>
+                <div class="member-position">Secretary,</div>
+                <div class="member-department">B.Tech, M.Tech<br>DRK Group of Institutions</div>
+                
+                <div class="member-description">
+                    As an established and highly esteemed institution, we maintain an utmost academic standards, incorporated with the conduct of discipline, thereby achieving remarkable and excellent percentage of results. We firmly believe that education is the key to a nation's progress with this, we will take it as our bounden duty to provide the best academic training a student can possibly get. The institution endeavours to comfort the students with all the necessary knowledge and skills to become truly successful in the chosen field. In whatever career a student may choose to take, hard work and discipline are the sure roads towards success. And as your educational institution, we will support students in achieving those golden ambitions and also ensure that their stay in the college is meaningful and fruitful as well.
+                </div>
+            </div>
+            <img src="../static/s.jpg" alt="Sri D. Santosh" class="member-photo">
+        </div>
+
+        <div class="management-card">
+            <div class="member-info">
+                <h2 class="member-name">Sri D. Sriram</h2>
+                <div class="member-position">Treasurer,</div>
+                <div class="member-department">B.Tech, M.Tech<br>DRK Group of Institutions.</div>
+                
+                <div class="member-description">
+                    Students, you are about to cross a bridge in your life because college education is a turning point itself. It is in your hands to make sure that the steps you towards success. The hard work of today is the triumph of the future. The time and effort you spend today are the deciding factors of your later years. In DRK group of institutions we encourage the students to learn about themselves and constantly changing environments around them, while at the same time offering support and guidance as they practice decision-making and social skills.
+                    <br><br>
+                    Indeed, the vision and foresightedness of the management in allocating funds for various development activities have resulted in establishment of pertinent infrastructural amenities in a relatively short span of time.
+                </div>
+            </div>
+            <img src="../static/T.jpg" alt="Sri D. Sriram" class="member-photo">
+        </div>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Add smooth scrolling logic here if you have sections with matching IDs
+            });
+        });
+    </script>
+    <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>

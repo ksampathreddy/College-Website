@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Organisation Chart - DRK Institute of Science and Technology</title>
+    <style>
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #8B0000;
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+
+        .org-box {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .org-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .level-1 {
+            margin-bottom: 20px;
+        }
+
+        .level-2 {
+            margin-bottom: 20px;
+        }
+
+        .level-3 {
+            margin-bottom: 20px;
+        }
+
+        .level-4 {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .level-5 {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .sub-level {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .level-6 {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .level-7 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Connecting lines */
+        .org-chart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .connector {
+            position: relative;
+        }
+
+        .connector::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background-color: #ddd;
+            transform: translateX(-50%);
+        }
+
+        .horizontal-connector {
+            position: relative;
+        }
+
+        .horizontal-connector::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #ddd;
+        }
+
+        .department-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .department-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .small-box {
+            font-size: 0.85em;
+            padding: 8px 15px;
+            min-width: 120px;
+        }
+
+        @media (max-width: 1200px) {
+            .level-4, .level-5, .level-6, .level-7 {
+                gap: 15px;
+            }
+            
+            .department-section {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2em;
+            }
+
+            .org-box {
+                min-width: 120px;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .level-4, .level-5, .level-6, .level-7 {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .department-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #B22222;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>Organisation Chart</span>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Organisation Chart</h1>
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Add hover effects and animations
+        document.querySelectorAll('.org-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Optional: Add click functionality to boxes
+        document.querySelectorAll('.org-box').forEach(box => {
+            box.addEventListener('click', function() {
+                console.log('Clicked on:', this.textContent);
+                // Add navigation or modal functionality here
+            });
+        });
+    </script>
+    </script>
+     <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>
