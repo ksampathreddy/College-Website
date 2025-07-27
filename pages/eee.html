@@ -3,35 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical And Electronics Engineering - DRK Institute</title>
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Electrical And Electronics Engineering - DRK Institute of Science and Technology</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .header {
-            background: #fff;
-            padding: 10px 0;
+         .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
             border-bottom: 1px solid #ddd;
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
         }
 
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
         .logo {
             display: flex;
             align-items: center;
@@ -174,7 +164,7 @@
             align-items: flex-start;
         }
 
-        .profile-image {
+        .profile-image img{
             width: 200px;
             height: 250px;
             background: #ddd;
@@ -257,7 +247,7 @@
             margin: 20px 0;
         }
 
-        .lab-image {
+        .lab-image img{
             width: 100%;
             height: 200px;
             background: #f0f0f0;
@@ -287,44 +277,16 @@
                 flex-wrap: wrap;
             }
         }
+        
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <div style="width: 60px; height: 60px; background: #c41e3a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">DRK</div>
-                <div class="logo-text">
-                    <div>Institute of</div>
-                    <div>Science & Technology</div>
-                </div>
-            </div>
-            <div class="header-links">
-                <a href="#">GRIEVANCE</a>
-                <a href="#">STUDENTS</a>
-                <a href="#">CAREERS</a>
-                <a href="#">WEBMAIL</a>
-                <a href="#">CONTACT US</a>
-            </div>
-        </div>
-    </header>
+  <div id="header"></div>
 
-    <!-- Navigation -->
-    <nav class="nav-bar">
-        <div class="nav-content">
-            <div class="nav-item">Home</div>
-            <div class="nav-item">About Us</div>
-            <div class="nav-item">Departments</div>
-            <div class="nav-item">Academics</div>
-            <div class="nav-item">Placements</div>
-            <div class="nav-item">Life @ DRK</div>
-            <div class="nav-item">Facilities</div>
-            <div class="nav-item">NAAC</div>
-            <div class="nav-item">IQAC Cell</div>
-            <div class="nav-item">Mandatory Disclosures</div>
-        </div>
-    </nav>
+     <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>About</span>
+    </div>
+
 
     <!-- Main Content -->
     <div class="container">
@@ -411,7 +373,7 @@
             <h2>HOD Profile</h2>
             <div class="profile-content">
                 <div class="profile-image">
-                    Faculty Photo
+                  <img src="../static/eee_hod.webp" alt="eee_hod" >
                 </div>
                 <div class="profile-details">
                     <div class="contact-buttons">
@@ -564,15 +526,15 @@
         <div class="labs-section">
             <h2>Labs</h2>
             <div class="labs-grid">
-                <div class="lab-image">Electrical Machines Lab</div>
-                <div class="lab-image">Power Electronics Lab</div>
-                <div class="lab-image">Control Systems Lab</div>
-                <div class="lab-image">Basic Electrical Lab</div>
-                <div class="lab-image">Electrical Circuits Lab</div>
-                <div class="lab-image">Power Systems Lab</div>
-                <div class="lab-image">Advanced Lab 1</div>
-                <div class="lab-image">Advanced Lab 2</div>
-                <div class="lab-image">Project Lab</div>
+                <div class="lab-image"><img src="../static/eee1.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee2.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee3.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee4.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee5.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee6.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee7.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee8.jpg" alt="lab" ></div>
+                <div class="lab-image"><img src="../static/eee9.jpg" alt="lab" ></div>
             </div>
         </div>
     </div>
@@ -602,5 +564,60 @@
             });
         });
     </script>
+     <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
 </body>
 </html>
