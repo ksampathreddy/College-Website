@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Mandatory Disclosures - DRK Institute of Science and Technology</title>
+    <style>
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            color: #c41e3a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .main-nav {
+            background-color: #c41e3a;
+            color: white;
+        }
+
+        .main-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+            border-bottom: 3px solid #c41e3a;
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .section p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .org-chart {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .chart-box {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .chart-level {
+            margin: 15px 0;
+        }
+
+        .chart-line {
+            width: 2px;
+            height: 20px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+
+        .grievance-document {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .document-header {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .program-table th {
+            background-color: #e8f4f8;
+        }
+
+        .faculty-table th {
+            background-color: #f0f8ff;
+        }
+
+        .anti-ragging-table {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .profile-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #c41e3a;
+        }
+
+        .profile-section h3 {
+            color: #c41e3a;
+            margin-bottom: 10px;
+        }
+
+        .profile-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .profile-section li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .student-stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c41e3a;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .resources-table {
+            background-color: #fff8dc;
+            margin: 20px 0;
+        }
+
+        .resources-table th {
+            background-color: #ffd700;
+        }
+
+        .highlight-red {
+            color: #c41e3a;
+            font-weight: bold;
+        }
+
+        .highlight-blue {
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .available-status {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .not-applicable {
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+  <div id="header"></div>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> / Mandatory Disclosures
+        </div>
+
+        <h1>Mandatory Disclosures</h1>
+
+        <div class="section">
+            <h2>1.1 Name of the Institution:</h2>
+            <p><strong>DRK INSTITUTE OF SCIENCE AND TECHNOLOGY</strong></p>
+            <p>BOWRAMPET, HYDERABAD, TELANGANA-500043</p>
+            <p>Telephone: 08418-242500 FAX: 08418-242589</p>
+            <p>E-Mail: <a href="mailto:principal@drkist.edu.in">principal@drkist.edu.in</a></p>
+        </div>
+
+        <div class="section">
+            <h2>1.2 Name and address of the Society and the Trustees</h2>
+            <p><strong>DRK EDUCATIONAL SOCIETY</strong></p>
+            <p>BOWRAMPET(V) AIRFORCE ACADEMY(POST)</p>
+            <p>HYDERABAD-500043</p>
+            <p>Telephone: 9000711899 Email: XXXXXXXXXXX</p>
+        </div>
+
+        <div class="section">
+            <h2>1.3 Name and Address of the Principal</h2>
+            <p><strong>Dr. G NANESWARA RAO NITTA</strong></p>
+            <p>DRK INSTITUTE OF SCIENCE AND TECHNOLOGY</p>
+            <p>BOWRAMPET, HYDERABAD, TELANGANA-500043</p>
+            <p>Email id: <a href="mailto:principal.n7@gmail.com">principal.n7@gmail.com</a> Phone: 8712218899</p>
+        </div>
+
+        <div class="section">
+            <h2>1.4 Name of the affiliating University:</h2>
+            <p>Jawaharlal Nehru Technological University, Hyderabad.</p>
+        </div>
+
+        <div class="section">
+            <h2>1.5 Governance</h2>
+            <p><strong>i. Organizational chart</strong></p>
+        </div>
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <img src="../static/chart.jpg" alt="chart" class="chart">
+</div>
+
+        <div class="section">
+            <h2>ii. Grievance Redressal mechanism for Faculty, staff and students</h2>
+        </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <img src="../static/Redressal.jpg" alt="Redressal" class="Redressal">
+</div>
+       
+
+        <div class="section">
+            <h2>iii Anti Ragging Committee:</h2>
+        </div>
+
+        <div class="anti-ragging-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Actual Designation</th>
+                        <th>Designation in the committee</th>
+                        <th>Member Name</th>
+                        <th>Registration No.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Professor</td>
+                        <td>Chairman</td>
+                        <td>Dr.K Upendra Sudhakar</td>
+                        <td>4315C852-182478</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Associate Professor</td>
+                        <td>President</td>
+                        <td>Mr. JACOB JAVYAN G</td>
+                        <td>8483-186213-155521</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Assistant Professor</td>
+                        <td>Member</td>
+                        <td>Mr. P Srinivas</td>
+                        <td>8639-160325-132142</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Assistant Professor</td>
+                        <td>Member</td>
+                        <td>Ms. M Swapnil</td>
+                        <td>8713-185208-142892</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Assistant Professor</td>
+                        <td>Member</td>
+                        <td>RAVINDRA REDDY BHUMAREDO</td>
+                        <td>RAVINDRA REDDY BHUMAREDO</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <p><strong>iv. Establishment of Online Grievance Redressal Mechanism:</strong> <span class="available-status">Available</span></p>
+            <p><strong>v. Details of Grievance Redressal Committee in the Institution and OMBUDSMAN by the University:</strong> <span class="available-status">Available Nominated by University.</span></p>
+            <p><strong>vi. Establishment of Internal Committee (IC):</strong> <span class="available-status">Available</span></p>
+            <p><strong>vii. Establishment of Committee for SC/ST:</strong> <span class="available-status">Available</span></p>
+            <p><strong>viii. Internal Quality Assurance Cell:</strong> <span class="available-status">Available</span></p>
+            <p><strong>ix. Equal Opportunity facilities Cell:</strong> <span class="available-status">Available</span></p>
+        </div>
+
+        <div class="section">
+            <h2>1.6 Programmes:</h2>
+        </div>
+
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>S No</th>
+                    <th>Course</th>
+                    <th>Specialization (Branch)</th>
+                    <th>AICTE Intake</th>
+                    <th>Course Duration</th>
+                    <th>Fee Approved by the State Government</th>
+                </tr>
+                <tr>
+                    <th colspan="6">AY 2023-24</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">EEE</td>
+                    <td>30</td>
+                    <td>4 years</td>
+                    <td>Rs. 60000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">Mechanical Engineering</td>
+                    <td>30</td>
+                    <td>4 years</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">ECE</td>
+                    <td>30</td>
+                    <td>4 years</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">CSE</td>
+                    <td>120</td>
+                    <td>4 years</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">CSE(AIML)</td>
+                    <td>120</td>
+                    <td>4 years</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>B TECH</td>
+                    <td class="highlight-red">CSE(Data Science)</td>
+                    <td>60</td>
+                    <td>4 years</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-red">VLSI</td>
+                    <td>24</td>
+                    <td>2 years</td>
+                    <td>57000</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-red">VLSI -ES</td>
+                    <td>24</td>
+                    <td>2 years</td>
+                    <td>57000</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-red">POWER ELECTRONICS</td>
+                    <td>24</td>
+                    <td>2 years</td>
+                    <td>57000</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-red">CSD/CAM</td>
+                    <td>24</td>
+                    <td>2 years</td>
+                    <td>57000</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>MBA</td>
+                    <td class="highlight-red">MBA</td>
+                    <td>60</td>
+                    <td>2 years</td>
+                    <td>30000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section">
+            <h2>1.7 Faculty:</h2>
+        </div>
+
+        <table class="faculty-table">
+            <thead>
+                <tr>
+                    <th>S No</th>
+                    <th>Course</th>
+                    <th>Specialization (Branch)</th>
+                    <th>Permanent Faculty</th>
+                    <th>Adjunct Faculty</th>
+                    <th>Total Faculty</th>
+                    <th>Student Faculty Ratio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">EEE</td>
+                    <td>11</td>
+                    <td>0</td>
+                    <td class="highlight-red">11</td>
+                    <td>10:1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">Mechanical Engineering</td>
+                    <td>11</td>
+                    <td>0</td>
+                    <td class="highlight-red">11</td>
+                    <td>10:1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">ECE</td>
+                    <td>16</td>
+                    <td>0</td>
+                    <td class="highlight-red">16</td>
+                    <td>13:1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">CSE</td>
+                    <td>27</td>
+                    <td>0</td>
+                    <td class="highlight-red">27</td>
+                    <td>17:1</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">CSE(AIML)</td>
+                    <td>20</td>
+                    <td>0</td>
+                    <td class="highlight-red">20</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>B TECH</td>
+                    <td class="highlight-blue">CSE(Data Science)</td>
+                    <td>11</td>
+                    <td>0</td>
+                    <td class="highlight-red">11</td>
+                    <td>10:1</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-blue">VLSI</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td class="highlight-red">4</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-blue">VLSI-ES</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td class="highlight-red">4</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-blue">POWER ELECTRONICS</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td class="highlight-red">4</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>M.TECH</td>
+                    <td class="highlight-blue">CAD/CAM</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td class="highlight-red">4</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>MBA</td>
+                    <td class="highlight-blue">MBA</td>
+                    <td>8</td>
+                    <td>0</td>
+                    <td class="highlight-red">8</td>
+                    <td>15</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="profile-section">
+            <h3>Profile of Vice Chancellor/Director/Principal/Faculty</h3>
+            <ul>
+                <li><strong>Name:</strong> Dr G NANESWARA RAO NITTA</li>
+                <li><strong>Date of Birth:</strong> 08-06-1974</li>
+                <li><strong>Unique ID:</strong> 3113-190831-091134</li>
+                <li><strong>Education Qualifications:</strong> M.TECH, Ph.D</li>
+                <li><strong>Work Experience:</strong> 24</li>
+                <li><strong>Teaching/ Research/ Industry/ Others:</strong> 24</li>
+                <li><strong>Area of Specialization:</strong> Computer Science and Engineering(Machine Learning)</li>
+                <li><strong>Courses taught at Diploma/ Post Diploma/ Under Graduate/ Post Graduate/ Post Graduate Diploma Level:</strong> AI MACHINE LEARNING,DEEP LEARNING,DIGITAL IMAGE PROCESSING.</li>
+                <li><strong>Research guidance (Number Of Students):</strong> 02</li>
+                <li><strong>No. of papers published in National/International Journals/Conferences:</strong> 21+12</li>
+                <li><strong>Master (Completed/Ongoing):</strong> 50</li>
+                <li><strong>Ph.D. (Completed/Ongoing):</strong> 0</li>
+                <li><strong>Projects Carried out:</strong> 0</li>
+                <li><strong>Patents (Filed &amp; Granted):</strong> 1</li>
+                <li><strong>Technology Transfer:</strong> 0</li>
+                <li><strong>No. of Books published with details (Name of the book, Publisher with ISBN, year of publication, etc.):</strong> 3</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>1.10 Number of Students</h2>
+        </div>
+
+        <div class="student-stats">
+            <div class="stat-item">
+                <div class="stat-number">914</div>
+                <div class="stat-label">Male</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">495</div>
+                <div class="stat-label">Female</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Transgender</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1409</div>
+                <div class="stat-label">Total</div>
+             </div>
+        </div>
+<div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
