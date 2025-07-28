@@ -267,103 +267,20 @@
             font-style: italic;
         }
     @media (max-width: 1024px) {
-    .nav-content {
+    .main-nav-content {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .nav-item {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .page-title {
-        font-size: 1.8em;
-        margin: 20px 0;
-    }
-
-    .about-section h2,
-    .labs-section h2,
-    .hod-profile h2 {
-        font-size: 1.5em;
-    }
-
-    .vision-mission {
+    .nav-menu {
         flex-direction: column;
+        width: 100%;
     }
 
-    .vision, .mission {
-        padding: 15px;
+    .nav-menu a {
+        padding: 12px 10px;
         font-size: 14px;
-    }
-
-    .profile-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-image img {
-        width: 150px;
-        height: 200px;
-    }
-
-    .profile-details {
-        width: 100%;
-    }
-
-    .detail-row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .detail-label {
-        width: auto;
-        margin-bottom: 5px;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-btn {
-        width: 100%;
-    }
-
-    .faculty-table th,
-    .faculty-table td {
-        font-size: 13px;
-        padding: 8px;
-    }
-
-    .faculty-table {
-        overflow-x: auto;
-        display: block;
-    }
-
-    .labs-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .lab-image img {
-        height: 180px;
-    }
-
-    .outcome-item {
-        font-size: 14px;
-    }
-
-    .outcomes-title {
-        font-size: 16px;
-        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .logo img {
@@ -372,18 +289,91 @@
     }
 
     .logo-text {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .section h2 {
+        font-size: 16px;
+    }
+
+    .section p,
+    .section li {
         font-size: 14px;
     }
 
-    .header-links {
+    .student-stats {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+    }
+
+    .stat-item {
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .anti-ragging-table,
+    .program-table,
+    .faculty-table,
+    .infrastructure-table,
+    .computer-table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .chart, .Redressal {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .breadcrumb {
+        padding: 10px;
         font-size: 13px;
     }
 
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .profile-section ul {
+        padding-left: 15px;
+    }
+
     .scroll-to-top {
-        bottom: 20px;
-        right: 20px;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top img {
+        width: 100%;
+        height: auto;
     }
 }
 
