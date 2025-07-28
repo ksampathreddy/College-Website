@@ -1364,3 +1364,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.footer h4::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
