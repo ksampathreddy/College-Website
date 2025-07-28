@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Life @ DRK - DRK Institute of Science and Technology</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-
         /* Header Styles */
         .header {
             background: white;
@@ -383,60 +373,11 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-top">
-            <div class="logo">
-                <div class="logo-placeholder">DRK</div>
-                <div class="logo-text">
-                    <div style="font-size: 14px;">DRK Institute of</div>
-                    <div style="font-size: 12px;">Science and Technology</div>
-                </div>
-            </div>
-            
-            <div class="header-links">
-                <a href="#" onclick="return false;">GRIEVANCE</a>
-                <a href="#" onclick="return false;">STUDENTS</a>
-                <a href="#" onclick="return false;">CAREERS</a>
-                <a href="#" onclick="return false;">WEBMAIL</a>
-                <a href="#" onclick="return false;">CONTACT US</a>
-            </div>
-            
-            <div class="search-cart">
-                <div class="search-box">
-                    <input type="text" placeholder="Search...">
-                    <span class="search-icon">🔍</span>
-                </div>
-                <div class="cart-icon">
-                    🛒
-                    <span class="cart-badge">0</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation Menu -->
-    <nav class="nav-menu">
-        <div class="nav-container">
-            <ul>
-                <li><a href="#" onclick="return false;">Home</a></li>
-                <li><a href="#" onclick="return false;">About Us</a></li>
-                <li><a href="#" onclick="return false;">Departments</a></li>
-                <li><a href="#" onclick="return false;">Academics</a></li>
-                <li><a href="#" onclick="return false;">Placements</a></li>
-                <li><a href="#" onclick="return false;" class="active">Life @ DRK</a></li>
-                <li><a href="#" onclick="return false;">Facilities</a></li>
-                <li><a href="#" onclick="return false;">NAAC</a></li>
-                <li><a href="#" onclick="return false;">IQAC Cell</a></li>
-                <li><a href="#" onclick="return false;">Mandatory Disclosures</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <div id="header"></div>
     <!-- Main Content -->
     <div class="container">
         <nav class="breadcrumb">
-            <a href="#" onclick="return false;">Home</a> / Life @ DRK
+            <a href="../index.html">Home</a> / Life @ DRK
         </nav>
 
         <header class="page-header">
@@ -555,5 +496,60 @@
             });
         });
     </script>
+     <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
 </body>
 </html>
