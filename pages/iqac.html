@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>IQAC Cell - DRK Institute of Science and Technology</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .chairman-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-bottom: 8px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #555;
+            display: inline-block;
+            width: 140px;
+        }
+
+        .contact-value {
+            color: #333;
+        }
+
+        .about-section {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .objectives-list {
+            list-style: none;
+        }
+
+        .objectives-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .objectives-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .image-container {
+            flex-shrink: 0;
+        }
+
+        .quality-image {
+            width: 280px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .quality-placeholder {
+            width: 280px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quality-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+        }
+
+        .quality-placeholder::after {
+            content: '⚙';
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .quality-placeholder,
+            .quality-image {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .contact-label {
+                width: 100%;
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="#" onclick="return false;">Home</a> / IQAC Cell
+        </nav>
+
+        <header class="page-header fade-in">
+            <h1 class="page-title">IQAC Cell</h1>
+            <div class="title-underline"></div>
+        </header>
+
+        <main>
+            <section class="content-section fade-in">
+                <h2 class="section-title">IQAC Chairman</h2>
+                <div class="chairman-info">
+                    <div class="contact-info">
+                        <span class="contact-label">Contact Name:</span>
+                        <span class="contact-value">Prof. M. SRINIVASA RAO</span>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Contact Details:</span>
+                        <span class="contact-value">principal@drkist.edu.in</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section fade-in">
+                <h2 class="section-title">About Internal Quality Assurance Cell (IQAC)</h2>
+                <div class="about-section">
+                    <div class="about-content">
+                        <p class="about-description">
+                            The prime tasks of the IQAC are to develop a system for conscious, consistent and catalytic improvement in the overall performance of institution. To channelize all efforts and measures of the institution towards promoting its holistic academic excellence.
+                        </p>
+                        
+                        <ul class="objectives-list">
+                            <li>Ensure heightened level of clarity and focus in institutional functioning towards quality enhancement.</li>
+                            <li>Ensure internalization of the quality culture.</li>
+                            <li>Ensure enhancement and integration among the various activities of the institution and institutionalize good practices.</li>
+                            <li>Provide a sound basis for decision-making to improve institutional functioning.</li>
+                            <li>Act as a dynamic system for quality changes in <span class="highlight">DRKIST</span>.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="image-container">
+                        <div class="quality-placeholder">
+                           <img src="../static/iqac.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in animation to elements when they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Add hover effects to list items
+            document.querySelectorAll('.objectives-list li').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+    <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>
