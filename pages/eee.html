@@ -277,7 +277,127 @@
                 flex-wrap: wrap;
             }
         }
-        
+        @media (max-width: 1024px) {
+    .nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .page-title {
+        font-size: 1.8em;
+        margin: 20px 0;
+    }
+
+    .about-section h2,
+    .labs-section h2,
+    .hod-profile h2 {
+        font-size: 1.5em;
+    }
+
+    .vision-mission {
+        flex-direction: column;
+    }
+
+    .vision, .mission {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image img {
+        width: 150px;
+        height: 200px;
+    }
+
+    .profile-details {
+        width: 100%;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+    .faculty-table th,
+    .faculty-table td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .faculty-table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .labs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-image img {
+        height: 180px;
+    }
+
+    .outcome-item {
+        font-size: 14px;
+    }
+
+    .outcomes-title {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .header-links {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
     </style>
 </head>
 <body>

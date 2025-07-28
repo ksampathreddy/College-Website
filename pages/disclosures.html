@@ -266,6 +266,121 @@
             color: #6c757d;
             font-style: italic;
         }
+        /* ========== Responsive Styles ========== */
+
+/* Tablets (768px and below) */
+@media (max-width: 1024px) {
+    .main-nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    table, th, td {
+        font-size: 11px;
+    }
+
+    .student-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .stat-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-section li {
+        font-size: 13px;
+    }
+
+    .chart img,
+    .Redressal img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Phones (600px and below) */
+@media (max-width: 600px) {
+    .main-nav-content {
+        padding: 10px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .section h2 {
+        font-size: 14px;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .profile-section ul {
+        padding-left: 15px;
+    }
+
+    .profile-section li {
+        font-size: 12px;
+    }
+
+    .student-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .scroll-to-top img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-number {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+    }
+}
+
     </style>
 </head>
 <body>
