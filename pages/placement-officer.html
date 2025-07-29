@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Officer - DRK Institute</title>
+    <style>
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 15px 0;
+        }
+
+        .breadcrumb a {
+            color: #c41e3a;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+            background-color: #fff;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #c41e3a;
+            margin: 1rem auto;
+        }
+
+        /* Officer Profile */
+        .officer-profile {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .officer-info {
+            flex: 1;
+        }
+
+        .officer-name {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .officer-title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #c41e3a;
+            font-weight: 500;
+        }
+
+        .contact-item::before {
+            content: '📞';
+            margin-right: 10px;
+        }
+
+        .contact-item.email::before {
+            content: '✉️';
+        }
+
+        .officer-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .officer-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .officer-image {
+            flex-shrink: 0;
+        }
+
+        .officer-image img {
+            width: 300px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .officer-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .officer-image img {
+                width: 250px;
+                height: 300px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .officer-image img {
+                width: 200px;
+                height: 250px;
+            }
+
+            .officer-name {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="#home">Home</a>
+            <span>/</span>
+            <span>Placement Officer</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h1 class="page-title">Placement Officer</h1>
+
+            <div class="officer-profile">
+                <div class="officer-info">
+                    <h2 class="officer-name">Syed Irfan Ali</h2>
+                    <p class="officer-title">Training & Placement Officer,</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">+91-8559901710</div>
+                        <div class="contact-item email">placementofficerdrk@gmail.com</div>
+                    </div>
+
+                    <div class="officer-description">
+                        <p>DRK Group has been consistently improving its placement record with more than 75% students being placed in various reputed organizations. The training and placement cell plays a pivotal role in building the career of aspiring engineers enabling them to hone their skills in order to reach their desired goals. Our industry-institute interactions have been instrumental in getting some of the renowned MNCs to the institute and conduct on campus recruitment drives.</p>
+
+                        <p>DRK Group maintains good relations with corporate houses and other prestigious institutions being a perfect host for educationists and entrepreneurs. Our placement team works round the year to ensure successful and respectable placements with esteemed organizations.</p>
+                    </div>
+                </div>
+
+                <div class="officer-image">
+                <img src="../static/placement-officer.jpg" width="300" height="400" alt="Syed Irfan Ali - Placement Officer">
+   
+                </div>
+            </div>
+        </div>
+    </main>
+       <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+
+</body>
+</html>
