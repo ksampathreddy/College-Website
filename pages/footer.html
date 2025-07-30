@@ -52,10 +52,14 @@
 
   </div>
 
-  <!-- Script placed after the footer for best practice -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("year").textContent = new Date().getFullYear();
-    });
-  </script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    } else {
+      console.warn("Could not find the element with id='year'.");
+    }
+  });
+</script>
 </footer>
