@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Chapters - DRK Institute of Science and Technology</title>
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+            /* Breadcrumb */
+        .breadcrumb {
+            background-color: #f5f5f5;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #d32f2f;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background-color: #b71c1c;
+            padding: 0;
+        }
+
+        .main-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover a {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Chapter Section */
+        .chapter-section {
+            margin-bottom: 30px;
+        }
+
+        .chapter-header {
+            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .chapter-header:hover {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+        }
+
+        .chapter-header::before {
+            content: "+";
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-header.active::before {
+            transform: rotate(45deg);
+        }
+
+        .chapter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #d32f2f;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .chapter-content.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .content-text {
+            font-size: 15px;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .link-text {
+            font-size: 14px;
+            color: #d32f2f;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .objectives-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 30px 0 15px;
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .objectives-list li {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 0;
+            font-size: 15px;
+            color: #555;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .objectives-list li:last-child {
+            border-bottom: none;
+        }
+
+        .objectives-list li::before {
+            content: "•";
+            color: #d32f2f;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .objectives-list li:hover {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding-left: 8px;
+            margin-left: -8px;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .main-nav-content {
+                flex-wrap: wrap;
+            }
+
+            .nav-item a {
+                padding: 15px;
+                font-size: 12px;
+            }
+
+            .chapter-content {
+                padding: 20px;
+            }
+
+            .search-box input {
+                width: 150px;
+            }
+
+            .chapter-header {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+ <div id="header"></div>
+  <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="../index.html">Home</a> / Professional-Chapters
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Civil Engineering Chapter -->
+        <div class="chapter-section">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                Civil Engineering
+            </div>
+            <div class="chapter-content">
+                <div class="about-title">About IEI</div>
+                <div class="content-text">
+                    The Institution of Engineers (India) [IEI] is a statutory body to promote and advance the engineering and technology, established in 1920 and incorporated by Royal Charter in 1935. It is the largest multi-disciplinary professional body of engineers encompassing 15 (fifteen) engineering disciplines with a membership of more than 820 thousand, and serving the nation for more than 9 decades. The IEI has its headquarters located in Kolkata with national presence through more than hundred Centres and several Overseas Chapters, Foras and Organ.
+                </div>
+                <div class="content-text">
+                    The Institution of Engineers (India) is a pioneer body to introduce, starting from 1928, continuing engineering education programme, successful completion of which is recognized as equivalent to a degree in engineering by the Government of India, the Union Public Service Commission, the State Governments and many Public / Private Sector organizations in the country. The Institution of Engineers (India), with its headquarters in Kolkata, India, is administered by a National Council with the President of IEI as its Head.
+                </div>
+                <div class="link-text">professional-chapters-ce</div>
+                <div class="content-text">
+                    The Institution of Engineers (India) is a first professional body to represent India in several International Bodies, such as the World Mining Congress (WMC), the World Federation of Engineering Organizations (WFEO), the Commonwealth Engineers' Council (CEC), the Federation International du Beton (fib), and the Federation of Engineering Institutions of South and Central Asia (FEISCA). IEI holds the International Professional Engineers (IntPE) Register for India under the global International Professional Engineers Alliance (IntPEA). The Institution also wards the Professional Engineers (PE) Certification.
+                </div>
+                <div class="content-text">
+                    Ever since its inception, IEI has been the forerunner in setting up national standards for promoting the country's industrial base which culminated on the formation of the Indian Standard Institution (ISI), now called as Bureau of Indian Standards (BIS). IEI, in collaboration with Springer, regularly publishes peer-reviewed international journal in five series, covering fifteen engineering disciplines.
+                </div>
+            </div>
+        </div>
+
+        <!-- Computer Science and Engineering Chapter -->
+        <div class="chapter-section">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                Computer Science and Engineering
+            </div>
+            <div class="chapter-content">
+                <div class="content-text">
+                    Computer Society of India (CSI) is the first and largest body of computer professionals in India. It was started on 6 March 1965 by a few computer professionals and has now grown to be the national body representing computer professionals.
+                </div>
+                <div class="content-text">
+                    Through the initiatives of Professor Rangaswamy Narasimhan, the first President, CSI has been in close liaison with International Federation for Information Processing (IFIP) since its inception in 1965, when observers from India attended the IFIP Council meeting.
+                </div>
+                <div class="link-text">professional-chapters-cse</div>
+                <div class="content-text">
+                    The Computer Society of India is a non-profit professional society and meet to exchange views and information learn and share ideas. The wide spectrum of members is committed to the advancement of theory and practice of Computer Engineering and Technology Systems, Science and Engineering, Information Processing and related Arts and Sciences.CSI having 74 chapters,551+ Student branches,220+ Corporate members, 1000+ Institutional members and more than 150000 members.
+                </div>
+                <div class="content-text">
+                    The Computer Society of India is a non-profit professional society and meet to exchange views and information learn and share ideas. The wide spectrum of members is committed to the advancement of theory and practice of Computer Engineering and Technology Systems, Science and Engineering, Information Processing and related Arts and Sciences.
+                </div>
+                <div class="objectives-title">Objectives:</div>
+                <ul class="objectives-list">
+                    <li>Facilitate Research, Knowledge Sharing, Learning and Career Enhancement among all categories of IT professionals.</li>
+                    <li>Inspire, nurture and assist students to integrate into the IT community.</li>
+                    <li>Percolate benefits of IT advancement to all sections of Indian Society.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Electronics and Communication Engineering Chapter -->
+        <div class="chapter-section">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                Electronics and communication Engineering
+            </div>
+            <div class="chapter-content">
+                <div class="about-title">About IETE:</div>
+                <div class="content-text">
+                    The Institution of Electronics and Telecommunication Engineers (IETE) is India's leading recognized professional society devoted to the advancement of Science and Technology of Electronics, Telecommunication & IT founded in 1953. The IETE is the National Apex Professional body of Electronics and Telecommunication, Computer Science and IT Professionals. It serves more than 1,25,000 members (including Corporate, Student and ISF members) through various 64 Centers, spread all over India and abroad. The Institution provides leadership in Scientific and Technical areas of direct importance to the national development and economy. Government of India has recognized IETE as a Scientific and Industrial Research Organization (SIRO) and also notified as an educational Institution of national eminence. The objectives of IETE focus on advancing electro-technology.
+                </div>
+                <div class="link-text">professional-chapters-ece</div>
+                <div class="content-text">
+                    The IETE conducts and sponsors technical meetings, conferences, symposia, and exhibitions all over India, publishes technical journals and provides continuing education as well as career advancement opportunities to its members. The IETE focuses on advancement of the Science and Technology of Electronics, Telecommunication, Computers, Information Technology and related areas. Towards this end the Institution promotes and conducts basic engineering and continuing technical education programs for human resource development.
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>
