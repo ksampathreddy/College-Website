@@ -10,7 +10,7 @@
     <style>
             /* Breadcrumb */
         .breadcrumb {
-            background-color: #f5f5f5;
+            background-color:  #f5f5f5;
             padding: 15px 0;
             border-bottom: 1px solid #e0e0e0;
         }
@@ -332,6 +332,53 @@
                 </div>
             </div>
         </div>
+        
+    <script>
+        function toggleChapter(header) {
+            const content = header.nextElementSibling;
+            const isActive = content.classList.contains('active');
+            
+            // Close all other chapters
+            document.querySelectorAll('.chapter-content').forEach(c => {
+                c.classList.remove('active');
+            });
+            document.querySelectorAll('.chapter-header').forEach(h => {
+                h.classList.remove('active');
+            });
+            
+            // Toggle current chapter
+            if (!isActive) {
+                content.classList.add('active');
+                header.classList.add('active');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll button based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Open first chapter by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstHeader = document.querySelector('.chapter-header');
+            const firstContent = document.querySelector('.chapter-content');
+            firstHeader.classList.add('active');
+            firstContent.classList.add('active');
+        });
+    </script>
+
     </div>
      <div class="scroll-to-top">
         <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
