@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Academic Calendar - DRK Institute of Science and Technology</title>
+    <style>
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: #f5f5f5;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #d32f2f;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 3px;
+            background-color: #d32f2f;
+            margin: 0 auto 80px;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .calendar-card {
+            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(183, 28, 28, 0.3);
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .calendar-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg) translate(-50%, -50%); }
+            100% { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+
+        .calendar-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .calendar-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .year-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .year-btn {
+            background-color: rgba(0,0,0,0.3);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .year-btn:hover {
+            background-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .year-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .top-nav {
+                gap: 15px;
+            }
+
+            .main-nav-content {
+                flex-wrap: wrap;
+            }
+
+            .nav-item a {
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .calendar-card {
+                padding: 40px 30px;
+                margin: 0 20px;
+            }
+
+            .calendar-title {
+                font-size: 28px;
+            }
+
+            .year-buttons {
+                gap: 15px;
+            }
+
+            .year-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .search-box input {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .year-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .year-btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+ <div id="header"></div>
+  <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="#">Home</a> / Academic Calendar
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Academic Calendar</h1>
+        <div class="title-underline"></div>
+
+        <div class="calendar-section">
+            <div class="calendar-card">
+                <h2 class="calendar-title">Academic Calendar</h2>
+                <p class="calendar-subtitle">Click here to Download Academic Calendar</p>
+                
+                <div class="year-buttons">
+                    <a href="#" class="year-btn">B.Tech_I_YEAR</a>
+                    <a href="#" class="year-btn">B.Tech_II_YEAR</a>
+                    <a href="#" class="year-btn">B.Tech_III_YEAR</a>
+                    <a href="#" class="year-btn">B.Tech_IV_YEAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+
+</body>
+</html>
