@@ -8,25 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Management - DRK Institute of Science and Technology</title>
     <style>
-        .nav-menu {
-            background-color: #8B0000;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
         .breadcrumb {
             padding: 15px 20px;
             background-color: #f9f9f9;
@@ -196,35 +177,7 @@
             <img src="../static/T.jpg" alt="Sri D. Sriram" class="member-photo">
         </div>
     </div>
-
-    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
-
-    <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollButton = document.querySelector('.scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollButton.style.display = 'block';
-            } else {
-                scrollButton.style.display = 'none';
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-menu a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Add smooth scrolling logic here if you have sections with matching IDs
-            });
-        });
-    </script>
+    
     <div class="scroll-to-top">
         <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
   </div>

@@ -8,105 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Principal Desk's - DRK Institute of Science and Technology</title>
     <style>
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .logo-text {
-            color: #8B0000;
-            font-weight: bold;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .header-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-
-        .search-cart {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .search-box {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-        }
-
-        .cart-icon {
-            background-color: #8B0000;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-            position: relative;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #ff4444;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 0.7em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .navigation {
-            background: linear-gradient(135deg, #8B0000, #B22222);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-        }
-
-        .nav-menu {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            font-size: 0.9em;
-        }
-
-        .nav-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
         .breadcrumb {
             padding: 15px 20px;
             background-color: #f9f9f9;
@@ -260,34 +161,7 @@
             </div>
         </div>
     </div>
-
-    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
-
     <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Show/hide scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollButton = document.querySelector('.scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollButton.style.display = 'block';
-            } else {
-                scrollButton.style.display = 'none';
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-menu a, .header-links a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Add smooth scrolling logic here if you have sections with matching IDs
-            });
-        });
 
         // Search functionality placeholder
         document.querySelector('.search-box').addEventListener('keypress', function(e) {

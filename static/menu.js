@@ -50,3 +50,6 @@ function initMobileMenu() {
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initMobileMenu);
 
+// footer
+
+document.getElementById('year').textContent = new Date().getFullYear();

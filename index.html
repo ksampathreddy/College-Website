@@ -7,14 +7,208 @@
   <link rel="stylesheet" href="static/style.css">
   <link rel="icon" href="static/drk.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
 </head>
+<style>
+  /* news & updates */
+    .news-section {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .news-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .news-section h3 {
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .news-section h3::after {
+      content: "";
+      width: 60%;
+      height: 2px;
+      background: #990000;
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .calendar-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .calendar-buttons button {
+      background-color: #990000;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-buttons button:hover {
+      background-color: #b30000;
+    }
+
+    .stats-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 50px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .stat-block {
+      flex: 1 1 200px;
+      max-width: 200px;
+    }
+
+    .stat-block i {
+      font-size: 40px;
+      color: #990000;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .stat-block i::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: #e2a9a9;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .stat-block h2 {
+      font-size: 32px;
+      color: #990000;
+      margin: 10px 0;
+    }
+
+    .stat-block p {
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #2f2c55;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stats-section {
+        flex-direction: column;
+      }
+    }
+
+    /* Why Choose DRK College */
+    
+    .why-choose-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .why-choose-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .why-choose-section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #990000;
+      margin: 10px auto 30px auto;
+      border-radius: 2px;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 30px 20px;
+      max-width: 250px;
+      flex: 1 1 220px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        max-width: 90%;
+      }
+    }
+</style>
 <body>
   <div id="header"></div>
 
   <div class="image-slider">
     <div class="slider-content">
       <h1>DISCOVER THE WORLD OF<br/> POSSIBILITY WITH <span>DRK College!</span></h1>
-      <button class="admissions-btn">Admissions</button>
+      <button class="admissions-btn"><a href="contact.html" style="color:white;text-decoration: none;">Admissions</a></button>
     </div>
     <img src="static/1.jpg" class="active">
     <img src="static/2.jpg">
@@ -22,7 +216,7 @@
 
   <main class="content-container">
     <section class="welcome-section">
-      <h2>Welcome to<span> DRK <br>Institute of Science<br>& Technology<br> <button class="read-more-btn">Read More</button></span></h2>
+      <h2>Welcome to<span> DRK <br>Institute of Science<br>& Technology<br> <button class="read-more-btn"><a href="pages/about.html" style="color:white;text-decoration: none;">Read More</a></button></span></h2>
       <div class="welcome-content">
         <div class="welcome-text">
           <p>The real element of DRK Institute of Science & Technology is a novel and quick tool that is a successful way for DRK Institute students. This is the development of technical tools designed to be funded over 16,000 students. Students have developed a checklist of engineering techniques that provide them with high quality education, skills or philosophy needs, so we can build up programs on campus & technology and offer surveys that facilitate the creation of a building for meaningful educational opportunities and enhance our performance.</p>
@@ -32,62 +226,64 @@
       </div>
     </section>
 
-    <section class="mission-section">
-      <h3>Why Choose DRK College</h3>
-      <div class="mission-grid">
-        <div class="mission-card">
-          <h4>Vision</h4>
-          <p>To be at permanent institutions with abyscraping educational values and research both on continuous board and usually be considered discipline to serve the nation and the world.</p>
-        </div>
-        <div class="mission-card">
-          <h4>Mission</h4>
-          <p>To maintain a student's, the student's values and values that will prepare them to lead lives of permanent integrity and civic responsibility.</p>
-        </div>
-        <div class="mission-card">
-          <h4>Quality</h4>
-          <p>To provide Quality Education to the Students to enroll in the fields of Engineering & Management to cater to the art of challenging trends.</p>
-        </div>
-        <div class="mission-card">
-          <h4>Placements</h4>
-          <p>To strengthen work from training over challenging technical work, empower women exemplary technical expertise combined.</p>
-        </div>
+     <section class="why-choose-section">
+    <h2>Why Choose DRK College</h2>
+    <div class="cards-container">
+
+      <div class="card">
+        <img src="static/icons/vision.svg" alt="Vision Icon">
+        <h3>Vision</h3>
+        <p>To be a Premier Institution with sky-scraping educational values and research built on communal trust and instill high pattern of discipline to serve the nation and the world.</p>
       </div>
-    </section>
+
+      <div class="card">
+        <img src="static/icons/mission.svg" alt="Mission Icon">
+        <h3>Mission</h3>
+        <p>To implant in students, the attitude values and vision that will prepare them to lead lives of personal integrity and civic responsibility.</p>
+      </div>
+
+      <div class="card">
+        <img src="static/icons/quality.svg" alt="Quality Icon">
+        <h3>Quality</h3>
+        <p>To Provide Quality Education to the Students to excel in the fields of Engineering & Management to cater to the ever Challenging needs.</p>
+      </div>
+
+      <div class="card">
+        <img src="static/icons/placements.svg" alt="Placements Icon">
+        <h3>Placements</h3>
+        <p>To strengthen one’s forte in today’s ever challenging technical world, engineers require exemplary technical expertise combined.</p>
+      </div>
+
+    </div>
+  </section>
+
     
     <section class="studying-section">
       <h3>Studying at DRKIST</h3>
       <div class="department-grid">
-        <div class="department-card">
-          <img src="static/cse.jpg" alt="Computer Science">
-          <h4>Computer Science and Engineering (CE)</h4>
+        <div class="department-card">  
+          <a href="pages/cse.html" style="text-decoration: none;"><img src="static/cse.jpg" alt="Computer Science"><h4>Computer Science and Engineering (CSE)</h4></a>
+        </div>
+         <div class="department-card">
+          <a href="pages/aiml.html" style="text-decoration: none;"> <img src="static/aiml.jpg" alt="AI & ML"><h4>CSE - Artificial Intelligence & Machine Learning (AI&ML)</h4></a> 
         </div>
         <div class="department-card">
-          <img src="static/ece.jpg" alt="Electronics">
-          <h4>Electronics and Communications Engineering (ECE)</h4>
+          <a href="pages/ds.html" style="text-decoration: none;"> <img src="static/ds.jpg" alt="csd"><h4>CSE - Data Science (DS)</h4></a> 
         </div>
         <div class="department-card">
-          <img src="static/eee.jpg" alt="Electrical">
-          <h4>Electrical and Electronics Engineering (EEE)</h4>
+          <a href="pages/ece.html" style="text-decoration: none;"> <img src="static/ece.jpg" alt="Electronics"><h4>Electronics and Communications Engineering (ECE)</h4></a>    
         </div>
         <div class="department-card">
-          <img src="static/aiml.jpg" alt="AI & ML">
-          <h4>CSE - Artificial Intelligence & Machine Learning (AI&ML)</h4>
+          <a href="pages/eee.html" style="text-decoration: none;"> <img src="static/eee.jpg" alt="Electrical"><h4>Electrical and Electronics Engineering (EEE)</h4></a>    
         </div>
         <div class="department-card">
-          <img src="static/mech.jpg" alt="Mech">
-          <h4>Mechanical Engineering (MECH)</h4>
+          <a href="pages/mech.html" style="text-decoration: none;"> <img src="static/mech.jpg" alt="Mech"><h4>Mechanical Engineering (MECH)</h4></a>  
         </div>
         <div class="department-card">
-          <img src="static/ds.jpg" alt="csd">
-          <h4>CSE - Data Science (DS)</h4>
+          <a href="pages/hs.html" style="text-decoration: none;"> <img src="static/hs.jpg" alt="hs"><h4>H & S Department</h4></a>   
         </div>
         <div class="department-card">
-          <img src="static/hs.jpg" alt="hs">
-          <h4>H & S Department</h4>
-        </div>
-        <div class="department-card">
-          <img src="static/mba.jpg" alt="Mba">
-          <h4>MBA</h4>
+          <a href="pages/mba.html" style="text-decoration: none;"> <img src="static/mba.jpg" alt="Mba"> <h4>MBA</h4></a> 
         </div>
       </div>
     </section>
@@ -102,38 +298,40 @@
         <img src="static/drk.jpg" alt="Campus Life">
       </div> -->
     </section>
-     <section class="news-section">
-      <h3>News & Updates</h3>
-      <div class="news-content">
-        <div class="academic-calendar">
-          <h4>Academic Calendar</h4>
-          <div class="calendar-grid">
-            <!-- Calendar items would be added here -->
-          </div>
-        </div>
-      </div>
-    </section>
+ 
+  <section class="news-section">
+    <h2>News & Updates</h2>
+    <h3>Academic Calendar</h3>
+    <div class="calendar-buttons">
+      <a href="academic-calender/1year.pdf" class="year-btn"><button>B.Tech I YEAR</button></a>
+      <a href="academic-calender/2year.pdf" class="year-btn"><button>B.Tech II YEAR</button></a>
+      <a href="academic-calender/3year.pdf" class="year-btn"><button>B.Tech III YEAR</button></a>
+      <a href="academic-calender/4year.pdf" class="year-btn"><button>B.Tech IV YEAR</button></a>
+    </div>
+  </section>
 
-    <section class="numbers-section">
-      <div class="numbers-grid">
-        <div class="number-card">
-          <div class="number">9</div>
-          <div class="label">NO OF COURSES</div>
-        </div>
-        <div class="number-card">
-          <div class="number">2015</div>
-          <div class="label">NO OF STUDENTS</div>
-        </div>
-        <div class="number-card">
-          <div class="number">841</div>
-          <div class="label">NO OF PLACEMENTS</div>
-        </div>
-        <div class="number-card">
-          <div class="number">20</div>
-          <div class="label">COMPANIES VISITED</div>
-        </div>
-      </div>
-    </section>
+  <section class="stats-section">
+    <div class="stat-block">
+      <i class="fas fa-book-open"></i>
+      <h2>9</h2>
+      <p>No of Courses</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-user-friends"></i>
+      <h2>2,015</h2>
+      <p>No of Students</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-building"></i>
+      <h2>841</h2>
+      <p>No of Placements</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-chart-line"></i>
+      <h2>20</h2>
+      <p>Companies Visited</p>
+    </div>
+  </section>
 
     <section class="founder-section">
       <div class="founder-content">
