@@ -406,12 +406,6 @@
         font-size: 14px;
         gap: 5px;
       }
-      .top-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        gap:2px;
-      }
     }
     
     @media (min-width: 1025px) {
@@ -420,5 +414,28 @@
         display: none !important;
       }
     }
+    @media (max-width: 1024px) {
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 3px; /* Reduce vertical spacing */
+  }
+
+  .logo-container {
+    margin: 0;
+    padding: 4px 0; /* Reduce padding */
+  }
+
+  .top-links {
+    margin-top: 0; /* Remove extra margin if any */
+  }
+
+  .top-links ul {
+    gap: 5px; /* Reduce spacing between top links */
+    padding: 5px 0;
+  }
+}
   </style>
  
