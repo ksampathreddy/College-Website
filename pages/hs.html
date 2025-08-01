@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Humanities and Science - DRK Institute of Science and Technology</title>
+    <style>
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text {
+            color: #c41e3a;
+            font-weight: bold;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .header-links a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .nav-bar {
+            background: #c41e3a;
+            color: white;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 40px 0;
+            color: #333;
+        }
+
+        .about-section {
+            margin: 40px 0;
+        }
+
+        .about-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .vision-mission {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            background: #8B2635;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .vision, .mission {
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .vision h3, .mission h3 {
+            color: #c41e3a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .section-header {
+            background: #c41e3a;
+            color: white;
+            padding: 15px 20px;
+            margin: 40px 0 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .hod-profile {
+            background: #f9f9f9;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .hod-profile h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .profile-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .profile-image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 30px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+            background: #c41e3a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .detail-row {
+            margin: 8px 0;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            width: 200px;
+            color: #c41e3a;
+        }
+
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+        }
+
+        .faculty-table th {
+            background: #8B2635;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .faculty-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .faculty-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .labs-section {
+            margin: 40px 0;
+        }
+
+        .labs-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .lab-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .collapsible {
+            background: #8B2635;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .collapsible:hover {
+            background: #7A2230;
+        }
+        
+        .outcome-list {
+            list-style: none;
+            padding: 20px;
+            background: #f9f9f9;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .outcome-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .outcome-list li::before {
+            content: '•';
+            color: #8B2635;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .vision-mission {
+                flex-direction: column;
+            }
+            
+            .profile-content {
+                flex-direction: column;
+            }
+            
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-content {
+                flex-wrap: wrap;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .page-title {
+                font-size: 1.8em;
+                margin: 20px 0;
+            }
+
+            .about-section h2,
+            .labs-section h2,
+            .hod-profile h2 {
+                font-size: 1.5em;
+            }
+
+            .vision, .mission {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .profile-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 200px;
+            }
+
+            .profile-details {
+                width: 100%;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .detail-label {
+                width: auto;
+                margin-bottom: 5px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+            }
+
+            .faculty-table th,
+            .faculty-table td {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .faculty-table {
+                overflow-x: auto;
+                display: block;
+            }
+
+            .lab-image img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div id="header"></div>
+
+     <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>Humanities & Science</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Humanities and Science</h1>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>About H&S Department</h2>
+            <p class="about-text">
+                Department of Science and Humanities was established in the year 2006. Students of I Year belongs to this Department. It includes basic knowledge in Mathematics, Physics, Chemistry and English which is the foundation of Engineering education. In our Department the ethos of science and technology prevails, as it is believed that Engineering and Science are, by their very nature, humanistic and socially derived enterprises.
+            </p>
+            <p class="about-text">
+                English language is pervasive and spoken throughout the world. It is the language for all walks of life. A good command and communication in English are essential in the modern world to wield not only respect but in all business transactions. The Department of English is fully equipped with enudite faculty, a good language laboratory and other infrastructure to impart the language skills effectively.
+            </p>
+            <p class="about-text">
+                Mathematics, the queen of sciences is the basis for all branches of Science, Engineering and Technology. Any complex ideas can be logically expressed by equations and formulae. Mathematics itself is a language through which difficult problems can be addressed.
+            </p>
+            <p class="about-text">
+                The study of Physics uncovers the mysteries of nature through the knowledge of properties of matter. In the Physics laboratory adequate equipment and instruments are available for performing all types of experiments involving light and other forms of energy. The study of Chemistry is crucial in all manufacturing processes where the transformation of one form of material into another. Equally important is the study of Environmental Chemistry and Engineering, to save the globe from pollutions.
+            </p>
+        </div>
+
+        <!-- Vision and Mission -->
+        <div class="vision-mission">
+            <div class="vision">
+                <h3>Vision</h3>
+                <p>To provide a strong foundation in basic sciences and humanities that forms the bedrock of engineering education, fostering critical thinking and communication skills.</p>
+            </div>
+            <div class="mission">
+                <h3>Mission</h3>
+                <p>To impart fundamental knowledge in mathematics, physics, chemistry and English that supports engineering education. To develop analytical and problem-solving skills through practical applications. To enhance communication skills and ethical values that prepare students for professional success.</p>
+            </div>
+        </div>
+
+        <!-- HOD Profile -->
+        <div class="hod-profile">
+            <h2>HOD Profile</h2>
+            <div class="profile-content">
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img src="../static/hs/hs_hod.jpg" alt="H&S HOD">
+                    </div>
+                    <h4 style="margin-top: 10px; color: #8B2635; text-align: center;">Dr. K.T. Thomas</h4>
+                    <p style="color: #666; text-align: center;">Professor & HOD<br>Department of Humanities & Science</p>
+                </div>
+                <div class="profile-details">
+                    <div class="contact-buttons">
+                        <button class="contact-btn">📞 +91-919172505310</button>
+                        <button class="contact-btn">✉️ hod_hs@drkist.edu.in</button>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Educational Qualifications:</span>
+                        <span>MSc, Ph.D.</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Years of Experience:</span>
+                        <span>38 years</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Area of Specialization:</span>
+                        <span>General Theory of Relativity</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Award received:</span>
+                        <span>Best Principal (2019-20) AIACHE, New Delhi</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Research papers published:</span>
+                        <span>43</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Ph.D supervisor:</span>
+                        <span>Two students awarded Ph.D.</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">NAAC Assignment:</span>
+                        <span>Peer team member</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                               
+        <!-- Faculty Table -->
+        <h2 style="text-align: center; margin: 40px 0;">Department Faculty</h2>
+        <table class="faculty-table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>NAME OF THE FACULTY</th>
+                    <th>QUALIFICATION</th>
+                    <th>JNTUH ID</th>
+                    <th>DESIGNATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Dr. K T THOMAS</td>
+                    <td>Ph.D</td>
+                    <td>9691 241130 125019</td>
+                    <td>Professor</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Dr. AKJI BABU</td>
+                    <td>Ph.D</td>
+                    <td>0747 160212 151445</td>
+                    <td>Professor</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SHILIP CHOWDHURY</td>
+                    <td>M.Sc</td>
+                    <td>2788 240909 134434</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Dr. BAVICHANDRAN</td>
+                    <td>Ph.D</td>
+                    <td>8933 240809 171155</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>MADHAVI YERRA</td>
+                    <td>M.Sc</td>
+                    <td>1748-240220-160315</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>MIDDE KAVYA SRI</td>
+                    <td>M.Sc</td>
+                    <td>3146-240224-161008</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>T-KAVITHA</td>
+                    <td>M.Sc</td>
+                    <td>NO ID</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>DEUVAR HOSSAIN</td>
+                    <td>M.A</td>
+                    <td>9276-220707-162741</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Dr. SAI BABU KOPPAJI</td>
+                    <td>Ph.D</td>
+                    <td>0484-150408-156625</td>
+                    <td>Professor</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>NAGUMANTHIR SANDHYA RANI</td>
+                    <td>M.A</td>
+                    <td>43150406-152655</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Dr.THRURPATH REDDY PRINTTI</td>
+                    <td>Ph.D</td>
+                    <td>5486-211023-100731</td>
+                    <td>Professor</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>SUMITRA KAKUMANU</td>
+                    <td>M.Pini</td>
+                    <td>5491-220704-160451</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>KARRI RAMA PRASAD</td>
+                    <td>M.Sc</td>
+                    <td>8185-160129-151213</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>LAKSHMI INDUKURI</td>
+                    <td>M.Sc</td>
+                    <td>5854-150409-142854</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>SREEDHAR PATIBANDLA</td>
+                    <td>M.Sc</td>
+                    <td>2723-150413-122221</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>SAILAJA NANDIGAM</td>
+                    <td>M.Sc</td>
+                    <td>3591-230413-123046</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>K.NAQA MALLESWARI</td>
+                    <td>M.Sc</td>
+                    <td>3397-240909-115053</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>VALLABANENI HARESSH</td>
+                    <td>M.Sc</td>
+                    <td>65190407-103800</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Dr. SUMALATHA BOTLA</td>
+                    <td>Ph.D</td>
+                    <td>6602-211217-105856</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Dr. TAMMINENI NARMADA</td>
+                    <td>Ph.D</td>
+                    <td>4431-240226-105012</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>DESU GEETHIKA</td>
+                    <td>M.Sc</td>
+                    <td>0750-230417-173939</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Raju Rachamalla</td>
+                    <td>M.Sc</td>
+                    <td>9573-150422-121852</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>SREENU BOCHELA</td>
+                    <td>M.Sc</td>
+                    <td>0600-190505-211403</td>
+                    <td>Assistant Professor</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Labs Section -->
+        <div class="labs-section">
+            <h2>Labs</h2>
+            <div class="labs-grid">
+                <div class="lab-image"><img src="../static/hs/hs1.jpg" alt="Physics Lab"></div>
+                <div class="lab-image"><img src="../static/hs/hs2.jpg" alt="Chemistry Lab"></div>
+                <div class="lab-image"><img src="../static/hs/hs3.jpg" alt="Language Lab"></div>
+                <div class="lab-image"><img src="../static/hs/hs4.jpg" alt="Mathematics Lab"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // Contact button functionality
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent;
+                if (text.includes('@')) {
+                    window.location.href = 'mailto:' + text.split(' ')[1];
+                } else if (text.includes('+91')) {
+                    window.location.href = 'tel:' + text.split(' ')[1];
+                }
+            });
+        });
+    </script>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+    
+    <!-- footer and header and chatbot -->
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+            
+            // Then load and execute menu.js
+            const script = document.createElement('script');
+            script.src = '../static/menu.js';
+            script.onload = function() {
+                // Initialize menu functionality after script is loaded
+                if (typeof initMobileMenu === 'function') {
+                    initMobileMenu();
+                }
+            };
+            document.body.appendChild(script);
+        });
+        
+        fetch('footer.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+        
+        fetch('chatbot.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('chatbot').innerHTML = data;
+
+            // Load JS separately if needed
+            const script = document.createElement('script');
+            script.src = '../static/chatbot.js';
+            document.body.appendChild(script);
+        });
+    </script>
+</body>
+</html>
