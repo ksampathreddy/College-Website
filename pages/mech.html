@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Mechanical Engineering - DRK Institute of Science and Technology</title>
+    <style>
+          
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #8B2635;
+            margin: 10px auto;
+        }
+        
+        .about-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .vision-mission {
+            background: #8B2635;
+            padding: 30px 0;
+            margin: 40px 0;
+        }
+        
+        .vision-mission .container {
+            padding: 0 20px;
+        }
+        
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .vm-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .vm-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .program-outcomes {
+            margin: 50px 0;
+        }
+        
+        .collapsible {
+            background: #8B2635;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .collapsible:hover {
+            background: #7A2230;
+        }
+        
+        .outcome-list {
+            list-style: none;
+            padding: 20px;
+            background: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        
+        .outcome-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .outcome-list li::before {
+            content: '•';
+            color: #8B2635;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .hod-section {
+            background: #f8f9fa;
+            padding: 40px 0;
+            margin: 50px 0;
+        }
+        
+        .hod-profile {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        
+        .hod-image {
+            width: 200px;
+            height: 250px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .hod-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hod-details h3 {
+            color: #8B2635;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hod-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .contact-item {
+            background: #8B2635;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .publications {
+            margin: 30px 0;
+        }
+        
+        .publications ol {
+            padding-left: 20px;
+        }
+        
+        .publications li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .faculty-section {
+            margin: 50px 0;
+        }
+        
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .faculty-table th,
+        .faculty-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .faculty-table th {
+            background: #8B2635;
+            color: white;
+        }
+        
+        .faculty-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .labs-section {
+            margin: 50px 0;
+        }
+        
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .lab-image {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .lab-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-structure {
+            margin: 50px 0;
+        }
+        
+        .regulation-section {
+            margin: 30px 0;
+        }
+        
+        .regulation-section h4 {
+            background: #8B2635;
+            color: white;
+            padding: 15px;
+            margin: 20px 0 0 0;
+        }
+        
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .course-table th,
+        .course-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .course-table th {
+            background: #f8f9fa;
+        }
+        
+        .download-link {
+            color: #8B2635;
+            text-decoration: none;
+        }
+        
+        .download-link:hover {
+            text-decoration: underline;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8B2635;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .two-column,
+            .vm-grid,
+            .hod-profile {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .lab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div id="header"></div>
+
+     <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>MECH</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Mechanical Engineering</h1>
+
+        <!-- About ME Department -->
+        <section class="about-section">
+            <h2 class="section-title">About ME Department</h2>
+            <div class="two-column">
+                <div>
+                    <p>Mechanical engineering is the discipline that applies engineering, physics, and materials science principles to design, analyze, manufacture, and maintain mechanical systems. It is the branch of engineering that involves the design, production, and operation of machinery. It is one of the oldest and broadest of the engineering disciplines. The Mechanical Engineering Department was established in the academic year 2004. The department has qualified, motivated and experienced faculty. Majority of the faculty are having varied experience of industrial, teaching and research which help to serve the students in exposing them to industrial and research environment.</p>
+                </div>
+                <div>
+                    <p>The department organizes various student level technical events regularly which include workshops, guest lectures, industrial visits and technical seminars to expose the student's inherent talent and skills. The department also organizes events like Faculty Development Programs (FDP), conferences and workshops to expose the faculty to latest technologies. The department also conducts various certification courses in advanced technologies such as CAD / CAM, in association with reputed professional training institutes. Mechanical department is well equipped with lab facilities for the students, which includes Basic Engineering Workshop to most modern CNC machine shop.</p>
+                    <p>CNC lathe and Milling machine has been installed at the cost of 15 lakhs. Students are trained during summer vacation for Projects for PROFESSIONAL PRACTICE at School, at various industries and are imparted. Value added Courses are conducted to enhance their soft skills. Placement Training is imparted right from 3rd year 1st semester onwards by best of HR Professional Trainers, drawn from the best HR Company.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="container">
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <h3>Vision</h3>
+                    <p>To achieve excellence in mechanical engineering education and research, contributing to innovative and sustainable engineering solutions.</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Mission</h3>
+                    <p>To provide students with a solid foundation in mechanical engineering principles and practices. To promote research in advanced manufacturing, automation, and energy systems. To cultivate ethical engineers capable of addressing the challenges of modern industry and society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Program Outcomes -->
+        <section class="program-outcomes">
+            <h2 class="section-title">PEO's, PO's and PSO's</h2>
+            
+            <button class="collapsible">The following are the program outcomes of Engineering Graduates:</button>
+            <ul class="outcome-list">
+                <li><strong>PO1. Engineering knowledge:</strong> Apply the knowledge of basic sciences and fundamental engineering concepts in solving engineering problems.</li>
+                <li><strong>PO2. Problem analysis:</strong> Identify and define engineering problems, conduct experiments and investigate to analyze and interpret data to arrive at substantial conclusions.</li>
+                <li><strong>PO3. Design/development of solutions:</strong> Propose an appropriate solution for engineering problems complying with functional constraints such as economic, environmental, societal, ethical, safety and sustainability.</li>
+                <li><strong>PO4. Conduct investigations of complex problems:</strong> Perform investigations, design and conduct experiments, analyze and interpret the results to provide valid conclusions.</li>
+                <li><strong>PO5. Modern tool usage:</strong> Select or create and apply appropriate techniques and IT tools for the design & analysis of the systems.</li>
+                <li><strong>PO6. The engineer and society:</strong> Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to the professional engineering practice.</li>
+                <li><strong>PO7. Environment and sustainability:</strong> Demonstrate professional skills and contextual reasoning to assess environmental or societal issues for sustainable development.</li>
+                <li><strong>PO8. Ethics:</strong> Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice.</li>
+                <li><strong>PO9. Individual and team work:</strong> Function effectively as an individual, and as a member or leader in diverse teams, and in multi-disciplinary situations.</li>
+                <li><strong>PO10. Communication:</strong> Communicate effectively among engineering community, being able to comprehend and write effectively reports, presentation and give / receive clears instructions.</li>
+                <li><strong>PO11. Project management and finance:</strong> Demonstrate and apply engineering & management principles in their own / team projects in multidisciplinary environment.</li>
+                <li><strong>PO12. Life-long learning:</strong> Recognize the need for, and have the ability to engage in independent and lifelong learning.</li>
+            </ul>
+
+            <button class="collapsible">The following are the Program Specific Outcomes of Engineering Graduate:</button>
+            <ul class="outcome-list">
+                <li><strong>PSO1:</strong> Graduates will develop an ability to apply knowledge of computing, mathematical foundations, algorithmic principles, and civil engineering theory in design of computer-based systems to real-world problems</li>
+                <li><strong>PSO2:</strong> Graduates will develop an ability to practice civil engineering up-to-date techniques, skills, and tools as a result of life-long learning ability to design and conduct experiments, as well as to analyze and interpret data.</li>
+                <li><strong>PSO3:</strong> Graduates will develop ability in understanding the professional, ethical, legal, security and social issues and responsibilities, and to communicate effectively, both in writing and orally. Critical thinking in education is necessary to analyze the local and global impact of computing and engineering solutions on individuals, organizations, and society.</li>
+            </ul>
+
+            <button class="collapsible">Program Educational Objectives:</button>
+            <ul class="outcome-list">
+                <li><strong>PEO1:</strong> Graduates of the program will be skilled in the fundamental principles of mathematics, science, and four sub-disciplines in Civil Engineering that are necessary for success in industry or graduate school.</li>
+                <li><strong>PEO2:</strong> Graduates of the program will be skilled in problem solving, design and interpretation of experiments, and operating within a team environment for the solution of design problems in their chosen field.</li>
+                <li><strong>PEO3:</strong> Graduates of the program will be capable of operating effectively in a professional environment by demonstrating technical communication skills, the ability to procure work, the ability to interact effectively with civil engineering professionals, and an understanding of ethical issues in Civil Engineering as well as importance of Civil Engineering work to society.</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- HOD Profile -->
+    <section class="hod-section">
+        <div class="container">
+            <h2 class="section-title">HOD Profile</h2>
+            <div class="hod-profile">
+                <div class="hod-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Profile Photo
+                    </div>
+                </div>
+                <div class="hod-details">
+                    <h3>Dr. PAVAN BAGALI</h3>
+                    <p><strong>B.E(MECH), M.Tech(CIM), Ph.D(ME), LMISTE</strong><br>
+                    Associate Professor & HOD<br>
+                    Department of Mechanical Engineering</p>
+                    
+                    <div class="hod-contact">
+                        <div class="contact-item">📞 +91-9845559306</div>
+                        <div class="contact-item">✉️ hodmech.drk@gmail.com</div>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <p><strong>Years of Experience:</strong> 09</p>
+                        <p><strong>JNTUH Unique Id:</strong> 4625-160306-032520</p>
+                        <p><strong>AICTE ID:</strong> 1-7432178079</p>
+                        <p><strong>Areas of Specialization:</strong> Computer Integrated Manufacturing</p>
+                        <p><strong>PhD:</strong> MECHANICAL</p>
+                        <p><strong>Nature of Association:</strong> Regular</p>
+                        <p><strong>Subject Taught:</strong> Production Technology, Fluid Mechanics and Hydraulic Machines, Finite Element method, Metrology & Machine tools and Additive Manufacturing.</p>
+                    </div>
+
+                    <div class="publications">
+                        <h4>Papers Published:</h4>
+                        <ol>
+                            <li>"Examine the mechanical properties of Aluminium Tetrahydride/calotropis gigantea based hybrid polyester composites in cryogenic atmosphere", Advances in polymer technology, Volume 2022 (SCI, Hindawi and whiley publication).</li>
+                            <li>"Friction and wear performance of hot extruded AA7075/AlN/Gr hybrid composites", Inst. Eng. India, April 2022. (Springer)</li>
+                            <li>"Development Of Aluminium Metal Matrix Composites And Its Characterization", IJSRET, Volume 06, Issue 04, July-Aug 2020, Page 2340-2346.</li>
+                            <li>"Manufacturing Of Aluminium Metal Matrix Composite", JJSET, Volume 8, Issue 3, 2020. (ISSN 2348-4098)</li>
+                            <li>"Analysis And Manufacturing Of Aluminium Metal Matrix Composite", JXU-R3525, Volume 14, Issue 5, 2020. (ISSN 1001-2400)</li>
+                            <li>"Manufacturing Of Aluminium Metal Matrix Composite After Critical Study", IJPR, Volume 24, Issue 04, 2020. (ISSN 1475-7192)</li>
+                            <li>"Experimental And Investigation Of Aluminium Metal Matrix Composite And Its Application", IJSRET, Volume 05, Issue 06, Nov-Dec 2019, Page 2282-2286.</li>
+                            <li>"Fatigue behaviour of Polyurethane Core Sandwiched Glass Reinforced in Epoxy Matrix Composite Material" IARJSET, Volume 3, Issue 12, December 2016. ( ISO 3297:2007)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Faculty Section -->
+        <section class="faculty-section">
+            <h2 class="section-title">Department Faculty</h2>
+            <table class="faculty-table">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>NAME</th>
+                        <th>JNTUH ID</th>
+                        <th>QUALIFICATION</th>
+                        <th>DESIGNATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Dr Subhash chander</td>
+                        <td>0770-150413-154029</td>
+                        <td>Ph.D</td>
+                        <td>Professor</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Dr S VENUGOPAL RAO</td>
+                        <td>4927-150408-145324</td>
+                        <td>Ph.D</td>
+                        <td>Professor</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dr T PRASAD</td>
+                        <td>30150404-112726</td>
+                        <td>Ph.D</td>
+                        <td>Professor</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Dr MANGAPATHI RAO</td>
+                        <td>6006-150409-103310</td>
+                        <td>Ph.D</td>
+                        <td>Professor</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Dr B PAVAN</td>
+                        <td>4625-160306-032520</td>
+                        <td>Ph.D</td>
+                        <td>Associate Professor & HOD</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Mr PARRE SRINIVASA RAO</td>
+                        <td>28150407-153041</td>
+                        <td>M TECH</td>
+                        <td>Associate Professor</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Mr KARLAPUDI RAMASWAMY</td>
+                        <td>5011-171222-102029</td>
+                        <td>M.Tech</td>
+                        <td>Associate Professor</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>RAVINDRA REDDY B</td>
+                        <td>0768-180202-180405</td>
+                        <td>M TECH</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>TULESA RAGHAVENDER</td>
+                        <td>8961-240909-160727</td>
+                        <td>M.Tech</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>NAGARJUN JANA</td>
+                        <td>1112-160528-122946</td>
+                        <td>M.Tech</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>S REVATHI</td>
+                        <td>1215-180417-145443</td>
+                        <td>M TECH</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>K SRAVANI</td>
+                        <td>2198-170126-120115</td>
+                        <td>M TECH</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>T NAVEEN</td>
+                        <td>0444-240912-162407</td>
+                        <td>M.Tech</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Mr GODI SUBBA RAO</td>
+                        <td>8119-171221-135231</td>
+                        <td>M.Tech</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>K BRAHMAIAH</td>
+                        <td>9271-190506-160417</td>
+                        <td>M TECH</td>
+                        <td>Assistant Professor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Labs Section -->
+        <section class="labs-section">
+            <h2 class="section-title">Labs</h2>
+            <div class="lab-grid">
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Workshop Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        CNC Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Materials Testing Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Thermal Engineering Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Fluid Mechanics Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Metrology Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        CAD Lab
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Machine Shop
+                    </div>
+                </div>
+                <div class="lab-image">
+                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
+                        Manufacturing Lab
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Structure -->
+        <section class="course-structure">
+            <h2 class="section-title">Course Structure</h2>
+            
+            <div class="regulation-section">
+                <h4>R18</h4>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Academic Year</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>R-18 MECH FINAL YEAR SYLLABUS BOOK</td>
+                            <td>R-18 MECH FINAL YEAR SYLLABUS BOOK</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="regulation-section">
+                <h4>R22</h4>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Academic Year</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>R-22 MECH III YEAR SYLLABUS BOOK</td>
+                            <td>R-22 MECH III YEAR SYLLABUS BOOK</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>R-22 MECH II YEAR SYLLABUS BOOK</td>
+                            <td>R-22 MECH II YEAR SYLLABUS BOOK</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>R-22 MECH SYLLABUS BOOK</td>
+                            <td>R-22 MECH SYLLABUS BOOK</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Mobile navigation toggle (if needed)
+        function toggleMobileNav() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('mobile-open');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize collapsible sections as closed
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.outcome-list').forEach(list => {
+                list.style.display = 'none';
+            });
+        });
+
+        // Add hover effects to cards and buttons
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add animation to vision-mission cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.vm-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add search functionality (basic)
+        document.querySelector('.search-box').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('section, .container > div');
+            
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Add loading animation for lab images
+        document.querySelectorAll('.lab-image').forEach(image => {
+            image.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            image.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Table sorting functionality (basic)
+        function sortTable(table, column) {
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const sorted = rows.sort((a, b) => {
+                const aText = a.cells[column].textContent.trim();
+                const bText = b.cells[column].textContent.trim();
+                return aText.localeCompare(bText);
+            });
+            
+            const tbody = table.querySelector('tbody');
+            tbody.innerHTML = '';
+            sorted.forEach(row => tbody.appendChild(row));
+        }
+
+        // Add click handlers for table headers
+        document.querySelectorAll('.faculty-table th, .course-table th').forEach((header, index) => {
+            header.style.cursor = 'pointer';
+            header.addEventListener('click', function() {
+                const table = this.closest('table');
+                sortTable(table, index);
+            });
+        });
+    </script>
+     <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    });
+  </script>
+</body>
+</html>
