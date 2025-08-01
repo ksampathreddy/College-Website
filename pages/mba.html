@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Master of Business Administration - DRK Institute of Science and Technology</title>
+    <style>
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text {
+            color: #c41e3a;
+            font-weight: bold;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .header-links a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .nav-bar {
+            background: #c41e3a;
+            color: white;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 40px 0;
+            color: #333;
+        }
+
+        .about-section {
+            margin: 40px 0;
+        }
+
+        .about-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .vision-mission {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            background: #8B2635;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .vision, .mission {
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .vision h3, .mission h3 {
+            color: #c41e3a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .section-header {
+            background: #c41e3a;
+            color: white;
+            padding: 15px 20px;
+            margin: 40px 0 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .outcomes-section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #c41e3a;
+        }
+
+        .outcome-item {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .outcome-item strong {
+            color: #c41e3a;
+        }
+
+        .pso-item {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .pso-item strong {
+            color: #c41e3a;
+        }
+
+        .peo-item {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .peo-item strong {
+            color: #c41e3a;
+        }
+
+        .hod-profile {
+            background: #f9f9f9;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .hod-profile h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .profile-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .profile-image img{
+            width: 200px;
+            height: 250px;
+            background: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+            background: #c41e3a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .detail-row {
+            margin: 8px 0;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            width: 200px;
+            color: #c41e3a;
+        }
+
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+        }
+
+        .faculty-table th {
+            background: #8B2635;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .faculty-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .faculty-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .labs-section {
+            margin: 40px 0;
+        }
+
+        .labs-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .lab-image img{
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .vision-mission {
+                flex-direction: column;
+            }
+            
+            .profile-content {
+                flex-direction: column;
+            }
+            
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-content {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 1024px) {
+    .nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .page-title {
+        font-size: 1.8em;
+        margin: 20px 0;
+    }
+
+    .about-section h2,
+    .labs-section h2,
+    .hod-profile h2 {
+        font-size: 1.5em;
+    }
+
+    .vision-mission {
+        flex-direction: column;
+    }
+
+    .vision, .mission {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image img {
+        width: 150px;
+        height: 200px;
+    }
+
+    .profile-details {
+        width: 100%;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+    .faculty-table th,
+    .faculty-table td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .faculty-table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .labs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-image img {
+        height: 180px;
+    }
+
+    .outcome-item {
+        font-size: 14px;
+    }
+
+    .section-header {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .header-links {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+ .collapsible {
+            background: #8B2635;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .collapsible:hover {
+            background: #7A2230;
+        }
+        
+        .outcome-list {
+            list-style: none;
+            padding: 20px;
+            background: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        
+        .outcome-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .outcome-list li::before {
+            content: '•';
+            color: #8B2635;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.commitment-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.commitment-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.commitment-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #c41e3a;
+}
+
+.expertise-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.expertise-section h3 {
+    color: #8B2635;
+    border-bottom: 2px solid #c41e3a;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+  <div id="header"></div>
+
+     <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>MBA</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Master of Business Administration</h1>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>About MBA Department</h2>
+            <p class="about-text">
+                DRK Institute of Science & Technology established in the academic year 2006-2007, the MBA Department at DRK IST is committed to delivering quality management education with a strong focus on industry relevance and academic excellence. The department offers four specializations—Marketing, Human Resource Management, Finance, and Entrepreneurship—ensuring a well-rounded learning experience that prepares students for diverse career paths in the corporate world.
+            </p>
+            
+            <div class="expertise-section">
+                <h3>Commitment to Excellence</h3>
+                <p>The department is dedicated to equipping students with cutting-edge management knowledge, practical skills, and strategic insights essential for thriving in today's dynamic business environment. To achieve this, the following initiatives are undertaken:</p>
+                <ul class="commitment-list">
+                    <li>State-of-the-art learning facilities that bridge the gap between academia and industry.</li>
+                    <li>Management Development Programs (MDPs) designed to enhance leadership, decision-making, and entrepreneurial skills.</li>
+                    <li>A rigorous and industry-aligned curriculum, emphasizing experiential learning, case studies, and hands-on projects.</li>
+                </ul>
+            </div>
+            
+            <div class="expertise-section">
+                <h3>Expert Faculty & Industry Integration</h3>
+                <p>The MBA Department takes great pride in its highly qualified and experienced faculty, who bring a unique blend of academic expertise, research proficiency, and real-world industry experience. Faculty members go beyond traditional teaching, acting as mentors and guides, fostering a culture of innovation, analytical thinking, and professional excellence.</p>
+                <p>To provide students with real-world exposure, the department regularly invites:</p>
+                <ul class="commitment-list">
+                    <li>Industry Leaders & Experts for guest lectures, panel discussions, and mentorship programs.</li>
+                    <li>Accomplished Alumni who share their experiences, career insights, and success stories to inspire and guide future business leaders.</li>
+                </ul>
+                <p>The MBA Department of DRK IST aims to transform students into competent, confident, and ethical professionals capable of driving innovation, leading organizations, and making meaningful contributions to society.</p>
+                <p><strong>Shaping the future of business and management starts here!</strong></p>
+            </div>
+        </div>
+
+        <!-- Vision and Mission -->
+        <div class="vision-mission">
+            <div class="vision">
+                <h3>Vision</h3>
+                <p>To be a leading management education provider, developing innovative leaders for a dynamic global business environment.</p>
+            </div>
+            <div class="mission">
+                <h3>Mission</h3>
+                <p>To deliver a comprehensive education in business management, combining theory and practical applications. To promote entrepreneurship, strategic thinking, and leadership through industry-oriented programs. To nurture ethical leaders who contribute to sustainable economic growth and societal progress.</p>
+            </div>
+        </div>
+
+        <!-- Program Outcomes -->
+        <section class="program-outcomes">
+            <h2 class="section-title">PEO's, PO's and PSO's</h2>
+            
+            <button class="collapsible">→ PROGRAM OUTCOMES (PO)</button>
+            <ul class="outcome-list" style="display: none;">
+                <li><strong>PO1. Apply Knowledge:</strong> Apply knowledge of management theories and practices to solve business problems.</li>
+                <li><strong>PO2. Critical Thinking:</strong> Foster Analytical and critical thinking abilities for data-based decision making.</li>
+                <li><strong>PO3. Leadership:</strong> Ability to develop Value based Leadership ability.</li>
+                <li><strong>PO4. Business Environment:</strong> Ability to understand, analyze and communicate global, economic, legal, and ethical aspects of business.</li>
+                <li><strong>PO5. Team Work:</strong> Ability to lead themselves and others in the achievement of organizational goals, contributing effectively to a team environment.</li>
+            </ul>
+
+            <button class="collapsible">→ Program Educational Objectives (PEOs)</button>
+            <ul class="outcome-list" style="display: none;">
+                <li>To train the students in a way that they are able to apply management principles and concepts to the real world business problems.</li>
+                <li>To create the cross functional capabilities among the students in a dynamic environment.</li>
+                <li>To instill inter-personal skills, spirit of team work and social responsibility among the management graduates.</li>
+            </ul>
+
+            <button class="collapsible">→ MBA Program Specific Outcomes (PSOs)</button>
+            <ul class="outcome-list" style="display: none;">
+                <li><strong>PSO1:</strong> Identify the key issues facing a business or business subdivisions, utilize qualitative and quantitative methods to explore and solve critical business problems.</li>
+                <li><strong>PSO2:</strong> Incorporate diversity and multicultural perspectives while making business decisions as an entrepreneurs or entrepreneurs.</li>
+            </ul>
+        </section>
+
+        <!-- HOD Profile -->
+        <div class="hod-profile">
+            <h2>HOD Profile</h2>
+            <div class="profile-content">
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img src="../static/mba/mba_hod.jpg" alt="MBA HOD">
+                    </div>
+                    <h4 style="margin-top: 10px; color: #8B2635; text-align: center;">Dr. P. PRASANTHI</h4>
+                    <p style="color: #666; text-align: center;">Professor & HOD<br>Department of MBA</p>
+                </div>
+                <div class="profile-details">
+                    <div class="contact-buttons">
+                        <button class="contact-btn">📞 +91-9677289522</button>
+                        <button class="contact-btn">✉️ hodmba.drk@gmail.com</button>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Years of Experience:</span>
+                        <span>13 Years</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">JNTUH Unique Id:</span>
+                        <span>5805-240530-112627</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Areas of Specialization:</span>
+                        <span>Finance & HR</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">PhD:</span>
+                        <span>Management</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Joining Date:</span>
+                        <span>10-04-2024</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Nature of Association:</span>
+                        <span>Regular</span>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="detail-label">Subject Taught:</span>
+                        <span>Financial Reporting and Analysis, Financial Management, Human Resource Management, Security Analysis & Portfolio Management, Risk Management & Financial Derivatives, International Finance, Business Economics & Financial Analysis.</span>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <strong>Papers Published:</strong>
+                        <div style="margin-top: 10px;">
+                            <h4>SCOPUS JOURNALS:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px;">
+                                <li>Prasamin, P., KAUR, M. R., LIVAS, M. M., NATARAJAN, S., NEELIMA, S. & RAJALAKSHMI, M. (2024). The role of social media influencers in shaping e-commerce trends and consumer behavior. In OBSTETRICS & GYNAECOLOGY FORUM (No. 3s, p. 2278).</li>
+                                <li>Kiranat, K., Prasamin, P. (2024). Artificial intelligence in E-commerce: Applications, Implications and Challenges. Yugato 76 (1), 681-692.</li>
+                                <li>Prasamini, P., Kumar, B. S., & Mohammed, R. J. (2023, July). Influence of psychological empowerment of women on their job satisfaction across India. In APP Conference Proceedings (Vol. 2797, No. 1). APP Publishing.</li>
+                                <li>Prasamini, P., & Geerarghese. (2022). Impact of Social Media Marketing on Customer Trust in Indian Textile Industry. Journal of the Textile Association, 83(2), 93-96.</li>
+                            </ol>
+                            
+                            <h4>ABDC JOURNALS:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px;" start="5">
+                                <li>Soundarapandiyan, K., Prasamini, P., Gladstan, P., Panchai, T. K., Renika, A., & Mohideen, A. S. (2024). Ethical implications of AI in Marketing. Asian And Pacific Economic Review, 17(1), 138-160.</li>
+                            </ol>
+                            
+                            <h4>UGC JOURNALS:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px;" start="6">
+                                <li>Prasamini, P., & Geerarghese. (2021). Smartphone communication and its impact on work-life balance. The international journal of analytical and experimental modal analysis, 13(1) 2006-2014.</li>
+                            </ol>
+                            
+                            <h4>PATENTS:</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Indian patent on "Medium that exhibit the impact of latest technology on HR" Application No. 202141055523, date of filing Application: 30/11/2021 and publication date: 10/12/2021.</li>
+                                <li>Indian patent on "Equipment for E-commerce and Online Payment" Design No. 430780-001, date : 17/09/2024.</li>
+                            </ul>
+                            
+                            <h4>BOOK CHAPTERS:</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>"Primary Data for Quantitative Research Methods" for the book - "Research Methodology", Adam's Book Company, 2024 with ISBN "978-81-973300-7-0".</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                               
+        <!-- Faculty Table -->
+        <h2 style="text-align: center; margin: 40px 0;">Department Faculty</h2>
+        <table class="faculty-table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>NAME</th>
+                    <th>JNTUH ID</th>
+                    <th>QUALIFICATION</th>
+                    <th>DESIGNATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Dr. P PRASANTHI</td>
+                    <td>5805-240530-112627</td>
+                    <td>Ph.D</td>
+                    <td>Professor & HOD</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>DR. P SUBRAHMANAYAM</td>
+                    <td>26150405-174829</td>
+                    <td>Ph.D</td>
+                    <td>Professor</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Mrs. KAVITHA DASARI</td>
+                    <td>2419-160121-143228</td>
+                    <td>MBA</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>S LAVANYA</td>
+                    <td>66150406-163529</td>
+                    <td>MBA</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Mrs. SEKU PRASANNA LAKSHMI</td>
+                    <td>-</td>
+                    <td>MBA</td>
+                    <td>Associate Professor</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>B SUNIL KUMAR</td>
+                    <td>8052-220706-112219</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Ms. KOLANTY MELODY HEPNZIBAH</td>
+                    <td>2017-170213-131955</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>V VENKATA LAKSHMI</td>
+                    <td>9377-230331-133706</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Mrs. BANGARU SHILPA</td>
+                    <td>9424-180124-120328</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>K PRASANNA</td>
+                    <td>0202-170208-133047</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Mr. SIYANAKU KOPPULA</td>
+                    <td>5777-230803-130507</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>RAMAKRISHNA</td>
+                    <td>0093-160306-054308</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Mr. ADI SESHU NANJAPPROARI</td>
+                    <td>9550-180417-123525</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Mr. RAKESH POKALA</td>
+                    <td>3443-200307-102317</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>HARIKA BEJJAINKI</td>
+                    <td>9032-230803-113908</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>BOLLIPALLY SIRKANTHREDDY</td>
+                    <td>3323-170211-155528</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>BHAVYALAKSHMI PALURI</td>
+                    <td>3311-240701-094124</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>J AKSHARA</td>
+                    <td>1514-241130-115842</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>K SANDYA RANI</td>
+                    <td>7596-241130-131739</td>
+                    <td>MBA</td>
+                    <td>Assistant Professor</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Labs Section -->
+        <div class="labs-section">
+            <h2>Facilities</h2>
+            <div class="labs-grid">
+                <div class="lab-image"><img src="../static/mba/mba1.jpg" alt="MBA Classroom"></div>
+                <div class="lab-image"><img src="../static/mba/mba2.jpg" alt="Computer Lab"></div>
+                <div class="lab-image"><img src="../static/mba/mba3.jpg" alt="Seminar Hall"></div>
+                <div class="lab-image"><img src="../static/mba/mba4.jpg" alt="Library"></div>
+                <div class="lab-image"><img src="../static/mba/mba5.jpg" alt="Conference Room"></div>
+                <div class="lab-image"><img src="../static/mba/mba6.jpg" alt="Group Discussion Room"></div>
+            </div>
+        </div>
+
+        <!-- Course Structure -->
+        <section class="course-structure">
+            <h2 class="section-title">Course Structure</h2>
+            
+            <div class="regulation-section">
+                <h4>MBA Curriculum</h4>
+                <table class="faculty-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Specialization</th>
+                            <th>Description</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Marketing</td>
+                            <td>Comprehensive marketing strategy and digital marketing courses</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Human Resource</td>
+                            <td>HR management, organizational behavior, and talent management</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Finance</td>
+                            <td>Financial management, investment analysis, and risk management</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Entrepreneurship</td>
+                            <td>Business planning, startup management, and innovation</td>
+                            <td><a href="#" class="download-link">📥 Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+          // Collapsible functionality
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+        // Add some interactivity
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.nav-item').forEach(nav => {
+                    nav.style.background = '';
+                });
+                // Add active class to clicked item
+                this.style.background = 'rgba(255,255,255,0.2)';
+            });
+        });
+
+        // Contact button functionality
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent;
+                if (text.includes('@')) {
+                    window.location.href = 'mailto:' + text.split(' ')[1];
+                } else if (text.includes('+91')) {
+                    window.location.href = 'tel:' + text.split(' ')[1];
+                }
+            });
+        });
+
+        // Scroll to top functionality
+        window.onscroll = function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "flex";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    });
+  </script>
+</body>
+</html>
