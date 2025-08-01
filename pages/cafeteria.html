@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Cafeteria - DRK Institute of Science and Technology</title>
+    <style>
+        .breadcrumb {
+            background-color:  #f5f5f5;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #8B2635;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c41e3a;
+        }
+        
+        .cafeteria-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .cafeteria-content {
+            flex: 1 1 60%;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+        
+        .cafeteria-image {
+            flex: 1 1 35%;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cafeteria-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .cafeteria-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .highlight-box {
+            background-color: #f8e8e8;
+            border-left: 4px solid #c41e3a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            color: #c41e3a;
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .cafeteria-container {
+                flex-direction: column;
+            }
+            
+            .cafeteria-image {
+                order: -1;
+                height: 250px;
+            }
+        }
+        .highlight-box {
+            background-color: #f8e8e8;
+            border-left: 4px solid #c41e3a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        /* Image Gallery Styles */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    aspect-ratio: 4/3; /* Maintain consistent aspect ratio */
+    height: auto; /* Remove fixed height */
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Add overlay effect on hover */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(139, 38, 53, 0.3); /* DRK maroon color with transparency */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-item {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-gallery {
+        width: 95%;
+    }
+}
+
+/* Add caption style if needed */
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="header"></div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>Cafeteria</span>
+    </div>
+    <h1>Cafeteria</h1>
+    
+    <div class="cafeteria-container">
+        <div class="cafeteria-content">
+            <p>As it is affectionately called, our cafeteria is <span style="font-weight: bold; color: #8B2635;">the second home for our students</span> who are away from home. Delicious and healthy food are the common features of our cafeteria.</p>
+            
+            <div class="highlight-box">
+                <p>It is appreciated for the environmental friendly, hygienic and well designed cafeteria with spacious dining facilities. All the food items of our cafeteria are available at reasonable cost with required standards.</p>
+            </div>
+            
+            <h3 style="color: #8B2635; margin-top: 30px;">Key Features:</h3>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div>Delicious & healthy food options</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <div>High hygiene standards</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>Spacious seating</div>
+                </div>
+            </div>
+        </div>
+        
+    <div class="image-gallery">
+        <div class="gallery-item">
+            <img src="../static/facilities/Cafeteria1.jpg" alt="Cafeteria Dining Area">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/facilities/cafeteria2.jpg" alt="Cafeteria Food Counter">
+        </div>
+        <div class="gallery-item">
+            <img src="../static/facilities/cafeteria3.jpg" alt="Students in Cafeteria">
+        </div>
+    </div>
+
+    </div>
+      <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>
