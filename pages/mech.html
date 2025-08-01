@@ -456,7 +456,26 @@
             position: absolute;
             left: 0;
         }
-        
+        .profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
     </style>
 </head>
 <body>
@@ -532,77 +551,78 @@
         </section>
 
         <!-- HOD Profile -->
-        <div class="hod-profile">
-            <h2>HOD Profile</h2>
-            <div class="profile-content">
-                <div class="profile-image">
-                    <div style="background: #ddd; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
-                        <img src="../static/mech/mech_hod.jpg" alt="mech_hod" >
-                    </div>
-                </div>
-                <div class="profile-details">
-                    <div class="contact-buttons">
-                        <button class="contact-btn">📞 +91-9845559306</button>
-                        <button class="contact-btn">✉️ hodmech.drk@gmail.com</button>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Years of Experience:</span>
-                        <span>09</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">JNTUH Unique Id:</span>
-                        <span>4625-160306-032520</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">AICTE ID:</span>
-                        <span>1-7432178079</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Area of Specialization:</span>
-                        <span>Computer Integrated Manufacturing</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">PhD:</span>
-                        <span>MECHANICAL</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Nature of Association:</span>
-                        <span>Regular</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Subject Taught:</span>
-                        <span>Production Technology, Fluid Mechanics and Hydraulic Machines, Finite Element method, Metrology & Machine tools and Additive Manufacturing.</span>
-                    </div>
+        <!-- HOD Profile -->
+<div class="hod-profile">
+    <h2>HOD Profile</h2>
+    <div class="profile-content">
+        <div class="profile-image-container">
+            <div class="profile-image">
+                <img src="../static/mech/mech_hod.jpg" alt="MECH HOD">
+            </div>
+            <h4 style="margin-top: 10px; color: #8B2635; text-align: center;">Dr. PAVAN BAGALI</h4>
+            <p style="color: #666; text-align: center;">Associate Professor & HOD<br>Department of Mechanical Engineering</p>
+        </div>
+        <div class="profile-details">
+            <div class="contact-buttons">
+                <button class="contact-btn">📞 +91-9845559306</button>
+                <button class="contact-btn">✉️ hodmech.drk@gmail.com</button>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Years of Experience:</span>
+                <span>09</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">JNTUH Unique Id:</span>
+                <span>4625-160306-032520</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">AICTE ID:</span>
+                <span>1-7432178079</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Area of Specialization:</span>
+                <span>Computer Integrated Manufacturing</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">PhD:</span>
+                <span>MECHANICAL</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Nature of Association:</span>
+                <span>Regular</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Subject Taught:</span>
+                <span>Production Technology, Fluid Mechanics and Hydraulic Machines, Finite Element method, Metrology & Machine tools and Additive Manufacturing.</span>
+            </div>
 
-                    <h4 style="margin-top: 20px; color: #c41e3a;">Dr. PAVAN BAGALI</h4>
-                    <p style="color: #666;">Associate Professor & HOD<br>Department of Mechanical Engineering</p>
-                    
-                    <div style="margin-top: 20px;">
-                        <strong>Papers Published:</strong>
-                        <div style="margin-top: 10px;">
-                            <ol style="margin-left: 20px; margin-top: 10px;">
-                                <li>"Examine the mechanical properties of Aluminium Tetrahydride/calotropis gigantea based hybrid polyester composites in cryogenic atmosphere", Advances in polymer technology, Volume 2022 (SCI, Hindawi and whiley publication).</li>
-                                <li>"Friction and wear performance of hot extruded AA7075/AlN/Gr hybrid composites", Inst. Eng. India, April 2022. (Springer)</li>
-                                <li>"Development Of Aluminium Metal Matrix Composites And Its Characterization", IJSRET, Volume 06, Issue 04, July-Aug 2020, Page 2340-2346.</li>
-                                <li>"Manufacturing Of Aluminium Metal Matrix Composite", JJSET, Volume 8, Issue 3, 2020. (ISSN 2348-4098)</li>
-                                <li>"Analysis And Manufacturing Of Aluminium Metal Matrix Composite", JXU-R3525, Volume 14, Issue 5, 2020. (ISSN 1001-2400)</li>
-                                <li>"Manufacturing Of Aluminium Metal Matrix Composite After Critical Study", IJPR, Volume 24, Issue 04, 2020. (ISSN 1475-7192)</li>
-                                <li>"Experimental And Investigation Of Aluminium Metal Matrix Composite And Its Application", IJSRET, Volume 05, Issue 06, Nov-Dec 2019, Page 2282-2286.</li>
-                                <li>"Fatigue behaviour of Polyurethane Core Sandwiched Glass Reinforced in Epoxy Matrix Composite Material" IARJSET, Volume 3, Issue 12, December 2016. ( ISO 3297:2007)</li>
-                            </ol>
-                        </div>
-                    </div>
+            <div style="margin-top: 20px;">
+                <strong>Papers Published:</strong>
+                <div style="margin-top: 10px;">
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>"Examine the mechanical properties of Aluminium Tetrahydride/calotropis gigantea based hybrid polyester composites in cryogenic atmosphere", Advances in polymer technology, Volume 2022 (SCI, Hindawi and whiley publication).</li>
+                        <li>"Friction and wear performance of hot extruded AA7075/AlN/Gr hybrid composites", Inst. Eng. India, April 2022. (Springer)</li>
+                        <li>"Development Of Aluminium Metal Matrix Composites And Its Characterization", IJSRET, Volume 06, Issue 04, July-Aug 2020, Page 2340-2346.</li>
+                        <li>"Manufacturing Of Aluminium Metal Matrix Composite", JJSET, Volume 8, Issue 3, 2020. (ISSN 2348-4098)</li>
+                        <li>"Analysis And Manufacturing Of Aluminium Metal Matrix Composite", JXU-R3525, Volume 14, Issue 5, 2020. (ISSN 1001-2400)</li>
+                        <li>"Manufacturing Of Aluminium Metal Matrix Composite After Critical Study", IJPR, Volume 24, Issue 04, 2020. (ISSN 1475-7192)</li>
+                        <li>"Experimental And Investigation Of Aluminium Metal Matrix Composite And Its Application", IJSRET, Volume 05, Issue 06, Nov-Dec 2019, Page 2282-2286.</li>
+                        <li>"Fatigue behaviour of Polyurethane Core Sandwiched Glass Reinforced in Epoxy Matrix Composite Material" IARJSET, Volume 3, Issue 12, December 2016. ( ISO 3297:2007)</li>
+                         
+                    </ol>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
+                               
         <!-- Faculty Table -->
         <h2 style="text-align: center; margin: 40px 0;">Department Faculty</h2>
         <table class="faculty-table">

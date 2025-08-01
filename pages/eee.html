@@ -458,7 +458,26 @@
             position: absolute;
             left: 0;
         }
-        
+        .profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
     </style>
 </head>
 <body>
@@ -535,80 +554,81 @@
    
 
         <!-- HOD Profile -->
-        <div class="hod-profile">
-            <h2>HOD Profile</h2>
-            <div class="profile-content">
-                <div class="profile-image">
-                  <img src="../static/eee/eee_hod.jpg" alt="eee_hod" >
-                </div>
-                <div class="profile-details">
-                    <div class="contact-buttons">
-                        <button class="contact-btn">📞 +91-7780660509</button>
-                        <button class="contact-btn">✉️ hod.eee.drkist@gmail.com</button>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Years of Experience:</span>
-                        <span>5 Years</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">JNTUH Unique Id:</span>
-                        <span>7264-231020-130413</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">AICTE ID:</span>
-                        <span></span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Area of Specialization:</span>
-                        <span>Electrical Power Systems, Electrical Machines</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">M Tech:</span>
-                        <span>Electrical Power Systems from JNTUH (College Topper)</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">B Tech:</span>
-                        <span>EEE From JNTUK (Gold Medalist)</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Joining Date:</span>
-                        <span>12-10-2023</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Nature of Association:</span>
-                        <span>Regular</span>
-                    </div>
-                    
-                    <div class="detail-row">
-                        <span class="detail-label">Subject Taught:</span>
-                        <span>Basic Electrical Engineering, Power Systems, Electrical Machines, Control systems, Electrical Utilization, Electrical Circuits, AI</span>
-                    </div>
+        <!-- HOD Profile -->
+<div class="hod-profile">
+    <h2>HOD Profile</h2>
+    <div class="profile-content">
+        <div class="profile-image-container">
+            <div class="profile-image">
+                <img src="../static/eee/eee_hod.jpg" alt="EEE HOD">
+            </div>
+            <h4 style="margin-top: 10px; color: #8B2635; text-align: center;">Mrs. Y. SAI JYOTIRMAYI</h4>
+            <p style="color: #666; text-align: center;">Assistant Professor & HOD<br>Department of Electrical and Electronics Engineering</p>
+        </div>
+        <div class="profile-details">
+            <div class="contact-buttons">
+                <button class="contact-btn">📞 +91-7780660509</button>
+                <button class="contact-btn">✉️ hod.eee.drkist@gmail.com</button>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Years of Experience:</span>
+                <span>5 Years</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">JNTUH Unique Id:</span>
+                <span>7264-231020-130413</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">AICTE ID:</span>
+                <span></span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Area of Specialization:</span>
+                <span>Electrical Power Systems, Electrical Machines</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">M Tech:</span>
+                <span>Electrical Power Systems from JNTUH (College Topper)</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">B Tech:</span>
+                <span>EEE From JNTUK (Gold Medalist)</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Joining Date:</span>
+                <span>12-10-2023</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Nature of Association:</span>
+                <span>Regular</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Subject Taught:</span>
+                <span>Basic Electrical Engineering, Power Systems, Electrical Machines, Control systems, Electrical Utilization, Electrical Circuits, AI</span>
+            </div>
 
-                    <h4 style="margin-top: 20px; color: #c41e3a;">Mrs. Y. SAI JYOTIRMAYI</h4>
-                    <p style="color: #666;">Assistant Professor & HOD<br>Department of EEE</p>
-                    
-                    <div style="margin-top: 20px;">
-                        <strong>Papers Published:</strong>
-                        <div style="margin-top: 10px;">
-                            <strong>INTERNATIONAL CONFERENCES:</strong>
-                            <ol style="margin-left: 20px; margin-top: 10px;">
-                                <li>Y.Saijyotirmayi, Ch.Rami Reddy. 2023 PV Fed Vehicle Application with Fuzzy Controlled AOF For Non Linear Load. In 19th India Council International Conference INDICON 2022, Cochin University, Kerala DOI 24-26</li>
-                                <li>Y.Saijyotirmayi,G.swati 2021. Future of Electric vehicles of India, In IEEE International Conference. DOI Dec 2021.</li>
-                            </ol>
-                        </div>
-                    </div>
+            <div style="margin-top: 20px;">
+                <strong>Papers Published:</strong>
+                <div style="margin-top: 10px;">
+                    <strong>INTERNATIONAL CONFERENCES:</strong>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Y.Saijyotirmayi, Ch.Rami Reddy. 2023 PV Fed Vehicle Application with Fuzzy Controlled AOF For Non Linear Load. In 19th India Council International Conference INDICON 2022, Cochin University, Kerala DOI 24-26</li>
+                        <li>Y.Saijyotirmayi,G.swati 2021. Future of Electric vehicles of India, In IEEE International Conference. DOI Dec 2021.</li>
+                    </ol>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
         <!-- Faculty Table -->
         <h2 style="text-align: center; margin: 40px 0;">Department Faculty</h2>
         <table class="faculty-table">
