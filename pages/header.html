@@ -74,24 +74,25 @@
           </li>
           <li><a href="life-drk.html">Life @ DRK</a></li>
           <li class="dropdown">
-            <a href="Facilities">Facilities <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="library.html">Library</a>
-                <a href="seminar-hall.html">Seminar Hall</a>
-                <!-- <a href="#">Student Clubs</a> -->
-                <li class="dropdown">
-                <a href="Student Clubs">Student Clubs <i class="fas fa-chevron-down"></i></a>
-                  <div class="dropdown-content">
-                  <a href="#">Technical</a>
-                  <a href="#">Cultural and Sports</a>
-                  <a href="#">Societal</a>
-                  </div>
-                </li>
-                <a href="transport.html">Transport</a>
-                <a href="games.html">In Door and Out Door Games</a>
-                <a href="cafeteria.html">Cafeteria</a>
-              </div>
-          </li>
+                        <a href="Facilities">Facilities <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="library.html">Library</a>
+                            <a href="seminar-hall.html">Seminar Hall</a>
+                            
+                            <div class="sports-submenu">
+                                <a href="#" class="sports-trigger">Facilities <i class="fas fa-chevron-right"></i></a>
+                                <div class="sports-items">
+                                    <a href="technical.html">Technical</a>
+                                    <a href="cultural.html">Cultural and Sports</a>
+                                    <a href="societal.html">Societal</a>
+                                </div>
+                            </div>
+                            
+                            <a href="transport.html">Transport</a>
+                            <a href="games.html">Games</a>
+                            <a href="cafeteria.html">Cafeteria</a>
+                        </div>
+                    </li>
           <li class="dropdown">
             <a href="NAAC">NAAC <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-content">
@@ -154,25 +155,25 @@
             </div>
           </li>
           <li><a href="life-drk.html">Life @ DRK</a></li>
-          <li class="dropdown">
-            <a href="Facilities">Facilities <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="library.html">Library</a>
-                <a href="seminar-hall.html">Seminar Hall</a>
-                <!-- <a href="#">Student Clubs</a> -->
-                <li class="dropdown">
-                <a href="Student Clubs">Student Clubs <i class="fas fa-chevron-down"></i></a>
-                  <div class="dropdown-content">
-                  <a href="#">Technical</a>
-                  <a href="#">Cultural and Sports</a>
-                  <a href="#">Societal</a>
-                  </div>
-                </li>
-                <a href="transport.html">Transport</a>
-                <a href="games.html">In Door and Out Door Games</a>
-                <a href="cafeteria.html">Cafeteria</a>
-              </div>
-          </li>
+          <li class="dropdown mobile-dropdown">
+    <a href="Facilities" class="dropbtn">Facilities <i class="fas fa-chevron-down"></i></a>
+    <div class="mobile-dropdown-content">
+        <a href="pages/library.html">Library</a>
+        <a href="pages/seminar-hall.html">Seminar Hall</a>
+        
+        <!-- Updated Student Clubs/Activities section -->
+        <a href="#" class="mobile-sports-trigger">Student Activities <i class="fas fa-chevron-down"></i></a>
+        <div class="mobile-sports-items">
+            <a href="technical.html">Technical Clubs</a>
+            <a href="cultural.html">Cultural and Sports Clubs</a>
+            <a href="societal.html">Societal Clubs</a>
+        </div>
+        
+        <a href="transport.html">Transport</a>
+        <a href="games.html">Games</a>
+        <a href="cafeteria.html">Cafeteria</a>
+    </div>
+</li>
           <li class="dropdown">
             <a href="NAAC">NAAC <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-content">
@@ -186,7 +187,6 @@
       </ul>
     </nav>
     
-<script src="../static/menu.js"></script>
 <script src="../static/search.js"></script>
   </header>
   <style>
@@ -448,3 +448,81 @@
   }
 }  </style>
  
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            const mobileClose = document.querySelector('.mobile-close-btn');
+            
+            if (mobileToggle && mobileNav && mobileOverlay) {
+                mobileToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    mobileOverlay.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll');
+                });
+                
+                mobileClose.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+                
+                mobileOverlay.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    this.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+            }
+            
+            // Mobile dropdown toggle
+            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown .dropbtn');
+            mobileDropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdown = this.closest('.mobile-dropdown');
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Mobile sports submenu toggle
+            const mobileSportsTriggers = document.querySelectorAll('.mobile-sports-trigger');
+            mobileSportsTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // Desktop dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    this.querySelector('.dropdown-content').style.display = 'block';
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    this.querySelector('.dropdown-content').style.display = 'none';
+                });
+            });
+        });
+        // Mobile sports submenu toggle
+const mobileSportsTriggers = document.querySelectorAll('.mobile-sports-trigger');
+mobileSportsTriggers.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.classList.toggle('active');
+        // This should toggle the visibility of the next sibling element
+        const items = this.nextElementSibling;
+        if (items.style.display === 'block') {
+            items.style.display = 'none';
+        } else {
+            items.style.display = 'block';
+        }
+    });
+});
+    </script>
