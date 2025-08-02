@@ -447,5 +447,135 @@
     padding: 5px 0;
   }
 }
+      /* ===== Base Styles ===== */
+:root {
+  --primary-color: #8B2635;
+  --primary-hover: #6a1a27;
+  --text-color: #333;
+  --bg-color: #ffffff;
+  --hover-bg: #f8f9fa;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --dropdown-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* ===== Student Clubs Dropdown ===== */
+.dropdown .dropdown-content .dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-content .dropdown .dropdown-content {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 200px;
+  background-color: var(--bg-color);
+  box-shadow: var(--dropdown-shadow);
+  border-radius: var(--border-radius);
+  display: none;
+  z-index: 1001;
+  border: 1px solid #e0e0e0;
+}
+
+.dropdown .dropdown-content .dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown .dropdown-content .dropdown > a::after {
+  content: "→";
+  float: right;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  margin-left: 8px;
+  transition: var(--transition);
+}
+
+.dropdown .dropdown-content .dropdown:hover > a::after {
+  transform: translateX(3px);
+}
+
+/* ===== Mobile Dropdown Styles ===== */
+.mobile-nav .dropdown {
+  position: relative;
+}
+
+.mobile-nav .dropdown .dropbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-nav .dropdown-content {
+  display: none;
+  padding-left: 15px;
+}
+
+.mobile-nav .dropdown.active .dropdown-content {
+  display: block;
+}
+
+.mobile-nav .dropdown .dropdown .dropdown-content {
+  padding-left: 15px;
+}
+
+.mobile-nav .dropdown .dropdown > a::after {
+  content: "+";
+  float: right;
+}
+
+.mobile-nav .dropdown .dropdown.active > a::after {
+  content: "-";
+}
+
+/* ===== Main Dropdown Enhancements ===== */
+.dropdown-content .dropdown a {
+  position: relative;
+  padding-right: 30px !important;
+}
+
+/* ===== Specific Student Clubs Styling ===== */
+.dropdown-content .dropdown-content a {
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-content .dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content .dropdown-content a:hover {
+  background-color: var(--hover-bg);
+  color: var(--primary-color) !important;
+  padding-left: 20px !important;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 1024px) {
+  .dropdown .dropdown-content .dropdown .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    animation: none;
+  }
+  
+  .dropdown .dropdown-content .dropdown > a::after {
+    content: "+";
+  }
+  
+  .dropdown .dropdown-content .dropdown.active > a::after {
+    content: "-";
+  }
+}
   </style>
  
