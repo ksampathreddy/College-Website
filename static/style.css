@@ -316,29 +316,7 @@ body {
             background-color: white;
             transition: all 0.3s ease;
         }
- /* Mobile Sports Submenu */
-.mobile-sports-items {
-    display: none;
-    padding-left: 20px;
-}
-
-.mobile-sports-items a {
-    padding: 8px 0 !important;
-    font-size: 14px !important;
-}
-
-.mobile-sports-trigger.active + .mobile-sports-items {
-    display: block;
-}
-
-.mobile-sports-trigger i {
-    transition: transform 0.3s;
-    margin-left: 5px;
-}
-
-.mobile-sports-trigger.active i {
-    transform: rotate(180deg);
-}
+ 
         /* Mobile Navigation */
        .mobile-nav {
             position: fixed;
@@ -727,7 +705,10 @@ body {
     flex-wrap: wrap;
     gap: 15px;
   }
-
+  
+  .search-container {
+    margin: 10px auto 0;
+  }
   
   .main-logo {
     height: 35px;
@@ -1685,6 +1666,34 @@ body {
   }
 }
 
+/* ==== Search Bar ==== */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-container input[type="text"] {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 8px 12px;
+  background-color: #a30c2d;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #8a0b24;
+}
 
 /* ==== Search Results Page ==== */
 .search-results {
