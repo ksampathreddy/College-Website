@@ -1,3 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+}
+
  /* Base Styles */
         * {
             margin: 0;
@@ -96,6 +109,335 @@
             white-space: nowrap;
         }
         
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #8B2635;
+        }
+        
+        /* Sports Submenu - Desktop */
+        .sports-submenu {
+            position: relative;
+        }
+        
+        .sports-items {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 1000;
+            border: 1px solid #ddd;
+        }
+        
+        .sports-submenu:hover .sports-items {
+            display: block;
+        }
+        
+        .sports-trigger {
+            position: relative;
+        }
+        
+        .sports-trigger i {
+            margin-left: 5px;
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .sports-submenu:hover .sports-trigger i {
+            transform: rotate(90deg);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+ 
+        /* Mobile Navigation */
+       .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: #8B2635;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 60px 20px 20px;
+            margin: 0;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 10px;
+        }
+        
+        .mobile-nav ul li a {
+            color:white;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Mobile Dropdowns */
+        .mobile-dropdown-content {
+            display: none;
+            padding-left: 15px;
+        }
+        
+        .mobile-dropdown.active .mobile-dropdown-content {
+            display: block;
+        }
+        
+        /* Mobile Sports Submenu */
+        .mobile-sports-items {
+            display: none;
+            padding-left: 20px;
+        }
+        
+        .mobile-sports-items a {
+            padding: 8px 0 !important;
+            font-size: 14px !important;
+        }
+        
+        .mobile-sports-trigger.active + .mobile-sports-items {
+            display: block;
+        }
+        
+        .mobile-sports-trigger i {
+            transition: transform 0.3s;
+            margin-left: 5px;
+        }
+        
+        .mobile-sports-trigger.active i {
+            transform: rotate(180deg);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .header-content {
+                padding-right: 60px;
+            }
+            
+            .nav-container {
+                height: 60px;
+            }
+            
+            .search-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-links ul {
+                font-size: 12px;
+                gap: 8px;
+            }
+            
+            .main-logo {
+                height: 50px;
+            }
+        }
+        
+        .no-scroll {
+            overflow: hidden;
+        }
+        
+        /* IQAC Banner */
+        .iqac-banner {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .iqac-banner h1 {
+            color: #8B2635;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+   
+        @media (max-width: 1200px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+
+            .search-container {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .search-container {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-container {
+                flex: none;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-links ul {
+                font-size: 12px;
+                gap: 5px;
+            }
+
+            .main-logo {
+                height: 50px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .logo-container {
+                position: static;
+                transform: none;
+            }
+        }
+/* Image Slider */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 94vh;
+  overflow: hidden;
+}
+
+.image-slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease-in-out, transform 10s linear;
+}
+
+.image-slider img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .slider-content {
   position: absolute;
   top: 50%;
