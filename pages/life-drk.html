@@ -270,6 +270,81 @@
 .photo-item:nth-child(10) { animation-delay: 1.0s; }
 .photo-item:nth-child(11) { animation-delay: 1.1s; }
 .photo-item:nth-child(12) { animation-delay: 1.2s; }
+
+/* Header/Navigation Protection */
+.nav-menu ul li a {
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 12px 20px; /* Adequate spacing */
+    position: relative;
+}
+
+/* Current Page Highlight */
+.nav-menu ul li a[href*="life-drk"] {
+    color: #c41e3a !important;
+    font-weight: 600;
+}
+
+/* Page Title Protection */
+.page-title {
+    position: relative;
+    padding: 0 20px;
+    display: inline-block;
+}
+
+.page-title:before,
+.page-title:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #c41e3a;
+    top: 50%;
+}
+
+.page-title:before {
+    left: -15px;
+}
+
+.page-title:after {
+    right: -15px;
+}
+
+/* Breadcrumb Consistency */
+.breadcrumb {
+    background-color: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #6c757d;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: #c41e3a;
+    text-decoration: none;
+}
+
+/* Responsive Protection */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.8rem;
+        padding: 0 15px;
+    }
+    
+    .page-title:before,
+    .page-title:after {
+        width: 20px;
+    }
+    
+    .nav-menu ul li a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
