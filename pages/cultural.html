@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultural & Sports Club - DRK Institute of Science and Technology</title>
-    <link rel="stylesheet" href="static/style.css">
-  <link rel="icon" href="static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+  <link rel="icon" href="../static/drk.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Base Styles */
@@ -458,21 +458,47 @@
         </div>
     </div>
     
+<div id="chatbot"></div>
     <div id="footer"></div>
     
     <script>
-        // Load header and footer
-        fetch('../header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            });
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
             
-        fetch('../footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            });
+            // Then load and execute menu.js
+            const script = document.createElement('script');
+            script.src = '../static/menu.js';
+            script.onload = function() {
+                // Initialize menu functionality after script is loaded
+                if (typeof initMobileMenu === 'function') {
+                    initMobileMenu();
+                }
+            };
+            document.body.appendChild(script);
+        });
+        fetch('footer.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+        fetch('chatbot.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('chatbot').innerHTML = data;
+
+            // Load JS separately if needed
+            const script = document.createElement('script');
+            script.src = '../static/chatbot.js';
+            document.body.appendChild(script);
+        });
     </script>
 </body>
 </html>

@@ -83,3 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+        // getting year for footer
+document.getElementById("year").textContent = new Date().getFullYear();
