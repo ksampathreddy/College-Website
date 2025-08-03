@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Club - DRK Institute of Science and Technology</title>
+    <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" href="static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b2635 100%);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background-color: white;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        /* Content Sections */
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            color: #c41e3a;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-subtitle {
+            color: #8b2635;
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Team Section */
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .team-title {
+            color: #c41e3a;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .team-member {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .team-member:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            color: #8b2635;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .team-card {
+                min-width: 100%;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            p, li {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #c41e3a;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="technical.html">Technical Club</a>
+    </div>
+    
+    <div class="container">
+        <header class="page-header">
+            <h1 class="page-title">Technical Club</h1>
+            <div class="title-underline"></div>
+        </header>
+        
+        <div class="section">
+            <h2 class="section-title">Domain</h2>
+            <p>Workshops & Technical seminars, Coding & Debugging Competitions, Project Assistance, Project Development & Presentations, Poster Presentation, Organizing Guest Lectures, Symposiums, Quizzes, Model exhibitions, Industry Visits to provide students an insight regarding internal working of companies, Current Trending technologies discussions.</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Objectives of the club</h2>
+            <p>The Tech Club not only help the students explore their hidden talent but also help in areas such as personality development and intricacies in the students the spirit of an organization by providing them with a platform for hosting their technical talents.</p>
+            
+            <h3 class="section-subtitle">The main objectives are</h3>
+            <ul>
+                <li>To be a source of motivation</li>
+                <li>To promote academic excellence by offering academic support</li>
+                <li>To make members aware of technological advancements at present.</li>
+                <li>To enhance the knowledge of students in System Dynamics and to explain the concepts in a practical way and help them to gain knowledge.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Questionnaire</h2>
+            <p>For the all-round development of the students and to enrich their technical knowledge the institute provides a platform for various student activities.</p>
+            
+            <div class="team-section">
+                <div class="team-card">
+                    <h3 class="team-title">Leadership</h3>
+                    <div class="team-member">
+                        <strong>PRESIDENT:</strong><br>
+                        Dr U.RAVI BABU, PRINCIPAL, DIRICET
+                    </div>
+                    <div class="team-member">
+                        <strong>FACULTY INCHARGE:</strong><br>
+                        Dr E.MADHUSUDHANA REDDY
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <h3 class="team-title">Advisory Members</h3>
+                    <div class="team-member">Prof. M. Srinivas Rao</div>
+                    <div class="team-member">Ms. A.S.Padmasree</div>
+                    <div class="team-member">Mrs. B.Nironha</div>
+                    <div class="team-member">Ms. M.V.F. Anupama</div>
+                    <div class="team-member">Mr. K.Sudheer Kumar</div>
+                    <div class="team-member">Mr. G.Subba Rao</div>
+                    <div class="team-member">Ms. M.Bhargavi</div>
+                </div>
+            </div>
+            
+            <h3 class="section-subtitle" style="margin-top: 40px;">Student Core Team</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year Branch & Section</th>
+                        <th>Name with Roll No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>II CSE</td>
+                        <td>G.Prauma (15U31A0353)</td>
+                    </tr>
+                    <tr>
+                        <td>II CSE –A</td>
+                        <td>B.Stilakalmi (16U31A0355)</td>
+                    </tr>
+                    <tr>
+                        <td>II CSE –B</td>
+                        <td>M.Velzalenh (16U31A03A5)</td>
+                    </tr>
+                    <tr>
+                        <td>II BCE –A</td>
+                        <td>A.Tarani (16U31A0404)</td>
+                    </tr>
+                    <tr>
+                        <td>II BCE-B</td>
+                        <td>K.Staraith Chandra (17U35A0404)</td>
+                    </tr>
+                    <tr>
+                        <td>I CSE</td>
+                        <td>B.Staaback (17U31A0548)</td>
+                    </tr>
+                    <tr>
+                        <td>I BCE</td>
+                        <td>M.Staraith (17U31A0456)</td>
+                    </tr>
+                    <tr>
+                        <td>I CE</td>
+                        <td>N.Kavyra (17U31A0119)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    });
+  </script>
+</body>
+</html>

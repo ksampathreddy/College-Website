@@ -1,453 +1,601 @@
-<header>
-    <div class="top-bar">
-      <div class="top-links">
-        <ul>
-          <li><a href="#">GRIEVANCE</a></li>
-          <li><a href="../student.html">STUDENTS</a></li>
-          <li><a href="../careers.html">CAREERS</a></li>
-          <li><a href="#">WEBMAIL</a></li>
-          <li><a href="../contact.html">CONTACT US</a></li>
-        </ul>
-      </div>
-      <div class="logo-container">
-        <img src="../static/K.png" alt="DRKIST Logo" class="main-logo">
-      </div>
-      <div class="search-container"></div>
-      <form id="searchForm" action="../search.html" method="GET">
-  <input type="text" name="q" placeholder="Search..." required />
-  <button type="submit"><i class="fas fa-search"></i></button>
-</form>
-</div>
-    </div>
-    
-    <!-- Mobile Menu Toggle Button - Only for main navigation -->
-    <div class="nav-container">
-      <button class="mobile-menu-toggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li class="dropdown">
-              <a href="#About us" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="about.html">About DRKIST</a>
-                <a href="management.html">Management</a>
-                <a href="principal.html">Principal Desk's</a>
-                <a href="organisation.html">Organisation Chart</a>
-              </div>
-          </li>
-          <li class="dropdown">
-              <a href="#Departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="cse.html">Computer Science Engineering</a>
-                <a href="aiml.html">CSE-Artifical Intelligence & Machine Learning</a>
-                <a href="ds.html">CSE-Data Science</a>
-                <a href="ece.html">Electronics & Communications Engineering</a>
-                <a href="eee.html">Electrical & Electronics Engineering</a>
-                <a href="mech.html">Mechanical Engineering</a>
-                <a href="hs.html">Humanities and Science</a>
-                <a href="mba.html">Master of Business Administration</a>
-              </div>
-          </li>
-          <li class="dropdown">
-            <a href="Academics">Academics <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="courses.html">Courses Offered</a>
-                <a href="academic-calendar.html">Academic Calender</a>
-                <a href="exam-branch.html">Exam Branch</a>
-                <a href="https://drkist.infinityfreeapp.com/">Attendance</a>
-                <a href="https://drkresults.kesug.com/">Results</a>
-                <a href="professional-chapters.html">Professional Chapters</a>
-                <a href="#">B-Category Seats</a>
-              </div>
-          </li>
-          <li class="dropdown">
-            <a href="Placements">Placements <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="placements.html">Placement Trainings</a>
-                <a href="placement-officer.html">Placement Officer</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Mobile Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .top-links ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 8px;
+            padding: 8px 0;
+            font-size: 12px;
+        }
+
+        .top-links a {
+            color: #8B2635;
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .top-links a:hover {
+            color: #6a1a25;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            position: relative;
+        }
+
+        .logo-container {
+            margin: 10px 0;
+        }
+
+        .main-logo {
+            height: 50px;
+            max-width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .main-logo:hover {
+            transform: scale(1.03);
+        }
+
+        .nav-container {
+            background-color: #8B2635;
+            width: 100%;
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .nav-links > li > a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 15px 20px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #8B2635;
+        }
+
+        .sports-submenu {
+            position: relative;
+        }
+
+        .sports-items {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 1000;
+            border: 1px solid #ddd;
+        }
+
+        .sports-submenu:hover .sports-items {
+            display: block;
+        }
+
+        .sports-trigger {
+            position: relative;
+        }
+
+        .sports-trigger i {
+            margin-left: 5px;
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .sports-submenu:hover .sports-trigger i {
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: #8B2635;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 60px 20px 20px;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 10px;
+        }
+
+        .mobile-nav ul li > a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Mobile Dropdowns */
+        .mobile-dropdown-content {
+            max-height: 800px;
+            overflow: visible !important; /* FIXED: allow submenus to show */
+            background-color: rgba(255,255,255,0.1);
+            margin-top: 5px;
+            border-radius: 5px;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            max-height: 1000px; /* Increased for more content */
+        }
+
+        .mobile-dropdown-content > a {
+            padding: 8px 15px !important;
+            font-size: 14px !important;
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* FIXED Student Clubs Mobile Submenu */
+        .mobile-student-clubs {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            margin: 5px 0;
+            overflow: visible !important;  /* FIXED: allow submenus to show */
+            position: relative;
+        }
+
+        .mobile-clubs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 15px !important;
+            color: white !important;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 14px !important;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        }
+
+        .mobile-clubs-header:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-clubs-header i {
+            transition: transform 0.3s;
+            font-size: 12px;
+            color: white;
+        }
+
+        .mobile-clubs-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .mobile-clubs-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            background-color: rgba(255,255,255,0.08);
+            opacity: 0;
+        }
+
+        .mobile-clubs-list.active {
+            max-height: 500px; /* Increased height for more items */
+            opacity: 1;
+        }
+
+        .mobile-clubs-list a {
+            display: block !important;
+            padding: 12px 25px !important;
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 13px !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+            transition: all 0.3s;
+            background: none !important;
+        }
+
+        .mobile-clubs-list a:hover {
+            background-color: rgba(255,255,255,0.1) !important;
+            color: white !important;
+        }
+
+        .mobile-clubs-list a:last-child {
+            border-bottom: none !important;
+        }
+
+        .dropbtn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .dropbtn i {
+            transition: transform 0.3s;
+        }
+
+        .mobile-dropdown.active .dropbtn i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 1200px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-container {
+                flex: none;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-links ul {
+                font-size: 12px;
+                gap: 5px;
+            }
+
+            .main-logo {
+                height: 50px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .logo-container {
+                position: static;
+                transform: none;
+            }
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../static/K.png" alt="DRKIST Logo" class="main-logo">
             </div>
-          </li>
-          <li><a href="life-drk.html">Life @ DRK</a></li>
-          <li class="dropdown">
+            <div class="top-links">
+                <ul>
+                    <li><a href="#">GRIEVANCE</a></li>
+                    <li><a href="../student.html">STUDENTS</a></li>
+                    <li><a href="../careers.html">CAREERS</a></li>
+                    <li><a href="#">WEBMAIL</a></li>
+                    <li><a href="../contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <button class="mobile-menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html">About DRKIST</a>
+                            <a href="management.html">Management</a>
+                            <a href="principal.html">Principal Desk's</a>
+                            <a href="organisation.html">Organisation Chart</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="cse.html">Computer Science Engineering</a>
+                            <a href="aiml.html">CSE-AI & ML</a>
+                            <a href="ds.html">CSE-Data Science</a>
+                            <a href="ece.html">Electronics & Communications</a>
+                            <a href="eee.html">Electrical & Electronics</a>
+                            <a href="mech.html">Mechanical Engineering</a>
+                            <a href="hs.html">Humanities and Science</a>
+                            <a href="mba.html">MBA</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Academics <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="courses.html">Courses Offered</a>
+                            <a href="academic-calendar.html">Academic Calendar</a>
+                            <a href="exam-branch.html">Exam Branch</a>
+                            <a href="#">Attendance</a>
+                            <a href="#">Results</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Placements <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="placements.html">Placement Trainings</a>
+                            <a href="placement-officer.html">Placement Officer</a>
+                        </div>
+                    </li>
+                    <li><a href="life-drk.html">Life @ DRK</a></li>
+                    <li class="dropdown">
                         <a href="Facilities">Facilities <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <a href="library.html">Library</a>
                             <a href="seminar-hall.html">Seminar Hall</a>
-                            
                             <div class="sports-submenu">
-                                <a href="#" class="sports-trigger">Facilities <i class="fas fa-chevron-right"></i></a>
+                                <a href="#" class="sports-trigger">Students Clubs <i class="fas fa-chevron-right"></i></a>
                                 <div class="sports-items">
                                     <a href="technical.html">Technical</a>
                                     <a href="cultural.html">Cultural and Sports</a>
                                     <a href="societal.html">Societal</a>
                                 </div>
                             </div>
-                            
                             <a href="transport.html">Transport</a>
                             <a href="games.html">Games</a>
                             <a href="cafeteria.html">Cafeteria</a>
                         </div>
                     </li>
-          <li class="dropdown">
-            <a href="NAAC">NAAC <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="#">SRR</a>
-                <a href="#">DVV</a>
-                <a href="#">Extended Profile</a>
-            </div>
-          </li>
-          <li><a href="iqac.html">IQAC Cell</a></li>
-          <li><a href="disclosures.html">Mandatory Disclosures</a></li>
-        </ul>
-      </nav>
-    </div>
-    
-    <!-- Mobile Navigation -->
-    <div class="mobile-overlay"></div>
-    <nav class="mobile-nav">
-      <button class="mobile-close-btn"><i class="fas fa-times"></i></button>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-          <li class="dropdown">
-              <a href="#About us" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="about.html">About DRKIST</a>
-                <a href="management.html">Management</a>
-                <a href="principal.html">Principal Desk's</a>
-                <a href="organisation.html">Organisation Chart</a>
-              </div>
-          </li>
-          <li class="dropdown">
-              <a href="#Departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="cse.html">Computer Science Engineering</a>
-                <a href="aiml.html">CSE-Artifical Intelligence & Machine Learning</a>
-                <a href="ds.html">CSE-Data Science</a>
-                <a href="ece.html">Electronics & Communications Engineering</a>
-                <a href="eee.html">Electrical & Electronics Engineering</a>
-                <a href="mech.html">Mechanical Engineering</a>
-                <a href="hs.html">Humanities and Science</a>
-                <a href="mba.html">Master of Business Administration</a>
-              </div>
-          </li>
-          <li class="dropdown">
-            <a href="Academics">Academics <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="courses.html">Courses Offered</a>
-                <a href="academic-calendar.html">Academic Calender</a>
-                <a href="exam-branch.html">Exam Branch</a>
-                <a href="https://drkist.infinityfreeapp.com/">Attendance</a>
-                <a href="https://drkresults.kesug.com/">Results</a>
-                <a href="professional-chapters.html">Professional Chapters</a>
-                <a href="#">B-Category Seats</a>
-              </div>
-          </li>
-          <li class="dropdown">
-            <a href="Placements">Placements <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="placements.html">Placement Trainings</a>
-                <a href="placement-officer.html">Placement Officer</a>
-            </div>
-          </li>
-          <li><a href="life-drk.html">Life @ DRK</a></li>
-          <li class="dropdown mobile-dropdown">
-    <a href="Facilities" class="dropbtn">Facilities <i class="fas fa-chevron-down"></i></a>
-    <div class="mobile-dropdown-content">
-        <a href="pages/library.html">Library</a>
-        <a href="pages/seminar-hall.html">Seminar Hall</a>
-        
-        <!-- Updated Student Clubs/Activities section -->
-        <a href="#" class="mobile-sports-trigger">Student Activities <i class="fas fa-chevron-down"></i></a>
-        <div class="mobile-sports-items">
-            <a href="technical.html">Technical Clubs</a>
-            <a href="cultural.html">Cultural and Sports Clubs</a>
-            <a href="societal.html">Societal Clubs</a>
+                    <li class="dropdown">
+                        <a href="#">NAAC <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">SRR</a>
+                            <a href="#">DVV</a>
+                            <a href="#">Extended Profile</a>
+                        </div>
+                    </li>
+                    <li><a href="iqac.html">IQAC Cell</a></li>
+                    <li><a href="disclosures.html">Mandatory Disclosures</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <a href="transport.html">Transport</a>
-        <a href="games.html">Games</a>
-        <a href="cafeteria.html">Cafeteria</a>
-    </div>
-</li>
-          <li class="dropdown">
-            <a href="NAAC">NAAC <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="#">SRR</a>
-                <a href="#">DVV</a>
-                <a href="#">Extended Profile</a>
-            </div>
-          </li>
-          <li><a href="iqac.html">IQAC Cell</a></li>
-          <li><a href="disclosures.html">Mandatory Disclosures</a></li>
-      </ul>
-    </nav>
-    
-<script src="../static/search.js"></script>
-  </header>
-  <style>
-    /* Mobile Menu Styles */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 15px;
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      z-index: 1001;
-    }
-    
-    .mobile-menu-toggle .bar {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 5px auto;
-      background-color: #8B2635;
-      transition: all 0.3s ease;
-    }
-    
-    .mobile-menu-toggle.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    
-    .mobile-menu-toggle.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .mobile-menu-toggle.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 280px;
-      height: 100%;
-      background-color: #fff;
-      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-      z-index: 1000;
-      transition: right 0.3s ease;
-      overflow-y: auto;
-    }
-    
-    .mobile-nav.active {
-      right: 0;
-    }
-    
-    .mobile-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .mobile-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .mobile-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: #8B2635;
-      cursor: pointer;
-    }
-    
-    .mobile-nav ul {
-      list-style: none;
-      padding: 60px 20px 20px;
-      margin: 0;
-    }
-    
-    .mobile-nav ul li {
-      margin-bottom: 15px;
-    }
-    
-    .mobile-nav ul li a {
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-      display: block;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .mobile-dropdown .dropbtn {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-    
-    .mobile-dropdown-content {
-      display: none;
-      padding-left: 15px;
-    }
-    
-    .mobile-dropdown-content a {
-      font-size: 14px !important;
-      padding: 8px 0 !important;
-      border-bottom: none !important;
-    }
-    
-    .mobile-dropdown.active .mobile-dropdown-content {
-      display: block;
-    }
-    
-    .no-scroll {
-      overflow: hidden;
-    }
-    
-    /* Dropdown Styles */
-    .dropdown {
-      position: relative;
-    }
-    
-    .dropbtn i {
-      font-size: 10px;
-      margin-left: 5px;
-      transition: transform 0.3s ease;
-    }
-    
-    .dropdown:hover .dropbtn i {
-      transform: rotate(180deg);
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      min-width: 200px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      z-index: 1000;
-      border-radius: 8px;
-      overflow: hidden;
-      top: 100%;
-      left: 0;
-      border: 1px solid #e0e0e0;
-    }
-    
-    .dropdown-content a {
-      color: #333 !important;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 13px;
-    }
-    
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-    
-    .dropdown-content a:hover {
-      background-color: #f8f9fa;
-      color: #8B2635 !important;
-      padding-left: 20px;
-    }
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Responsive Styles */
-    .nav-container {
-      position: relative;
-    }
-    
-    @media (max-width: 1024px) {
-      .mobile-menu-toggle {
-        display: block;
-      }
-      
-      .main-nav {
-        display: none;
-      }
-      
-      .top-links ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px 0;
-      }
-      
-      .top-links ul li {
-        margin: 0;
-      }
-      
-      .search-container {
-        display: none;
-      }
-      
-      .logo-container {
-        margin: 0 auto;
-        padding: 10px 0;
-      }
-      
-      .top-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 5px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .top-links ul {
-        font-size: 14px;
-        gap: 5px;
-      }
-    }
-    
-    @media (min-width: 1025px) {
-      .mobile-nav,
-      .mobile-overlay {
-        display: none !important;
-      }
-    }
-    
 
-  @media (max-width: 1024px) {
-  .top-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4px 2px;
-    gap: 3px; /* Reduce vertical spacing */
-  }
-  .top-links {
-    margin-top: 0; /* Remove extra margin if any */
-  }
- .top-links ul {
-    gap: 6px; /* Reduce spacing between top links */
-    padding: 5px 0;
-  }
-}  </style>
- 
+        <!-- Mobile Navigation -->
+        <div class="mobile-overlay"></div>
+        <nav class="mobile-nav">
+            <button class="mobile-close-btn"><i class="fas fa-times"></i></button>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="about.html">About DRKIST</a>
+                        <a href="management.html">Management</a>
+                        <a href="principal.html">Principal Desk's</a>
+                        <a href="organisation.html">Organisation Chart</a>
+                    </div>
+                </li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="cse.html">Computer Science Engineering</a>
+                        <a href="aiml.html">CSE-AI & ML</a>
+                        <a href="ds.html">CSE-Data Science</a>
+                        <a href="ece.html">Electronics & Communications</a>
+                        <a href="eee.html">Electrical & Electronics</a>
+                        <a href="mech.html">Mechanical Engineering</a>
+                        <a href="hs.html">Humanities and Science</a>
+                        <a href="mba.html">MBA</a>
+                    </div>
+                </li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#" class="dropbtn">Academics <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="courses.html">Courses Offered</a>
+                        <a href="academic-calendar.html">Academic Calendar</a>
+                        <a href="exam-branch.html">Exam Branch</a>
+                        <a href="#">Attendance</a>
+                        <a href="#">Results</a>
+                    </div>
+                </li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#" class="dropbtn">Placements <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="placements.html">Placement Trainings</a>
+                        <a href="placement-officer.html">Placement Officer</a>
+                    </div>
+                </li>
+                <li><a href="life-drk.html">Life @ DRK</a></li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#" class="dropbtn">Facilities <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="library.html">Library</a>
+                        <a href="seminar-hall.html">Seminar Hall</a>
+                        <!-- FIXED Student Clubs for Mobile -->
+                        <div class="mobile-student-clubs">
+                            <button class="mobile-clubs-header" type="button">
+                                Student Clubs <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="mobile-clubs-list">
+                                <a href="technical.html">Technical Clubs</a>
+                                <a href="cultural.html">Cultural and Sports Clubs</a>
+                                <a href="societal.html">Societal Clubs</a>
+                            </div>
+                        </div>
+                        <a href="transport.html">Transport</a>
+                        <a href="games.html">Games</a>
+                        <a href="cafeteria.html">Cafeteria</a>
+                    </div>
+                </li>
+                <li class="dropdown mobile-dropdown">
+                    <a href="#" class="dropbtn">NAAC <i class="fas fa-chevron-down"></i></a>
+                    <div class="mobile-dropdown-content">
+                        <a href="#">SRR</a>
+                        <a href="#">DVV</a>
+                        <a href="#">Extended Profile</a>
+                    </div>
+                </li>
+                <li><a href="iqac.html">IQAC Cell</a></li>
+                <li><a href="disclosures.html">Mandatory Disclosures</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
@@ -455,74 +603,82 @@
             const mobileNav = document.querySelector('.mobile-nav');
             const mobileOverlay = document.querySelector('.mobile-overlay');
             const mobileClose = document.querySelector('.mobile-close-btn');
-            
-            if (mobileToggle && mobileNav && mobileOverlay) {
+
+            // Toggle mobile menu
+            if (mobileToggle) {
                 mobileToggle.addEventListener('click', function() {
-                    this.classList.toggle('active');
                     mobileNav.classList.toggle('active');
                     mobileOverlay.classList.toggle('active');
                     document.body.classList.toggle('no-scroll');
                 });
-                
+            }
+
+            // Close mobile menu
+            if (mobileClose) {
                 mobileClose.addEventListener('click', function() {
-                    mobileToggle.classList.remove('active');
                     mobileNav.classList.remove('active');
                     mobileOverlay.classList.remove('active');
                     document.body.classList.remove('no-scroll');
                 });
-                
+            }
+
+            // Close when clicking overlay
+            if (mobileOverlay) {
                 mobileOverlay.addEventListener('click', function() {
-                    mobileToggle.classList.remove('active');
                     mobileNav.classList.remove('active');
                     this.classList.remove('active');
                     document.body.classList.remove('no-scroll');
                 });
             }
-            
-            // Mobile dropdown toggle
-            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown .dropbtn');
-            mobileDropdownBtns.forEach(btn => {
+
+            // Mobile main dropdowns (About Us, Departments, etc.)
+            document.querySelectorAll('.mobile-dropdown > .dropbtn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const dropdown = this.closest('.mobile-dropdown');
+                    // Close other main dropdowns (but not student clubs)
+                    document.querySelectorAll('.mobile-dropdown').forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
                     dropdown.classList.toggle('active');
                 });
             });
-            
-            // Mobile sports submenu toggle
-            const mobileSportsTriggers = document.querySelectorAll('.mobile-sports-trigger');
-            mobileSportsTriggers.forEach(trigger => {
-                trigger.addEventListener('click', function(e) {
+
+            // Student Clubs submenu for mobile
+            document.querySelectorAll('.mobile-clubs-header').forEach(header => {
+                header.addEventListener('click', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     this.classList.toggle('active');
+                    const clubsList = this.nextElementSibling;
+                    if (clubsList && clubsList.classList.contains('mobile-clubs-list')) {
+                        clubsList.classList.toggle('active');
+                    }
                 });
             });
-            
+
             // Desktop dropdowns
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.addEventListener('mouseenter', function() {
-                    this.querySelector('.dropdown-content').style.display = 'block';
+                    const content = this.querySelector('.dropdown-content');
+                    if (content) content.style.display = 'block';
                 });
-                
                 dropdown.addEventListener('mouseleave', function() {
-                    this.querySelector('.dropdown-content').style.display = 'none';
+                    const content = this.querySelector('.dropdown-content');
+                    if (content) content.style.display = 'none';
+                });
+            });
+
+            // Prevent clicks on student clubs links from closing the submenu
+            document.querySelectorAll('.mobile-clubs-list a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Let the link navigate normally
                 });
             });
         });
-        // Mobile sports submenu toggle
-const mobileSportsTriggers = document.querySelectorAll('.mobile-sports-trigger');
-mobileSportsTriggers.forEach(trigger => {
-    trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        this.classList.toggle('active');
-        // This should toggle the visibility of the next sibling element
-        const items = this.nextElementSibling;
-        if (items.style.display === 'block') {
-            items.style.display = 'none';
-        } else {
-            items.style.display = 'block';
-        }
-    });
-});
     </script>
+</body>
+<

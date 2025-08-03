@@ -1,73 +1,85 @@
+// static/menu.js
 function initMobileMenu() {
+    // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNav = document.querySelector('.mobile-nav');
     const mobileOverlay = document.querySelector('.mobile-overlay');
     const mobileClose = document.querySelector('.mobile-close-btn');
 
-    // Toggle mobile menu
-    if (mobileToggle && mobileNav && mobileOverlay) {
-        mobileToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.classList.toggle('active');
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
             mobileNav.classList.toggle('active');
             mobileOverlay.classList.toggle('active');
             document.body.classList.toggle('no-scroll');
         });
-
-        // Close mobile menu
-        if (mobileClose) {
-            mobileClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        }
-
-        mobileOverlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            mobileToggle.classList.remove('active');
+    }
+    if (mobileClose) {
+        mobileClose.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+    }
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', function() {
             mobileNav.classList.remove('active');
             this.classList.remove('active');
             document.body.classList.remove('no-scroll');
         });
     }
 
-    // Mobile dropdown functionality
-    document.querySelectorAll('.mobile-dropdown .dropbtn').forEach(btn => {
+    // Main dropdowns (About, Departments, Facilities, etc.)
+    document.querySelectorAll('.mobile-dropdown > .dropbtn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const dropdown = this.closest('.mobile-dropdown');
+            // Close other dropdowns
+            document.querySelectorAll('.mobile-dropdown').forEach(other => {
+                if (other !== dropdown) other.classList.remove('active');
+            });
             dropdown.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-chevron-up');
         });
     });
 
-    // Sports submenu toggle for mobile
-    document.querySelectorAll('.sports-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
+    // Student Clubs submenu for mobile
+    document.querySelectorAll('.mobile-clubs-header').forEach(header => {
+        header.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             this.classList.toggle('active');
-            const submenu = this.nextElementSibling;
-            submenu.classList.toggle('active');
+            const clubsList = this.nextElementSibling;
+            if (clubsList && clubsList.classList.contains('mobile-clubs-list')) {
+                clubsList.classList.toggle('active');
+            }
         });
     });
 
-    // Desktop dropdowns
+    // Prevent accidental closure on Student Clubs links
+    document.querySelectorAll('.mobile-clubs-list a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    // Desktop dropdown hover
     document.querySelectorAll('.dropdown').forEach(dropdown => {
         dropdown.addEventListener('mouseenter', function() {
-            this.querySelector('.dropdown-content').style.display = 'block';
+            const content = this.querySelector('.dropdown-content');
+            if (content) content.style.display = 'block';
         });
-        
         dropdown.addEventListener('mouseleave', function() {
-            this.querySelector('.dropdown-content').style.display = 'none';
+            const content = this.querySelector('.dropdown-content');
+            if (content) content.style.display = 'none';
         });
     });
 }
 
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initMobileMenu();
-    document.getElementById('year').textContent = new Date().getFullYear();
+    if (typeof initMobileMenu === 'function') {
+        initMobileMenu();
+    }
+    // Set year if you have <span id="year"></span> somewhere
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
