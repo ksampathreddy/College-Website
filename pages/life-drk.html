@@ -8,22 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Life @ DRK - DRK Institute of Science and Technology</title>
     <style>
-   /* Main Content */
+  /* Life @ DRK Page Styles */
+/* Main Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
+/* Breadcrumb Navigation */
 .breadcrumb {
     padding: 15px 20px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
     font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 30px;
 }
 
 .breadcrumb a {
-    color: #666;
+    color: #6c757d;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -34,10 +43,11 @@
 }
 
 .breadcrumb span {
-    color: #333;
+    color: #343a40;
     font-weight: 500;
 }
 
+/* Page Header */
 .page-header {
     text-align: center;
     margin: 40px 0;
@@ -50,190 +60,216 @@
     color: #2c3e50;
     margin-bottom: 15px;
     line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
 }
 
-.title-underline {
-    width: 80px;
-    height: 4px;
-    background-color: #c41e3a;
-    margin: 0 auto;
-    border-radius: 2px;
+.page-title:after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #c41e3a, #f05a28);
+    bottom: -10px;
+    left: 20%;
+    border-radius: 3px;
 }
 
-        /* Photo Gallery */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
 
-        .photo-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            aspect-ratio: 1;
-        }
+.photo-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    aspect-ratio: 1;
+}
 
-        .photo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
+.photo-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
 
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
-        }
+.photo-item:hover img {
+    transform: scale(1.05);
+}
 
-        .photo-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .photo-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .photo-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .photo-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .photo-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .photo-6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
-        .photo-7 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
-        .photo-8 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
-        .photo-9 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
-        .photo-10 { background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%); }
-        .photo-11 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
-        .photo-12 { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        .add-photo {
-            background: #c41e3a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            transition: background-color 0.3s;
-        }
+.photo-item:hover .photo-caption {
+    opacity: 1;
+}
 
-        .add-photo:hover {
-            background: #a01729;
-        }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    animation: fadeIn 0.3s;
+}
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        .modal-content {
-            position: relative;
-            margin: auto;
-            padding: 0;
-            width: 90%;
-            max-width: 900px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+.modal-content {
+    position: relative;
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    animation: slideDown 0.4s;
+}
 
-        .modal img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.modal img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
 
-        .close:hover {
-            color: #c41e3a;
-        }
+.modal-title {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .photo-gallery {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
 
-            .nav-menu ul {
-                flex-wrap: wrap;
-            }
+.close:hover {
+    color: #c41e3a;
+}
 
-            .nav-menu a {
-                padding: 12px 15px;
-                font-size: 13px;
-            }
-        }
+/* Section Description */
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
 
-        @media (max-width: 768px) {
-            .photo-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
+/* Responsive Design */
+@media (max-width: 992px) {
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .page-title {
+        font-size: 2.2rem;
+    }
+}
 
-            .page-title {
-                font-size: 36px;
-            }
+@media (max-width: 768px) {
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
 
-            .header-top {
-                flex-direction: column;
-                gap: 15px;
-            }
+@media (max-width: 480px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .breadcrumb {
+        font-size: 12px;
+    }
+}
 
-            .header-links {
-                gap: 20px;
-            }
+/* Animation for photo items */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-            .search-box input {
-                width: 150px;
-            }
+.photo-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
 
-            .nav-menu ul {
-                justify-content: center;
-            }
-
-            .nav-menu a {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .photo-gallery {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .page-title {
-                font-size: 28px;
-            }
-        }
+/* Create staggered animation */
+.photo-item:nth-child(1) { animation-delay: 0.1s; }
+.photo-item:nth-child(2) { animation-delay: 0.2s; }
+.photo-item:nth-child(3) { animation-delay: 0.3s; }
+.photo-item:nth-child(4) { animation-delay: 0.4s; }
+.photo-item:nth-child(5) { animation-delay: 0.5s; }
+.photo-item:nth-child(6) { animation-delay: 0.6s; }
+.photo-item:nth-child(7) { animation-delay: 0.7s; }
+.photo-item:nth-child(8) { animation-delay: 0.8s; }
+.photo-item:nth-child(9) { animation-delay: 0.9s; }
+.photo-item:nth-child(10) { animation-delay: 1.0s; }
+.photo-item:nth-child(11) { animation-delay: 1.1s; }
+.photo-item:nth-child(12) { animation-delay: 1.2s; }
     </style>
 </head>
 <body>
