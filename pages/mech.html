@@ -876,7 +876,7 @@
       .catch(error => {
         console.error('Fetch error:', error);
       });
-    fetch('chatbot.html')
+     fetch('chatbot.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('chatbot').innerHTML = data;
@@ -885,6 +885,16 @@
       const script = document.createElement('script');
       script.src = '../static/chatbot.js';
       document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
     });
   </script>
 </body>

@@ -901,20 +901,6 @@
             });
         });
 
-        // Scroll to top functionality
-        window.onscroll = function() {
-            const scrollBtn = document.querySelector('.scroll-to-top');
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollBtn.style.display = "flex";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
     </script>
      <div class="scroll-to-top">
         <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
@@ -959,6 +945,16 @@
       const script = document.createElement('script');
       script.src = '../static/chatbot.js';
       document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
     });
   </script>
 </body>
