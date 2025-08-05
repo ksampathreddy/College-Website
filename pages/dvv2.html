@@ -285,44 +285,7 @@
         </div>
     </main>
 
-
     <script>
-
-        // View link functionality with loading animation
-        document.querySelectorAll('.view-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const fileNo = this.closest('tr').querySelector('.file-number').textContent;
-                const description = this.closest('tr').querySelector('.file-description').textContent;
-                
-                // Add loading state
-                this.classList.add('loading');
-                
-                // Simulate loading and then show alert
-                setTimeout(() => {
-                    this.classList.remove('loading');
-                    alert(`Opening Document:\nFile No: ${fileNo}\nDescription: ${description}`);
-                }, 1000);
-            });
-        });
-
-        // Search functionality
-        const searchInput = document.querySelector('.search-input');
-        const searchBtn = document.querySelector('.search-btn');
-        
-        searchBtn.addEventListener('click', function() {
-            const query = searchInput.value.trim();
-            if (query) {
-                alert(`Searching for: "${query}"`);
-            }
-        });
-        
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchBtn.click();
-            }
-        });
-
         // Table row hover effects
         document.querySelectorAll('tbody tr').forEach(row => {
             row.addEventListener('mouseenter', function() {
@@ -335,9 +298,6 @@
                 this.style.boxShadow = 'none';
             });
         });
-
-        // Initialize scroll button visibility
-        document.querySelector('.scroll-top').style.display = 'none';
     </script>
           <div class="scroll-to-top">
         <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
