@@ -6,7 +6,7 @@
     <link rel="icon" href="../static/drk.png" type="image/x-icon">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Placement Trainings - DRK Institute of Science and Technology</title>
+    <title>Placements - DRK Institute of Science and Technology</title>
     <style>
         /* Breadcrumb */
         .breadcrumb {
@@ -133,6 +133,64 @@
                 padding: 1rem;
             }
         }
+       /* Flexbox container for list + image */
+.list-with-image {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 2rem; /* Space between list and image */
+    margin: 1.5rem 0;
+}
+
+/* List styling (takes remaining space) */
+.list-with-image ul {
+    flex: 1; /* Grow to fill available space */
+    padding-left: 1.5rem; /* Indent list */
+    margin: 0; /* Remove default margins */
+}
+
+/* Image styling */
+.jobs-image {
+    width: 40%; /* Adjust width as needed */
+    max-width: 300px; /* Prevent image from becoming too large */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .list-with-image {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+    .jobs-image {
+        width: 80%; /* Larger image on mobile */
+        margin: 1rem auto; /* Center image */
+    }
+}/* Styles for placements.png (main banner image) */
+.content-section img[src*="placements.png"] {
+    width: 100%;
+    max-width: 1000px; /* Control max size */
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee; /* Optional subtle border */
+}
+
+/* Hover effect (optional) */
+.content-section img[src*="placements.png"]:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-section img[src*="placements.png"] {
+        margin: 1.5rem auto;
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
     </style>
 </head>
 <body>
@@ -141,29 +199,32 @@
         <div class="container">
             <a href="../index.html">Home</a>
             <span>/</span>
-            <span>Placement Trainings</span>
+            <span>Placements</span>
         </div>
     </div>
 
     <main>
         <div class="container">
-            <h1 class="page-title">Placement Trainings</h1>
+            <h1 class="page-title">Placements</h1>
 
             <div class="content-section">
-                <h2 class="section-title">Soft Skill Program:</h2>
-                <div class="section-content">
-                    <p>To arrange training for the students in soft skills we have scheduled 2 hours per week for each section from second year onwards to cover communication skills and Analytical Skills. We arrange Guest Lectures from the Industry Experts to expose students on Employability Skills. Placement cell organize practice sessions to improve GD and Interview Skills. Interact with various Industries and establish MOUs for Recruitment Drives and also for conducting Seminars to make the students aware of the Latest Trends in various areas. We also arrange before each recruitment drive a company specific training session to prepare the students based on the selection process adopted by the company. After the drive feedback is collected from students who are not selected and ascertain the gaps in training.</p>
-
-                    <p>The relationship between educational institutions and industry is highly synergistic. Since the primary objective of students in pursuing higher education is to get a good job on completion of their studies, the institutions need the support of industry to help the eligible students in their final placements. On the other hand, industry looks to the educational institutions for their requirement of qualified and trained manpower. Thus, it is in the interest of both industry & institutions to develop a strong cooperation, which can be win-win for both and will also be beneficial to the students.</p>
-
-                    <p>This has been the guiding principle for us at Presidency College. Apart from excelling in academics, we want our students to be corporate ready professionals. Hence we conduct extensive Employability Enhancement Program designed to develop professional skills and provide value added training and certifications in their domain areas. They are also exposed to practical aspects of industry through guest lectures, industrial visits, internships etc.</p>
-                </div>
-            </div>
-
-            <div class="content-section companies-section">
-                <h2 class="companies-title">Companies Visited</h2>
-                <p class="companies-subtitle">On Campus / Off Campus</p>
-            </div>
+    <div class="section-content">
+        <p>Placement Cell believes in combining the three facets that together spell success – Ability, Motivation and Attitude. To strengthen one’s forte in today’s ever challenging technical world, engineers require exemplary technical expertise combined with effective inter personal skills. Increasingly recognized by recruiters for its abundant talent pool and excellent facilities, DRK’s placement process aims to match the requirements of recruiters and the aspirations of students. The objectives of Placement Cell are:</p>
+        <!-- Flex container for list + image -->
+        <div class="list-with-image">
+            <ul>
+                <li>To place final year students in respectable organizations through campus recruitment.</li>
+                <li>To provide industrial training to students during their course of study.</li>
+                <li>To organize lectures, seminars, group discussions, mock interviews etc.</li>
+                <li>To provide information and assistance to students regarding opportunities...</li>
+                <li>To provide opportunities for higher studies in India and abroad.</li>
+                <li>To prepare students for competitive examinations like GRE, GMAT, TOEFL, GATE, CAT etc.</li>
+            </ul>
+            <img src="../static/jobs.png" alt="Jobs Illustration" class="jobs-image">
+        </div>
+    </div>
+    <img src="../static/placements.png" alt="Placements Overview">
+</div>
         </div>
     </main>
     <div class="scroll-to-top">
