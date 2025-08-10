@@ -30,23 +30,31 @@
             min-height: calc(100vh - 200px);
         }
 
-        .breadcrumb {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 10;
-        }
+        
+.breadcrumb {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+}
 
-        .breadcrumb a {
-            color: #666;
-            text-decoration: none;
-        }
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
 
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
+.breadcrumb a:hover {
+    color: #c41e3a;
+    text-decoration: underline;
+}
 
+.breadcrumb span {
+    color: #333;
+    font-weight: 500;
+}
         .page-title {
             text-align: center;
             font-size: 48px;
