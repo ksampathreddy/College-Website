@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Transport - DRK Institute of Science and Technology</title>
+    <style>
+       .breadcrumb {
+            background-color:  #f5f5f5;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 300;
+            margin: 40px 0;
+            color: #333;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #c41e3a;
+            margin: 20px auto;
+        }
+
+        .transport-description {
+            background: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .transport-description p {
+            margin-bottom: 20px;
+        }
+
+        .transport-description a {
+            color: #c41e3a;
+            text-decoration: none;
+        }
+
+        .transport-description a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0 80px 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .transport-image-1 {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transport-image-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150"><rect x="30" y="60" width="80" height="30" rx="15" fill="white" opacity="0.3"/><rect x="32" y="62" width="76" height="26" rx="13" fill="none" stroke="white" stroke-width="2" opacity="0.5"/><circle cx="45" cy="95" r="8" fill="white" opacity="0.4"/><circle cx="95" cy="95" r="8" fill="white" opacity="0.4"/><rect x="40" y="65" width="12" height="8" fill="white" opacity="0.6"/><rect x="55" y="65" width="12" height="8" fill="white" opacity="0.6"/><rect x="70" y="65" width="12" height="8" fill="white" opacity="0.6"/><rect x="85" y="65" width="12" height="8" fill="white" opacity="0.6"/><text x="70" y="50" text-anchor="middle" fill="white" font-size="8" opacity="0.8">DRK</text><text x="70" y="110" text-anchor="middle" fill="white" font-size="6" opacity="0.6">COLLEGE BUS</text><circle cx="160" cy="30" r="2" fill="white" opacity="0.3"/><circle cx="170" cy="35" r="1.5" fill="white" opacity="0.3"/><circle cx="180" cy="25" r="1" fill="white" opacity="0.3"/></svg>') center/contain no-repeat;
+        }
+
+        .transport-image-1::after {
+            content: 'College Bus - Student Pickup Point';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .transport-image-2 {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transport-image-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150"><rect x="10" y="80" width="180" height="40" fill="white" opacity="0.2"/><rect x="20" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="50" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="80" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="110" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="140" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="170" y="40" width="25" height="35" fill="white" opacity="0.3"/><rect x="15" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="35" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="55" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="75" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="95" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="115" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="135" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="155" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><rect x="175" y="85" width="15" height="8" rx="4" fill="white" opacity="0.4"/><circle cx="25" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="50" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="75" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="100" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="125" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="150" cy="110" r="5" fill="white" opacity="0.5"/><circle cx="175" cy="110" r="5" fill="white" opacity="0.5"/><text x="100" y="25" text-anchor="middle" fill="white" font-size="10" opacity="0.8">DRK COLLEGE</text><text x="100" y="135" text-anchor="middle" fill="white" font-size="6" opacity="0.6">FLEET OF BUSES</text></svg>') center/contain no-repeat;
+        }
+
+        .transport-image-2::after {
+            content: 'College Campus - Bus Fleet';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background: #a01629;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .transport-description {
+                padding: 20px;
+            }
+
+            .gallery-item img,
+            .transport-image-1,
+            .transport-image-2 {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .search-box input {
+                width: 150px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>Transport</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Transport</h1>
+
+        <div class="transport-description">
+            <p>Our <a href="#">transport facility</a> connects the corners of the twin cities (Hyderabad and secunderabad) to our college DRKCET have a fleet of 15 buses for the Transport of the Students and Staff members . Buses reach the college by 9:00AM and leave the college in the evening by 4:30PM.</p>
+
+            <p>A Nominal fee is collected towards the Bus fare from the Students on the Basis of their boarding point. Transport is FREE for all the staff members. The details are available with the <a href="#">transport incharge</a> All the buses are maintained well with regular servicing and maintainence.</p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <div class="gallery-item">
+                <div ><img src="../static/facilities/b1.jpg"></div>
+            </div>
+            <div class="gallery-item">
+                <div ><img src="../static/facilities/b2.jpg"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Initially hide the button
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.back-to-top').style.display = 'none';
+        });
+    </script>
+        <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+ <!-- footer and header and chatbot -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/chatbot.js';
+      document.body.appendChild(script);
+    fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+    });
+  </script>
+</body>
+</html>

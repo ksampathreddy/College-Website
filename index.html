@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRK Institute of Science and Technology</title>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" href="static/drk.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+  /* news & updates */
+    .news-section {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .news-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .news-section h3 {
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .news-section h3::after {
+      content: "";
+      width: 60%;
+      height: 2px;
+      background: #a80406;
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .calendar-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .calendar-buttons button {
+      background-color: #a80406;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-buttons button:hover {
+      background-color: #a80406;
+    }
+
+    .stats-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 50px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .stat-block {
+      flex: 1 1 200px;
+      max-width: 200px;
+    }
+
+    .stat-block i {
+      font-size: 40px;
+      color: #a80406;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .stat-block i::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: #e2a9a9;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .stat-block h2 {
+      font-size: 32px;
+      color: #a80406;
+      margin: 10px 0;
+    }
+
+    .stat-block p {
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #2f2c55;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+
+    }
+
+    /* Why Choose DRK College */
+    
+    .why-choose-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .why-choose-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .why-choose-section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #a80406;
+      margin: 10px auto 30px auto;
+      border-radius: 2px;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 30px 20px;
+      max-width: 250px;
+      flex: 1 1 220px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        max-width: 90%;
+      }
+    }
+
+/* ================================
+   Explore Button Styling
+================================= */
+.explore-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+.explore-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff; /* default white */
+  margin-bottom: 10px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: color 0.4s ease;
+}
+
+.explore-btn .circle {
+  width: 70px;
+  height: 70px;
+  border: 2px dotted #ffffff; /* default white */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  background: transparent; /* keep background clear */
+}
+
+.explore-btn .circle i {
+  color: #ffffff; /* default white arrow */
+  font-size: 22px;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+/* ✅ Hover: Change circle, arrow, and text to maroon */
+.explore-btn:hover .circle {
+  border-color: #a80406; /* maroon border */
+  transform: scale(1.1);
+}
+
+.explore-btn:hover .circle i {
+  color: #a80406; /* maroon arrow */
+  transform: translateY(5px);
+}
+
+.explore-btn:hover .explore-text {
+  color: #a80406; /* maroon text */
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Subtle breathing animation */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+</style>
+<body>
+  <div id="header"></div>
+<!-- <div class="sticky"></div> -->
+  <div class="image-slider">
+    <div class="slider-content">
+      <h1>Dream. Innovate. Achieve.<br> <span>Your Future Starts Here</span></h1>
+      <a href="pages/admissions.html" style="text-decoration: none;"><button class="admissions-btn">Enroll at DRKIST !</button></a>
+    </div>
+    <img src="static/1.jpg" class="active">
+    <img src="static/2.jpg">
+  </div>
+
+  <main class="content-container">
+    <section class="welcome-section">
+      <h2>Welcome to<span> DRK <br>Institute of Science<br>& Technology<br> <a href="pages/about.html" style="color:white;text-decoration: none;"><button class="read-more-btn">Read More</button></a></span></h2>
+      <div class="welcome-content">
+        <div class="welcome-text">
+          <p>The era of success of DRK Institute of Science & Technology has started way back in 2004 when it was established by Mr. D.B Chandra Sekhar Rao in the fond memory of his late father Sri Dasari Rama Kotaiah garu. Mr. D.B Chandra Shekar Rao is an eminent & successful entrepreneur, who has subsequently decided to focus on high quality education with the philanthropic motive, to act as a leader to promote economic & industrial growth of the country. DRK Institute of Science & Technology has envisaged significant investment of capital and resources to give shape to the development of the institute, in terms of Infrastructure, academic resources and career development for its students. A vibrant effort has been made to consciously invest to improve the conceptual and technical skill of the students.</p>
+        </div>
+       
+      </div>
+    </section>
+
+     <section class="why-choose-section">
+    <h2>Why Choose DRK</h2>
+    <div class="cards-container">
+
+      <div class="card">
+        <img src="static/icons/vision.svg" alt="Vision Icon">
+        <h3>Vision</h3>
+        <p>To be a Premier Institution with sky-scraping educational values and research built on communal trust and instill high pattern of discipline to serve the nation and the world.</p>
+      </div>
+
+      <div class="card">
+        <img src="static/icons/mission.svg" alt="Mission Icon">
+        <h3>Mission</h3>
+        <p>To implant in students, the attitude values and vision that will prepare them to lead lives of personal integrity and civic responsibility.</p>
+      </div>
+
+      <div class="card">
+        <img src="static/icons/quality.svg" alt="Quality Icon">
+        <h3>Quality</h3>
+        <p>To Provide Quality Education to the Students to excel in the fields of Engineering & Management to cater to the ever Challenging needs.</p>
+      </div>
+
+      <div class="card">
+        <img src="static/icons/placements.svg" alt="Placements Icon">
+        <h3>Placements</h3>
+        <p>To strengthen one’s forte in today’s ever challenging technical world, engineers require exemplary technical expertise combined.</p>
+      </div>
+
+    </div>
+  </section>
+
+    
+    <section class="studying-section">
+      <h3>Studying at DRKIST</h3>
+      <div class="department-grid">
+        <div class="department-card">  
+          <a href="pages/cse.html" style="text-decoration: none;"><img src="static/cse.jpg" alt="Computer Science"><h4>Computer Science and Engineering (CSE)</h4></a>
+        </div>
+         <div class="department-card">
+          <a href="pages/aiml.html" style="text-decoration: none;"> <img src="static/aiml.jpg" alt="AI & ML"><h4>CSE - Artificial Intelligence & Machine Learning (AI&ML)</h4></a> 
+        </div>
+        <div class="department-card">
+          <a href="pages/ds.html" style="text-decoration: none;"> <img src="static/ds.jpg" alt="csd"><h4>CSE - Data Science (DS)</h4></a> 
+        </div>
+        <div class="department-card">
+          <a href="pages/ece.html" style="text-decoration: none;"> <img src="static/ece.jpg" alt="Electronics"><h4>Electronics and Communications Engineering (ECE)</h4></a>    
+        </div>
+        <div class="department-card">
+          <a href="pages/eee.html" style="text-decoration: none;"> <img src="static/eee.jpg" alt="Electrical"><h4>Electrical and Electronics Engineering (EEE)</h4></a>    
+        </div>
+        <div class="department-card">
+          <a href="pages/mech.html" style="text-decoration: none;"> <img src="static/mech.jpg" alt="Mech"><h4>Mechanical Engineering (MECH)</h4></a>  
+        </div>
+        <div class="department-card">
+          <a href="pages/hs.html" style="text-decoration: none;"> <img src="static/hs.jpg" alt="hs"><h4>H & S Department</h4></a>   
+        </div>
+        <div class="department-card">
+          <a href="pages/mba.html" style="text-decoration: none;"> <img src="static/mba.jpg" alt="Mba"> <h4>MBA</h4></a> 
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section">
+      <div class="life-content">
+        <h3>Life @ DRKIST</h3>
+        <p>Welcome to the Institution of inspired learning where life motivates you every day A Student flourishes personally and professionally. This is thanks to the varied activities and events that are a constant buzz on the campus in addition to the supportive environment that nourishes academic brilliance.</p>
+         <a href="../pages/life-drk.html"  style="text-decoration: none;color:white;"><button class="life-btn">Explore Campus Life</button></a></button>
+      </div>
+    
+    </section>
+ 
+  <section class="news-section">
+    <h2>News & Updates</h2>
+    <h3>Academic Calendar</h3>
+    <div class="calendar-buttons">
+      <a href="academic-calender/1year.pdf" class="year-btn"><button>B.Tech I YEAR</button></a>
+      <a href="academic-calender/2year.pdf" class="year-btn"><button>B.Tech II YEAR</button></a>
+      <a href="academic-calender/3year.pdf" class="year-btn"><button>B.Tech III YEAR</button></a>
+      <a href="academic-calender/4year.pdf" class="year-btn"><button>B.Tech IV YEAR</button></a>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stat-block">
+      <i class="fas fa-book-open"></i>
+      <h2>9</h2>
+      <p>No of Courses</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-user-friends"></i>
+      <h2>2,015</h2>
+      <p>No of Students</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-building"></i>
+      <h2>841</h2>
+      <p>No of Placements</p>
+    </div>
+    <div class="stat-block">
+      <i class="fas fa-chart-line"></i>
+      <h2>20</h2>
+      <p>Companies Visited</p>
+    </div>
+  </section>
+
+
+  <section class="accreditation-section">
+  <div class="accreditation-container">
+    <div class="accreditation-card">
+      <img src="static\accreditations\NAAC_LOGO.png" alt="NAAC Accredited">
+      <p>NAAC Accredited</p>
+    </div>
+
+    <div class="accreditation-card">
+      <img src="static\accreditations\JNTU_Hyderabad_logo.png" alt="Affiliated to JNTUH">
+      <p>Affiliated to JNTUH</p>
+    </div>
+
+    <div class="accreditation-card">
+      <img src="static\accreditations\All_India_Council_for_Technical_Education_logo.png" alt="Approved by AICTE">
+      <p>Approved by AICTE</p>
+    </div>
+  </div>
+</section>
+
+
+    <section class="founder-section">
+      <div class="founder-content">
+        <h3>The Founder</h3>
+        <h4>Sri. D.B. Chandra Sekhar Rao</h4>
+        <p>At DRK group of Institutions, We believe that success comes from relentless focus on shared vision, innovation and execution. Our Organization is strongly committed to hard work and strongly emphasizing on learning and thriving for academic excellence and professional growth. Learning should be based on doing new innovative and not merely knowing them. Until and unless learning solutions relate to real life and motivate the learner to acquire and apply the knowledge, the whole fetched knowledge remains wasted. Our institution has set specific objectives and planned activities for achieving excellence in all spheres of technical education.
+Our organization aim is to provide the finest environment for teaching, learning, research and innovation with the support of our highly qualified and experienced faculty.</p>
+      </div>
+      <div class="founder-image">
+        <img src="static/chairman.jpg" alt="Founder Image">
+      </div>
+    </section>
+  </main>
+  
+<div id="footer"></div>
+
+  <div class="scroll-to-top">
+        <img src="static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+   <script>
+    // Get current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<div id="chatbot"></div>
+ <!-- footer and header and chatbot and scroll -->
+   <script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = 'static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    fetch('chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = 'static/chatbot.js';
+      document.body.appendChild(script);
+    });
+    fetch('scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = 'static/scroll.js';
+      document.body.appendChild(script);
+    });
+
+    </script>
+    
+<script src="static/script.js"></script>
+
+</body>
+</html>

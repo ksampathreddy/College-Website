@@ -1,0 +1,90 @@
+
+<style>
+
+/* Developer info positioned bottom-left */
+.developer-info {
+  position: absolute;
+  left: 40px;
+  bottom: 10px;
+  text-align: left;
+  font-size: 14px;
+  color: #adb5bd;
+}
+
+.developer-info p {
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+.developer-info strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .developer-info {
+    position: static;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+</style>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo placed outside the footer content -->
+    <div class="footer-logo-container">
+      <img src="static/K1.png" alt="DRKIST Logo" class="footer-logo">
+      <h5>DRK Institute of Science and Technology and Management features excellent infrastructure, modern engineering labs with the latest equipment, experienced faculties and lots of opportunities for development through our collaborations</h5>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-about">
+        <h4>About</h4>
+        <ul>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/courses.html">Courses</a></li>
+          <li><a href="pages/academic-calendar.html">News</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  </div>
+  <div class="footer-content">
+      <div class="footer-links">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="pages/disclosures.html">Mandatory Disclosures</a></li>
+          <li><a href="student.html">Students</a></li>
+          <li><a href="pages/organisation.html">Faculty & Staffs</a></li>
+          <li><a href="pages/about.html">Alumni</a></li>
+          <li><a href="pages/life-drk.html">Visit</a></li>
+        </ul>
+      </div>
+  </div>
+  <div class="footer-content">
+      <div class="footer-connect">
+        <h4>Connect Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> DRK Institute of Science and Technology. All Rights Reserved.</p>
+       <!-- getting JS from header.html -->
+     <div class="developer-info">  <span style="font-size: 14px; color: #adb5bd;">Developed by <p style="font-size: 14px; color: white;">Sampath Reddy Kamsani<br>CSE-AI&ML 22N71A6624</p></span></div>
+    </div>
+  </div>
+</footer>
+<script>
+        // getting year for footer
+document.getElementById("year").textContent = new Date().getFullYear();</script>

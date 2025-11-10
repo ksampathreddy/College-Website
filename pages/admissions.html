@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../static/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Admissions - DRK Institute of Science and Technology</title>
+
+  <style>
+/* ===== Base Styling (Desktop Default) ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  color: #212529;
+  line-height: 1.8;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 12px 25px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 16px;
+}
+
+.breadcrumb a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #d32f2f;
+}
+
+.breadcrumb span {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Admissions Section */
+.admissions-section {
+  max-width: 85%;
+  margin: 50px auto;
+  /* background: #fff; */
+  padding: 50px 60px;
+  border-radius: 12px;
+ 
+}
+
+.admissions-section h2 {
+  color: #d32f2f;
+  margin-top: 40px;
+  font-size: 28px;
+}
+
+.admissions-section h3 {
+  color: #444;
+  margin-top: 25px;
+  font-size: 22px;
+}
+
+.admissions-section ul {
+  margin-left: 25px;
+  list-style-type: disc;
+}
+
+.admissions-section p, .admissions-section li {
+  font-size: 17px;
+}
+
+/* Highlight Box */
+.code-box {
+  background-color: #d32f2f;
+  color: white;
+  padding: 18px 25px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.code-box span {
+  font-weight: bold;
+  color: rgb(173, 202, 9);
+}
+
+/* ===== Courses Section ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.title-underline {
+  width: 70px;
+  height: 4px;
+  background-color: #d32f2f;
+  margin: 0 auto 50px;
+}
+
+.courses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.course-card {
+  background: #fff;
+  border: 2px solid #d32f2f;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 360px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-header {
+  background-color: #d32f2f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.course-content {
+  padding: 25px 20px;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-item::before {
+  content: "✓";
+  color: #d32f2f;
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 15px;
+}
+
+/* ===== Contact Section ===== */
+.contact-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  color: #333;
+  font-weight: 600;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #c41e3a;
+  margin: 15px auto 0;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: #c41e3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+}
+
+.info-content h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info-content p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.info-content a {
+  color: #c41e3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-content a:hover {
+  text-decoration: underline;
+}
+
+/* ====== Responsive for Tablets (≤1024px) ====== */
+@media (max-width: 1024px) {
+  .admissions-section {
+    padding: 40px;
+    margin: 40px 20px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .course-card {
+    width: 320px;
+  }
+
+  .breadcrumb {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* ====== Responsive for Phones (≤768px) ====== */
+@media (max-width: 768px) {
+  .admissions-section {
+    padding: 25px;
+    margin: 25px 10px;
+  }
+
+  .page-title {
+    font-size: 30px;
+  }
+
+  .title-underline {
+    margin-bottom: 25px;
+  }
+
+  .courses-grid {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .course-card {
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .course-header {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .course-item {
+    font-size: 15px;
+  }
+
+  .breadcrumb {
+    font-size: 14px;
+  }
+
+  .code-box {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .info-block {
+    flex-direction: row;
+  }
+
+  .info-content h3 {
+    font-size: 20px;
+  }
+
+  .scroll-to-top img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ====== Extra Small Phones (≤480px) ====== */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 26px;
+  }
+
+  .admissions-section {
+    padding: 15px;
+  }
+
+  .admissions-section p, .admissions-section li {
+    font-size: 14px;
+  }
+
+  .course-card {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .course-header {
+    font-size: 18px;
+  }
+
+  .breadcrumb {
+    text-align: center;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .info-content h3 {
+    font-size: 18px;
+  }
+
+  .info-content p {
+    font-size: 14px;
+  }
+
+  .code-box {
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+    <!-- Breadcrumb -->
+
+    <div class="breadcrumb">
+
+        <div class="breadcrumb-container">
+
+            <a href="../index.html">Home</a> / <span>Admissions</span>
+
+        </div>
+
+    </div>
+
+
+  <section class="admissions-section">
+    <p>DRK Institute of Science and Technology is one of the most reputed institutions offering quality technical education in Telangana.</p>
+
+    <p>The following is the admission criteria:</p>
+
+    <h2>70% Admissions under Convenor Quota</h2>
+    <p><strong>To seek admission into the first year of the four-year B.Tech course in any branch, candidates must satisfy the following requirements:</strong></p>
+
+    <p>A student must have passed the Intermediate Examination of the Board of Intermediate Education, Government of Telangana with Mathematics, Physics, and Chemistry as optional subjects, or any other examination recognized by the Government of Telangana as equivalent.</p>
+
+    <p>All eligible candidates for admission into the First Year must qualify in the <strong>EAMCET Examination</strong> conducted by the Government of Telangana. The candidates will be admitted by EAMCET Convenor strictly in accordance with the rank secured at the Entrance Examination and as per the reservation rules applicable by the Government.</p>
+
+    <h2>MANAGEMENT QUOTA</h2>
+    <p>30% of the total seats will be considered under the Management Quota.</p>
+
+    <h3>To seek admission under Management Quota, candidates must satisfy the following requirements:</h3>
+    <ul>
+      <li>A student should either have obtained a rank or should have secured a minimum aggregate of <strong>50% in group subjects</strong> (Mathematics, Physics, and Chemistry) in the Intermediate Examination of the Board of Intermediate Education, Government of Telangana or any equivalent examination recognized by the Government.</li>
+      <li>30% of the total seats will be filled under Management Quota.</li>
+      <li><strong>Note:</strong> No reservation or concession will be applicable under Management Quota.</li>
+    </ul>
+<div class="container">
+        <h1 class="page-title">Courses Offered</h1>
+        <div class="title-underline"></div>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-header">B.Tech: Intake</div>
+                <div class="course-content">
+                    <div class="course-item">EEE - 30</div>
+                    <div class="course-item">ECE - 60</div>
+                    <div class="course-item">MECH - 30</div>
+                    <div class="course-item">CSE - 300</div>
+                    <div class="course-item">CSE - (AIML) - 120</div>
+                    <div class="course-item">CSE - (Data Science) - 180</div>
+                    <div class="course-item">CSE - (Cyber Security) - 60</div>
+                    <div class="course-item">Civil - 30</div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header">MBA: Intake</div>
+                <div class="course-content">
+                    <div class="course-item">MBA - 120</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="code-box">
+      <p><strong>DRK Institute of Science and Technology, EAMCET Counseling Code:</strong> <strong><span>DRKI</span></strong></p>
+    </div>
+
+    <div class="contact-container">
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-block">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Address</h3>
+                            <p><strong>Drk Institute Of Science And Technology</strong></p>
+                            <p>Near Pragathi Nagar, Bowrampet (V), Hyderabad - 500043, Telangana, India.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-block">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Contact</h3>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <strong>Mobile:</strong>
+                                    <span>+91-90007 11899</span>
+                                </div>
+                                <div class="contact-item">
+                                    <strong>Mobile:</strong>
+                                    <span>+91-87907 11899</span>
+                                </div>
+                                <div class="contact-item">
+                                    <strong>Mail:</strong>
+                                    <a href="mailto:principal@drkist.edu.in">principal@drkist.edu.in</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+  </section>
+  
+
+    <div class="scroll-to-top">
+
+        <img src="static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+
+  </div>
+
+    <div id="chatbot"></div>
+
+    <div id="footer"></div>
+
+ <!-- footer and header and chatbot -->
+
+   <script>
+
+    fetch('header.html')
+
+    .then(response => response.text())
+
+    .then(data => {
+
+      document.getElementById('header').innerHTML = data;
+
+      
+
+      // Then load and execute menu.js
+
+      const script = document.createElement('script');
+
+      script.src = 'static/menu.js';
+
+      script.onload = function() {
+
+        // Initialize menu functionality after script is loaded
+
+        if (typeof initMobileMenu === 'function') {
+
+          initMobileMenu();
+
+        }
+
+      };
+
+      document.body.appendChild(script);
+
+    });
+
+    fetch('footer.html')
+
+      .then(response => {
+
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        return response.text();
+
+      })
+
+      .then(data => {
+
+        document.getElementById('footer').innerHTML = data;
+
+      })
+
+      .catch(error => {
+
+        console.error('Fetch error:', error);
+
+      });
+
+    fetch('chatbot.html')
+
+    .then(response => response.text())
+
+    .then(data => {
+
+      document.getElementById('chatbot').innerHTML = data;
+
+
+
+      // Load JS separately if needed
+
+      const script = document.createElement('script');
+
+      script.src = 'static/chatbot.js';
+
+      document.body.appendChild(script);
+
+    fetch('scroll.html')
+
+    .then(response => response.text())
+
+    .then(data => {
+
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+
+
+      // Load JS separately if needed
+
+      const script = document.createElement('script');
+
+      script.src = 'static/scroll.js';
+
+      document.body.appendChild(script);
+
+    });
+
+    });
+
+  </script>
+
+
+</body>
+</html>

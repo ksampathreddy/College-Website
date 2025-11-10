@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grievance Redressal - DRK Institute of Science and Technology</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="icon" href="../static/drk.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Breadcrumb Styles */
+    .breadcrumb {
+      background-color: #f8f9fa;
+      padding: 10px 20px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .breadcrumb a { color: #6c757d; text-decoration: none; }
+    .breadcrumb a:hover { color: #007bff; }
+    .breadcrumb span { color: #495057; font-weight: 500; }
+
+    .grievance-main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .grievance-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .grievance-header h1 {
+      font-size: 3rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .grievance-text {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .grievance-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 15px;
+    }
+
+    .grievance-form {
+      background: #fdfdfd;
+      border: 1px solid #eee;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea { resize: vertical; }
+
+    .submit-btn {
+      background: maroon;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover { background: #a00000; }
+
+    /* ✅ SUCCESS POPUP */
+    .popup-success {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background-color: #28a745;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+
+    .popup-success.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .popup-success i {
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      .grievance-header h1 { font-size: 2rem; }
+      .submit-btn { width: 100%; }
+      .popup-success {
+        left: 50%;
+        transform: translate(-50%, -10px);
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a> / <span>Grievance</span>
+  </div>
+
+  <main class="grievance-main">
+    <div class="grievance-header">
+      <h1>Grievance Redressal</h1>
+    </div>
+
+    <div class="grievance-content">
+      <div class="grievance-text">
+        <p>DRK Institute of Science and Technology is committed to providing a safe, fair, and harmonious learning environment. We have a robust grievance redressal mechanism to address any concerns or complaints from students, parents, or staff.</p>
+        <p>Please use the form below to submit your grievance. All submissions will be treated with confidentiality.</p>
+      </div>
+      
+      <form id="grievance-form" class="grievance-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="role">I am a</label>
+          <select id="role" name="role" required>
+            <option value="">Select your role...</option>
+            <option value="student">Student</option>
+            <option value="parent">Parent</option>
+            <option value="staff">Staff Member</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="grievance-type">Grievance Type</label>
+          <select id="grievance-type" name="grievance-type" required>
+            <option value="">Select a category...</option>
+            <option value="academic">Academic</option>
+            <option value="administrative">Administrative</option>
+            <option value="facilities">Facilities</option>
+            <option value="harassment">Harassment</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Describe your Grievance</label>
+          <textarea id="message" name="message" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Submit Grievance</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- ✅ Popup Success Message -->
+  <div id="popupSuccess" class="popup-success">
+    <i class="fas fa-check-circle"></i>
+    <span>Your grievance has been submitted successfully!</span>
+  </div>
+
+  <div id="footer"></div>
+  <div id="chatbot"></div>
+  <div class="scroll-to-top">
+    <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("grievance-form");
+      const popup = document.getElementById("popupSuccess");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Reset form
+        form.reset();
+
+        // Show success popup
+        popup.classList.add("show");
+
+        // Hide popup after 4 seconds
+        setTimeout(() => {
+          popup.classList.remove("show");
+        }, 4000);
+      });
+
+      // Load header/footer/chatbot/scroll
+      fetch('header.html').then(r=>r.text()).then(d=>{
+        document.getElementById('header').innerHTML=d;
+        const s=document.createElement('script'); s.src='../static/menu.js';
+        document.body.appendChild(s);
+      });
+      fetch('footer.html').then(r=>r.text()).then(d=>{document.getElementById('footer').innerHTML=d;});
+      fetch('chatbot.html').then(r=>r.text()).then(d=>{
+        document.getElementById('chatbot').innerHTML=d;
+        const s=document.createElement('script'); s.src='../static/chatbot.js'; document.body.appendChild(s);
+      });
+      fetch('scroll.html').then(r=>r.text()).then(d=>{
+        document.querySelector('.scroll-to-top').innerHTML=d;
+        const s=document.createElement('script'); s.src='../static/scroll.js'; document.body.appendChild(s);
+      });
+    });
+  </script>
+</body>
+</html>
