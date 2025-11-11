@@ -233,11 +233,22 @@
       });
 
       // Load header/footer/chatbot/scroll
-      fetch('header.html').then(r=>r.text()).then(d=>{
-        document.getElementById('header').innerHTML=d;
-        const s=document.createElement('script'); s.src='../static/menu.js';
-        document.body.appendChild(s);
-      });
+       fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      
+      // Then load and execute menu.js
+      const script = document.createElement('script');
+      script.src = '../static/menu.js';
+      script.onload = function() {
+        // Initialize menu functionality after script is loaded
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+      };
+      document.body.appendChild(script);
+    });
       fetch('footer.html').then(r=>r.text()).then(d=>{document.getElementById('footer').innerHTML=d;});
       fetch('chatbot.html').then(r=>r.text()).then(d=>{
         document.getElementById('chatbot').innerHTML=d;
