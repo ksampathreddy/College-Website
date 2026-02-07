@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/drk.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Latest Events - DRK Institute of Science and Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+           .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Vertical Timeline Line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #1a237e, #ff9800);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Timeline Items */
+        .timeline-item {
+            display: flex;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left Side - Content */
+        .timeline-content {
+            flex: 1;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 30px;
+            order: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-images {
+            order: 1;
+        }
+
+        /* Timeline Dot */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            width: 20px;
+            height: 20px;
+            background: #ff9800;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            box-shadow: 0 0 0 4px rgba(255, 152, 0, 0.2);
+        }
+
+        /* Event Date */
+        .event-date {
+            display: flex;
+            align-items: center;
+            color: #1a237e;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .event-date i {
+            margin-right: 8px;
+            color: #ff9800;
+        }
+
+        /* Event Title */
+        .event-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #1a237e;
+            font-weight: 700;
+        }
+
+        /* Event Description */
+        .event-description {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Event Tags */
+        .event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #e8eaf6;
+            color: #1a237e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Event Actions */
+        .event-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .event-details-btn {
+            display: inline-block;
+            background: #1a237e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .event-details-btn:hover {
+            background: #283593;
+        }
+
+    .view-gallery-btn {
+    display: inline-block;
+    background: #ff9800;
+    color: #1a237e;
+    padding: 8px 15px; /* Reduced from 10px 20px */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 120px; /* Optional: Set minimum width */
+}
+    .view-gallery-btn:hover {
+        background: #ffb74d;
+        transform: translateY(-2px);
+    }
+
+
+        /* Right Side - Image Carousel */
+        .timeline-images {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            height: 350px;
+            position: relative;
+        }
+
+        /* Swiper Carousel */
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Image Counter */
+        .image-counter {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* Swiper Navigation */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+        }
+
+        /* Image Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .modal-swiper {
+            height: calc(100% - 100px);
+            width: 100%;
+        }
+
+        .modal-swiper .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-swiper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Upcoming Events */
+        .upcoming-section {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 50px 0;
+            margin: 60px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .upcoming-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .upcoming-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .upcoming-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .upcoming-btn {
+            display: inline-block;
+            background: #ff9800;
+            color: #1a237e;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .upcoming-btn:hover {
+            background: #ffb74d;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                width: calc(100% - 90px);
+            }
+            
+            .timeline-images {
+                display: none;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.4rem;
+            }
+            
+            .event-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                margin-left: 50px;
+                width: calc(100% - 70px);
+                padding: 15px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <span>Latest Events</span>
+    </div>
+              
+      
+    <!-- Main Content -->
+    <div class="container">
+          <h1 style="text-align: center;">Latest Events </h1>
+        <div class="timeline-container">
+            <!-- Vertical Timeline Line -->
+            <div class="timeline-line"></div>
+
+            <!-- Timeline Items will be dynamically inserted here -->
+            <div id="timelineItems">
+                <!-- Events will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">&times;</div>
+            <h3 class="modal-title" id="modalTitle">Event Gallery</h3>
+            <div class="swiper modal-swiper" id="modalSwiper">
+                <div class="swiper-wrapper" id="modalSwiperWrapper">
+                    <!-- Modal images will be loaded here -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-to-top">
+        <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
+    </div>
+    
+    <div id="chatbot"></div>
+    <div id="footer"></div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Sample events data with MULTIPLE images per event
+        const eventsData = [
+            
+            {
+                id: 1,
+                date: "June 27-31, 2026",
+                title: "5 Day certified VLSI Workshop",
+                description: "A 5-day certified VLSI Workshop provides hands-on training in chip design, from RTL coding to physical layout using industry-standard EDA tools.",
+                images: [
+                    "../static/latest_events/VLSI1.jpg",
+                    "../static/latest_events/VLSI2.jpeg",
+                    "../static/latest_events/VLSI3.jpg",
+                    "../static/latest_events/VLSI4.jpg",
+                    "../static/latest_events/VLSI5.jpg",
+                    "../static/latest_events/VLSI6.jpg",
+                    "../static/latest_events/VLS7I.jpg",
+                    "../static/latest_events/VLSI8.jpg",
+                    "../static/latest_events/VLSI9.jpg",
+                    "../static/latest_events/VLSI10.jpg"
+                ],
+                tags: ["Workshop", "VLSI", "Hands-on"],
+                link: "#"
+            },
+            {
+                id: 2,
+                date: "Jan 26, 2026",
+                title: "Republic Day",
+                description: "The college celebrates Republic Day with a flag-hoisting ceremony and patriotic program, honoring India's Constitution and democratic values.",
+                images: [
+                   "../static/latest_events/republic_day.jpeg"
+                ],
+                tags: ["Celebration"],
+                link: "#"
+            },
+            {
+                id: 3,
+                date: "Jan 10, 2026",
+                title: "Sankranthi Festival",
+                description: "Sankranthi, the harvest festival, is celebrated with vibrant kite-flying, rangoli, traditional feasts, and cultural performances, marking the sun's transition.",
+                images: [
+                    "../static/latest_events/Sankranthi.jpeg"
+                ],
+                tags: ["Conference", "Data Science", "Research"],
+                link: "#"
+            },
+        ];
+
+        // Store Swiper instances
+        const swiperInstances = {};
+        let modalSwiper = null;
+
+        // Function to render timeline events
+        function renderTimeline() {
+            const timelineContainer = document.getElementById("timelineItems");
+            timelineContainer.innerHTML = "";
+            
+            eventsData.forEach(event => {
+                const timelineItem = document.createElement("div");
+                timelineItem.className = "timeline-item";
+                
+                // Create tags HTML
+                const tagsHtml = event.tags.map(tag => 
+                    `<span class="tag">${tag}</span>`
+                ).join("");
+                
+                // Create images HTML for carousel
+                const imagesHtml = event.images.map((img, index) => `
+                    <div class="swiper-slide">
+                        <img src="${img}" alt="${event.title} - Image ${index + 1}">
+                    </div>
+                `).join("");
+                
+                timelineItem.innerHTML = `
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="event-date">
+                            <i class="far fa-calendar-alt"></i> ${event.date}
+                        </div>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-description">${event.description}</p>
+                        <div class="event-tags">
+                            ${tagsHtml}
+                        </div>
+                        <div class="event-actions">
+                    
+                            <button class="view-gallery-btn" data-event-id="${event.id}">
+                                View (${event.images.length} photos)
+                            </button>
+                        </div>
+                    </div>
+                    <div class="timeline-images">
+                        <div class="swiper swiper-${event.id}">
+                            <div class="swiper-wrapper">
+                                ${imagesHtml}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="image-counter">1/${event.images.length}</div>
+                        </div>
+                    </div>
+                `;
+                
+                timelineContainer.appendChild(timelineItem);
+                
+                // Initialize Swiper for this event
+                setTimeout(() => {
+                    swiperInstances[event.id] = new Swiper(`.swiper-${event.id}`, {
+                        loop: true,
+                        navigation: {
+                            nextEl: `.swiper-${event.id} .swiper-button-next`,
+                            prevEl: `.swiper-${event.id} .swiper-button-prev`,
+                        },
+                        on: {
+                            slideChange: function(swiper) {
+                                const counter = timelineItem.querySelector('.image-counter');
+                                counter.textContent = `${swiper.realIndex + 1}/${event.images.length}`;
+                            }
+                        }
+                    });
+                }, 100);
+            });
+            
+            // Add event listeners to gallery buttons
+            document.querySelectorAll('.view-gallery-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-event-id');
+                    openGalleryModal(parseInt(eventId));
+                });
+            });
+        }
+
+        // Function to open gallery modal
+        function openGalleryModal(eventId) {
+            const event = eventsData.find(e => e.id === eventId);
+            if (!event) return;
+            
+            const modal = document.getElementById('galleryModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSwiperWrapper = document.getElementById('modalSwiperWrapper');
+            
+            // Set modal title
+            modalTitle.textContent = `${event.title} - Gallery`;
+            
+            // Clear previous images
+            modalSwiperWrapper.innerHTML = '';
+            
+            // Add images to modal
+            event.images.forEach((img, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide';
+                slide.innerHTML = `<img src="${img}" alt="${event.title} - Image ${index + 1}">`;
+                modalSwiperWrapper.appendChild(slide);
+            });
+            
+            // Initialize or update modal swiper
+            if (modalSwiper) {
+                modalSwiper.update();
+            } else {
+                modalSwiper = new Swiper('#modalSwiper', {
+                    loop: true,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            }
+            
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close gallery modal
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initial render
+        renderTimeline();
+
+        // Modal close functionality
+        document.getElementById('modalClose').addEventListener('click', closeGalleryModal);
+        
+        // Close modal when clicking outside
+        document.getElementById('galleryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGalleryModal();
+            }
+        });
+
+        // Button functionality
+        document.querySelector(".upcoming-btn").addEventListener("click", function(e) {
+            e.preventDefault();
+            alert("Photo submission form would open here. You can upload multiple images!");
+        });
+    </script>
+    <script>
+        // Load header, footer, chatbot
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+                const script = document.createElement('script');
+                script.src = '../static/menu.js';
+                script.onload = function() {
+                    if (typeof initMobileMenu === 'function') {
+                        initMobileMenu();
+                    }
+                };
+                document.body.appendChild(script);
+            });
+         fetch('../scroll.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('scrollTopBtn').innerHTML = data;
+
+      // Load JS separately if needed
+      const script = document.createElement('script');
+      script.src = '../static/scroll.js';
+      document.body.appendChild(script);
+    });
+            
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+            
+        fetch('chatbot.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('chatbot').innerHTML = data;
+                const script = document.createElement('script');
+                script.src = '../static/chatbot.js';
+                document.body.appendChild(script);
+            });
+    </script>
+</body>
+</html>
