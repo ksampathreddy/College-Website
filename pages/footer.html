@@ -1,86 +1,272 @@
-
 <style>
 
-/* Developer info positioned bottom-left */
-.developer-info {
-  position: absolute;
-  left: 40px;
-  bottom: 10px;
-  text-align: left;
-  font-size: 14px;
-  color: #adb5bd;
+/* FOOTER */
+.footer{
+background:rgba(0,0,0,0.89);
+color:#f8fafc;
+padding:80px 0 20px;
+font-family:"Inter",sans-serif;
+border-top:4px solid var(--maroon);
 }
 
-.developer-info p {
-  margin: 2px 0;
-  line-height: 1.4;
+/* GRID */
+.footer-container{
+max-width:1300px;
+margin:auto;
+padding:0 40px;
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr 1fr;
+gap:40px;
 }
 
-.developer-info strong {
-  color: #ffffff;
-  font-weight: 600;
+/* LOGO */
+.footer-logo{
+height:70px;
+margin-bottom:20px;
 }
 
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  .developer-info {
-    position: static;
-    text-align: center;
-    margin-top: 10px;
-  }
+.footer-logo-container h5{
+font-size:0.9rem;
+line-height:1.8;
+color:#94a3b8;
 }
 
+/* HEADINGS */
+
+.footer h4{
+color:#fff;
+font-size:1.1rem;
+font-weight:700;
+margin-bottom:25px;
+text-transform:uppercase;
+position:relative;
+display:inline-block;
+}
+
+.footer h4::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-8px;
+width:100%;
+height:2px;
+background:var(--maroon);
+}
+
+/* LINKS */
+
+.footer ul{
+list-style:none;
+padding:0;
+}
+
+.footer ul li{
+margin-bottom:12px;
+}
+
+.footer ul li a{
+color:#94a3b8;
+text-decoration:none;
+font-size:0.9rem;
+transition:0.3s;
+}
+
+.footer ul li a:hover{
+color:var(--maroon);
+padding-left:8px;
+}
+
+/* SOCIAL */
+
+.social-icons{
+display:flex;
+gap:15px;
+}
+
+.social-icons a{
+width:38px;
+height:38px;
+background:rgba(255,255,255,0.05);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+transition:0.3s;
+}
+
+.social-icons a:hover{
+background:var(--maroon);
+transform:translateY(-5px);
+}
+
+/* BOTTOM SECTION */
+
+.footer-bottom{
+margin-top:15px;
+padding-top:10px;
+border-top:1px solid rgba(255,255,255,0.05);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.copyright-text{
+color:#94a3b8;
+font-size:0.9rem;
+}
+
+/* DEVELOPER */
+
+.developer-info{
+margin-top:25px;
+max-width:1300px;
+margin-left:auto;
+margin-right:auto;
+padding:0 40px;
+text-align:left;
+border-left:3px solid var(--maroon);
+padding-left:15px;
+}
+
+.developer-info span{
+color:#64748b;
+font-size:0.7rem;
+text-transform:uppercase;
+letter-spacing:1.5px;
+}
+
+.developer-info p{
+color:#fff;
+font-weight:300;
+margin:0;
+}
+
+/* TABLET */
+
+@media (max-width:992px){
+
+.footer-container{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+/* MOBILE */
+
+@media (max-width:576px){
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer h4::after{
+left:50%;
+transform:translateX(-50%);
+}
+
+.social-icons{
+justify-content:center;
+}
+
+.developer-info{
+text-align:center;
+border-left:none;
+padding-left:0;
+margin-top:40px;
+}
+
+}
+/* Tablet */
+@media (max-width:992px){
+
+.footer-logo-container .footer-logo{
+max-width:150px;
+}
+
+}
+
+/* Mobile */
+@media (max-width:576px){
+
+.footer-logo-container .footer-logo{
+max-width:100px;
+margin:auto;
+display:block;
+}
+
+}
 </style>
+
+
 <footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Logo placed outside the footer content -->
-    <div class="footer-logo-container">
-      <img src="../static/Logo.png" alt="DRKIST Logo" class="footer-logo">
-      <h5>DRK Institute of Science and Technology and Management features excellent infrastructure, modern engineering labs with the latest equipment, experienced faculties and lots of opportunities for development through our collaborations</h5>
-      
-    </div>
-    <div class="footer-content">
-      <div class="footer-about">
-        <h4>About</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="academic-calendar.html">News</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  <div class="footer-content">
-      <div class="footer-links">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="disclosures.html">Mandatory Disclosures</a></li>
-          <li><a href="../student.html">Students</a></li>
-          <li><a href="organisation.html">Faculty & Staffs</a></li>
-          <li><a href="about.html">Alumni</a></li>
-          <li><a href="life-drk.html">Visit</a></li>
-        </ul>
-      </div>
-  </div>
-  <div class="footer-content">
-      <div class="footer-connect">
-        <h4>Connect Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
+
+<div class="footer-container">
+
+<div class="footer-logo-container">
+<img src="../static/Logo.png" class="footer-logo">
+<h5>
+Empowering the next generation of engineers through excellence in
+infrastructure, modern labs, and a faculty-driven commitment to
+development since 2004.
+</h5>
 </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> DRK Institute of Science and Technology. All Rights Reserved.</p>
-      <!-- getting JS from menu.js -->
-        <div class="developer-info">  <span style="font-size: 14px; color: #adb5bd;">Developed by <p style="font-size: 14px; color: white;">Sampath Reddy Kamsani<br>CSE-AI&ML 22N71A6624</p></span></div>
-    </div>
-  </div>
+
+<div>
+<h4>About</h4>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="courses.html">Courses Offered</a></li>
+<li><a href="academic-calendar.html">Academic Calendar</a></li>
+<li><a href="latest_events.html">Events</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Quick Links</h4>
+<ul>
+<li><a href="disclosures.html">Mandatory Disclosures</a></li>
+<li><a href="organisation.html">Faculty & Staff</a></li>
+<li><a href="student.html">Students</a></li>
+<li><a href="Reindex.php">Results Portal</a></li>
+<li><a href="life-drk.html">Campus Life</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Connect Us</h4>
+
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="developer-info">
+<span>Designed & Developed by</span>
+<p>SAMPATH REDDY KAMSANI<br>CSE-AI&ML | 22N71A6624</p>
+Under Student Development Project
+</div>
+
+
+<div class="footer-bottom">
+<div class="copyright-text">
+© <span id="year"></span> DRK Institute of Science and Technology. All Rights Reserved.
+</div>
+</div>
+
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>

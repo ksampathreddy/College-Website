@@ -1,1069 +1,732 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Mobile Navigation</title>
-      <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRK Institute of Science & Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+rel="stylesheet" />
 
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1000;
-        }
+  <style>
+    :root {
+      --maroon: #a70402;
+      --dark-maroon: #8b1212;
+      --text-dark: #1e293b;
+      --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        .header-content {
-        background-color: #a70402;
+  .main-header *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    /* --- HEADER WRAPPER --- */
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2000;
+      background: #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    /* --- TOP NAVBAR (DESKTOP) --- */
+    .header-top-bar {
+      background: var(--maroon);
+      padding: 8px 0;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 5px 40px;
+    }
+
+    .eamcet-badge {
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .top-links-list {
+      display: flex;
+      list-style: none;
+      flex-grow: 1;
+      justify-content: space-evenly;
+      /* Spreads the 8 links perfectly */
+      padding: 0 20px;
+    }
+
+    ul {
+      margin-bottom: 0 !important;
+    }
+
+    .top-links-list a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .btn-latest-events {
+      background: #ffeb3b;
+      color: #000 !important;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      animation: pulse-yellow 2s infinite;
+      white-space: nowrap;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+    @keyframes pulse-yellow {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.7);
+      }
+
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(255, 235, 59, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 235, 59, 0);
+      }
+    }
+
+    .admission-pill {
+      background: #ffffff;
+      color: var(--maroon) !important;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* --- MAIN NAVBAR --- */
+    .nav-container {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .main-logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .main-nav-desktop {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      /* Equal spacing between Home, 6 dropdowns, and NAAC */
+      margin-left: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+    }
+
+    .nav-links>li>a {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-dark) !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 0;
+      transition: 0.3s;
+    }
+
+    .nav-links>li>a:hover {
+      color: var(--maroon) !important;
+    }
+
+    /* --- DROPDOWNS --- */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 240px;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid #f1f5f9;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .dropdown:hover>.dropdown-content {
+      display: block;
+      animation: slideUp 0.3s ease;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background: #f8fafc;
+      color: var(--maroon);
+      padding-left: 25px;
+    }
+
+/* --- INLINE INNER DROPDOWN (ACCORDION STYLE) --- */
+
+/* 1. Reset the submenu container */
+.sports-submenu {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+/* 2. Style the links inside the main dropdown */
+.sports-submenu .sports-trigger {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 3. The Hidden Items - No longer absolute/to the side */
+.sports-items {
+    display: none;
+    position: relative; /* Stays in the flow of the list */
+    left: 0 !important;
+    top: 0 !important;
+    background: #f8fafc; /* Slightly darker background to show nesting */
+    padding-left: 20px;
+    width: 100%;
+    border-left: 2px solid var(--maroon); /* Modern accent line */
+    margin: 5px 0;
+}
+
+/* 4. Display when parent has the 'inner-open' class */
+.sports-submenu.inner-open > .sports-items {
+    display: block;
+    animation: slideDownInPlace 0.3s ease-out;
+}
+
+/* 5. Rotate Chevron downward instead of right */
+.sports-submenu.inner-open > a .fa-chevron-right {
+    transform: rotate(90deg);
+}
+
+@keyframes slideDownInPlace {
+    from { opacity: 0; max-height: 0; }
+    to { opacity: 1; max-height: 500px; }
+}
+    
+
+    .mobile-quick-links-toggle,
+    .mobile-top-bar-expand {
+      display: none;
+    }
+
+    /* --- MOBILE RESPONSIVE LOGIC --- */
+    @media (max-width: 1024px) {
+
+      /* Hide the standard desktop bar */
+      .header-top-bar.d-none.d-lg-block {
+        display: none !important;
+      }
+
+      /* The Mobile Quick Links Bar */
+      .mobile-quick-links-toggle {
+        display: flex !important;
+        background: var(--maroon);
         width: 100%;
+        color: white;
         padding: 12px 20px;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* The extension container */
+      .mobile-top-bar-expand {
+        max-height: 0;
+        overflow: hidden;
+        background: var(--dark-maroon);
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      .mobile-top-bar-expand.active {
+        max-height: 600px;
+        /* Adjust based on content */
+      }
+
+      .mobile-top-links-wrapper {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .mobile-top-links-wrapper a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .mobile-top-links-wrapper .btn-latest-events,
+      .mobile-top-links-wrapper .admission-pill {
+        display: inline-block;
+        margin: 10px auto;
+      }
+
+      .nav-container {
+        height: 70px;
+        padding: 0 20px;
+      }
+    }
+
+    /* --- UPDATED MOBILE NAVIGATION EXTENSION --- */
+    @media (max-width: 1024px) {
+      .main-logo {
+        height: 40px;
+      }
+
+      /* Ensure header height is dynamic to accommodate expansion */
+      .main-header {
+        position: fixed;
+top:0;
+height: auto !important; 
+        overflow: visible !important;
+        width: 100vw;
+      }
+
+      /* 1. Quick Links Drawer */
+      .mobile-quick-links-toggle {
+        display: flex !important;
+        width: 100%;
+        background: var(--maroon);
+        color: white;
+        padding: 14px;
+        font-weight: 700;
+        border: none;
+        text-transform: uppercase;
+        font-family: "Poppins";
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-top-bar-expand {
+display: block !important; /* Force display */
+        max-height: 0;
+        overflow: hidden;
+        background: var(--dark-maroon);
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+      }
+
+      .mobile-top-bar-expand.active {
+       max-height: 1000px; /* Large enough to fit all links */
+        border-bottom: 2px solid rgba(255,255,255,0.1);
+      }
+
+      .mobile-top-links {
+        list-style: none;
+        padding: 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-top-bar-expand.active .mobile-top-links {
+        opacity: 1;
+    }
+
+      .mobile-top-links li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .mobile-top-links a {
+        color: white !important;
+        text-decoration: none;
+        font-size: 1rem;
+        display: block;
+      }
+
+      /* 2. Main Hamburger Menu Drawer */
+      .mobile-main-nav-expand {
+display:block;
+max-height:0;
+overflow:hidden;
+background:#ffffff;
+transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+border-bottom:1px solid #e2e8f0;
+}
+
+      .mobile-main-nav-expand.active {
+        max-height: 100vh;
+        overflow-y: auto;
+        /* Allows scrolling if menu is long */
+      }
+
+      .mobile-nav-list {
+        list-style: none;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .mobile-nav-list li {
+        padding: 15px 0;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .mobile-nav-list a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
         display: flex;
         justify-content: space-between;
-        align-items: center;   
-        }
+        align-items: center;
+      }
 
-
-        /* Left section for EAMCET code */
-        .eamcet-code {
-            color: white;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-
-        /* Center links */
-        .top-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-
-        .top-links ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 15px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .top-links ul li {
-            display: inline-block;
-        }
-
-        .top-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            white-space: nowrap;
-            padding: 5px 10px;
-            border-radius: 3px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .top-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: white;
-            transition: width 0.3s ease;
-        }
-
-        .top-links a:hover::after {
-            width: 100%;
-        }
-        
-        .home-logo::after {
-            display: none;
-        }
-        
-        /* Dropdown styling */
-        .top-links .dropdown {
-            position: relative;
-        }
-
-        .top-links .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 250px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            z-index: 1001;
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            margin-top: 5px;
-        }
-
-        .top-links .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .top-links .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }
-
-        .top-links .dropdown-content a:hover {
-            background-color: #f8f9fa;
-            color: #8B2635;
-        }
-
-        .admission-btn {
-            background-color: white;
-            color: #a80406;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 6px 15px;
-            border-radius: 50px;
-            border: none;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            white-space: nowrap;
-        }
-
-        .admission-btn:hover {
-            background-color: #a80406;
-            color: white;
-            border: 2px solid white;
-            transform: scale(1.05);
-        }
-
-        /* White navigation container */
-        .nav-container {
-    background-color: white;
-    width: 100%;
-    position: relative;
-    padding: 0 25px 0 20px; /* slightly adjusted padding */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-    border-top: 1px solid #e0e0e0;
+/* --- HAMBURGER ICON STYLING --- */
+.mobile-menu-toggle {
     display: flex;
-    align-items: center;
-    justify-content: flex-start; /* logo and menu closer */
-    gap: 25px; /* minimal gap between logo & nav */
-    min-height: 60px;
-}
-
-
-        /* Single K.png logo styling - visible on all devices */
-        .main-logo {
-           height: 55px;
-            width: auto;
-            display: block;
-        }
-
-        /* Navigation with logo */
-       .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    list-style: none;
-    margin-left: 15px; /* small spacing after logo */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;         /* Total width of the icon */
+    height: 20px;        /* Total height of the three bars */
+    background: transparent;
+    border: none;
+    cursor: pointer;
     padding: 0;
-    gap: 10px; /* tighter spacing between items */
+    z-index: 2001;
 }
 
-
-        /* Logo in navbar */
-        .header-left {
-            display: flex;
-            align-items: center;
-            padding: 8px 20px 8px 0;
-        }
-
-        /* NAAC logo on right */
-        .header-right {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 8px 0 8px 20px;
-        }
-
-        .header-right img {
-            height: 55px;
-            width: auto;
-        }
-
-        /* White navbar links styling */
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links > li > a {
-            color: #8B2635;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 18px 16px;
-            display: inline-block;
-            white-space: nowrap;
-            transition: transform 0.3s ease, color 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-links > li > a:hover {
-            color: black;
-            transform: scale(1.1);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        /* White navbar dropdown styling */
-        .nav-container .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 240px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            z-index: 1001;
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            border: 1px solid #e0e0e0;
-            margin-top: 0;
-        }
-
-        .nav-container .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .nav-container .dropdown-content a {
-            color: #333;
-            padding: 12px 18px;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #f5f5f5;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        .nav-container .dropdown-content a:hover {
-            background-color: #f8f9fa;
-            color: #8B2635;
-            padding-left: 25px;
-        }
-
-        .sports-submenu {
-            position: relative;
-        }
-
-        .sports-items {
-            display: none;
-            position: absolute;
-            left: 35%;
-            top: 0;
-            background: white;
-            max-width: 120px;
-            /* min-width: 220px; */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            border-radius: 5px;
-            z-index: 1002;
-            border: 1px solid #e0e0e0;
-        }
-
-        .sports-submenu:hover .sports-items {
-            display: block;
-        }
-
-        .sports-trigger {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sports-trigger i {
-            margin-left: auto;
-            font-size: 12px;
-            transition: transform 0.3s;
-        }
-
-        .sports-submenu:hover .sports-trigger i {
-            transform: rotate(90deg);
-        }
-
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: white;
-            border: 2px solid #8B2635;
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 8px 12px;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1002;
-        }
-
-        .mobile-menu-toggle .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: #a80406;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-toggle.hidden {
-            display: none !important;
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 280px;
-            height: 100%;
-            background-color: maroon;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 1003;
-            transition: right 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .mobile-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            z-index: 1004;
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1002;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-            padding: 60px 20px 20px;
-            margin: 0;
-        }
-
-        .mobile-nav ul li {
-            margin-bottom: 10px;
-        }
-
-        .mobile-nav ul li > a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Mobile Dropdowns */
-        .mobile-dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            background-color: rgba(255,255,255,0.1);
-            margin-top: 5px;
-            border-radius: 5px;
-            transition: max-height 0.3s ease;
-        }
-
-        .mobile-dropdown.active .mobile-dropdown-content {
-            max-height: 1000px;
-        }
-
-        .mobile-dropdown-content > a {
-            padding: 8px 15px !important;
-            font-size: 14px !important;
-            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
-
-        .mobile-student-clubs {
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 3px;
-            margin: 5px 0;
-            overflow: visible !important;
-            position: relative;
-        }
-
-        .mobile-clubs-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 15px !important;
-            color: white !important;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 14px !important;
-            transition: background-color 0.3s;
-            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
-        }
-
-        .mobile-clubs-header:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .mobile-clubs-header i {
-            transition: transform 0.3s;
-            font-size: 12px;
-            color: white;
-        }
-
-        .mobile-clubs-header.active i {
-            transform: rotate(180deg);
-        }
-
-        .mobile-clubs-list {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease;
-            background-color: rgba(255,255,255,0.08);
-            opacity: 0;
-        }
-
-        .mobile-clubs-list.active {
-            max-height: 500px;
-            opacity: 1;
-        }
-
-        .mobile-clubs-list a {
-            display: block !important;
-            padding: 12px 25px !important;
-            color: rgba(255,255,255,0.9) !important;
-            font-size: 13px !important;
-            text-decoration: none !important;
-            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
-            transition: all 0.3s;
-            background: none !important;
-        }
-
-        .mobile-clubs-list a:hover {
-            background-color: rgba(255,255,255,0.1) !important;
-            color: white !important;
-        }
-
-        .mobile-clubs-list a:last-child {
-            border-bottom: none !important;
-        }
-
-        .dropbtn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .dropbtn i {
-            transition: transform 0.3s;
-            margin-left: 5px;
-        }
-
-        .mobile-dropdown.active .dropbtn i {
-            transform: rotate(180deg);
-        }
-
-        .no-scroll {
-            overflow: hidden;
-        }
-
-        /* ==================== RESPONSIVE DESIGN ==================== */
-
-        /* Large Laptops and Desktops (1440px and above) */
-        @media (min-width: 1440px) {
-            .home-logo {
-                display: none !important;
-            }
-            
-            .header-content {
-                height: 50px;
-            }
-            
-            .nav-links > li > a {
-                padding: 18px 20px;
-                font-size: 17px;
-            }
-            
-            .top-links ul h3 {
-                font-size: 16px;
-            }
-            
-            .top-links a {
-                font-size: 16px;
-            }
-        }
-
-        /* Standard Laptops (1200px - 1439px) */
-        @media (max-width: 1439px) and (min-width: 1200px) {
-            .home-logo {
-                display: none !important;
-            }
-            
-            .header-content {
-                height: 50px;
-            }
-            
-            .nav-links > li > a {
-                padding: 18px 14px;
-                font-size: 13px;
-            }
-        }
-
-        /* Small Laptops (1024px - 1199px) */
-        @media (max-width: 1199px) and (min-width: 1024px) {
-            .home-logo {
-                display: none !important;
-            }     
-            
-            .header-content {
-                height: 50px;
-            }
-            
-            .nav-links > li > a {
-                padding: 18px 12px;
-                font-size: 13px;
-            }
-            
-            .header-left {
-                padding: 8px 15px 8px 0;
-            }
-            
-            .header-right {
-                padding: 8px 0 8px 15px;
-            }
-        }
-
-        /* Tablets and iPads (768px - 1023px) */
-        @media (max-width: 1023px) and (min-width: 768px) {
-            .main-logo {
-                height: 45px;
-                margin-right: 15px;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-            }
-            
-            .header-content {
-                padding: 12px 15px;
-                gap: 12px;
-            }
-
-            .top-links ul h3 {
-                font-size: 14px;
-            }
-
-            .top-links ul {
-                gap: 12px;
-            }
-
-            .top-links a {
-                font-size: 14px;
-                padding: 5px 8px;
-            }
-        }
-
-        /* Mobile Landscape and Small Tablets (600px - 767px) */
-        @media (max-width: 767px) and (min-width: 600px) {
-            .main-logo {
-                height: 45px;
-                margin-right: 15px;
-            }
-            
-            .eamcet-code {
-                display: none !important;
-            }
-            
-            .admission-btn {
-                display: none !important;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-            }
-            
-            .header-content {
-                padding: 10px 15px;
-                gap: 10px;
-            }
-
-            .top-links ul h3 {
-                font-size: 13px;
-                margin-bottom: 5px;
-            }
-
-            .top-links ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 8px;
-                justify-content: center;
-            }
-
-            .top-links a {
-                font-size: 14px;
-                padding: 4px 7px;
-            }
-        }
-
-        /* Mobile Portrait (480px - 599px) */
-        @media (max-width: 599px) and (min-width: 480px) {
-            .main-logo {
-                height: 45px;
-                margin-right: 15px;
-            }
-            
-            .eamcet-code {
-                display: none !important;
-            }
-            
-            .admission-btn {
-                display: none !important;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 10px 12px;
-                gap: 8px;
-            }
-
-            .top-links {
-                width: 100%;
-            }
-
-            .top-links ul h3 {
-                font-size: 12px;
-                width: 100%;
-                text-align: center;
-                margin-bottom: 6px;
-            }
-
-            .top-links ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 6px;
-                justify-content: center;
-            }
-
-            .top-links a {
-                font-size: 13px;
-                padding: 4px 6px;
-            }
-        }
-
-        /* Small Mobile Phones (320px - 479px) */
-        @media (max-width: 479px) {
-            .main-logo {
-                height: 45px;
-                margin-right: 15px;
-            }
-            
-            .eamcet-code {
-                display: none !important;
-            }
-            
-            .admission-btn {
-                display: none !important;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 8px 10px;
-                gap: 6px;
-            }
-
-            .top-links {
-                width: 100%;
-            }
-
-            .top-links ul h3 {
-                font-size: 11px;
-                width: 100%;
-                text-align: center;
-                margin-bottom: 5px;
-            }
-
-            .top-links ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 5px;
-                justify-content: center;
-            }
-
-            .top-links a {
-                font-size: 12px;
-                padding: 3px 5px;
-            }
-            
-            .mobile-nav {
-                width: 250px;
-            }
-        }
-
-        /* Extra Small Phones (below 375px) */
-        @media (max-width: 374px) {
-            .main-logo {
-                height: 45px;
-                margin-right: 15px;
-            }
-            
-            .eamcet-code {
-                display: none !important;
-            }
-            
-            .admission-btn {
-                display: none !important;
-            }
-            
-            .header-content {
-                padding: 6px 8px;
-            }
-            
-            .top-links ul h3 {
-                font-size: 10px;
-            }
-            
-            .top-links a {
-                font-size: 12px;
-                padding: 2px 4px;
-            }
-            
-            .top-links ul {
-                gap: 4px;
-            }
-        }
-        
-        /* Latest Events button styling */
-        .latest-events-btn {
-            background: yellow;
-            /* background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); */
-            color: white;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 8px 18px;
-            border-radius: 50px;
-            border: none;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            white-space: nowrap;
-            position: relative;
-            animation: pulse 2s infinite;
-            margin-left: 10px;
-            box-shadow: 0 4px 15px rgba(224, 221, 7, 0.4);
-            overflow: hidden;
-        }
-
-        .latest-events-btn:hover {
-            animation: none;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
-        }
-
-        .latest-events-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .latest-events-btn:hover::before {
-            left: 100%;
-        }
-
-        .latest-events-btn i {
-            margin-right: 8px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-3px);
-            }
-        }
-
-        /* Pulsing background effect similar to image */
-        .pulsing-bg-effect {
-            position: relative;
-            padding: 5px 15px;
-            border-radius: 30px;
-            background-color: rgba(255, 65, 108, 0.1);
-            animation: pulseBackground 3s infinite;
-            display: inline-block;
-        }
-    </style>
+.mobile-menu-toggle .bar {
+    width: 100%;         /* Spans the full 30px */
+    height: 3px;         /* Thickness of the line */
+    background-color: var(--maroon); /* Your brand color */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- OPTIONAL: Animation to 'X' when open --- */
+.mobile-menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Hide the absolute dropdowns from desktop */
+    .dropdown-content {
+        display: none;
+        position: relative;
+        width: 100%;
+        background: #f8fafc; /* Light tint for expanded area */
+        box-shadow: none;
+        padding-left: 15px;
+        border-left: 3px solid var(--maroon); /* Visual indicator of depth */
+    }
+
+    /* Show only when parent has active-mobile class */
+    .dropdown.active-mobile > .dropdown-content {
+        display: block;
+        animation: slideDownFade 0.3s ease-in-out;
+    }
+
+    /* Same logic for inner sub-menus (Clubs, SSR, DVV) */
+    .sports-submenu.active-mobile .sports-items {
+        display: block;
+        background: #f1f5f9;
+        padding-left: 15px;
+    }
+
+    @keyframes slideDownFade {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    }
+
+    /* Base Utility for the trigger */
+    /* Hide mobile menu on desktop */
+.mobile-menu-toggle{
+display:none;
+}
+
+/* Show mobile menu on tablet & phone */
+@media (max-width:1024px){
+
+.mobile-menu-toggle{
+display:flex !important;
+}
+
+.main-nav-desktop{
+display:none !important;
+}
+
+}
+body{
+margin:0;
+padding-top:140px;
+}
+  </style>
 </head>
+
 <body>
-    <header>
-<div class="header-content">
-    <!-- Left -->
-    <div class="eamcet-code">
-        <h3>EAMCET CODE: DRKI</h3>
+ <header class="main-header" id="dynamicHeader">
+<button class="mobile-quick-links-toggle" onclick="toggleMobileQuickLinks()">
+  Quick Links <i class="fas fa-chevron-down ms-2" id="mobileChevron"></i>
+</button>
+    <div class="mobile-top-bar-expand" id="mobileExpandArea">
+      <ul class="mobile-top-links">
+        <li><a href="grievance.html">Grievance</a></li>
+        <li><a href="life-drk.html">Gallery</a></li>
+        <li><a href="student.html">Students</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="iqac.html">IQAC Cell</a></li>
+        <li>
+          <a href="https://maps.app.goo.gl/AwWBA25zGF9nqQ9FA">Virtual Tour</a>
+        </li>
+        <li>
+          <a href="disclosures.html"> Mandatory Disclosures </a>
+        </li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>
+          <a href="latest_events.html" style="color: #ffeb3b">Latest Events</a>
+        </li>
+        <li>
+          <a href="admissions.html" style="font-weight: bold">Admissions 2026</a>
+        </li>
+      </ul>
     </div>
 
-    <!-- Center -->
-    <div class="top-links">
-    
-        <ul>
-           <li>  <a href="../index.html" class="home-logo">
-            <i class="fas fa-home" style="font-size: 33px;"></i>
-            </a></li>
-            <li><a href="grievance.html">Grievance</a></li>
-            <li><a href="life-drk.html">Gallery</a></li>
-            <li><a href="student.html">Students</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="iqac.html">IQAC Cell</a></li>
-            <li><a href="https://maps.app.goo.gl/AwWBA25zGF9nqQ9FA">Virtual Tour</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li > <a href="disclosures.html"> Mandatory Disclosures  </a> </li>
-            <li> <a href="latest_events.html" class="latest-events-btn" style="color: black;">
-                            <i class="fas fa-calendar-alt"></i> Latest Events
-                        </a> </li>
-          </ul>
-    </div>
+    <div class="header-top-bar d-none d-lg-block">
+      <div class="top-nav-container">
+        <div class="eamcet-badge">EAMCET CODE: DRKI</div>
 
-    <!-- Right -->
-    <a href="admissions.html" class="admission-btn">Admissions</a>
-</div>
+        <ul class="top-links-list">
+          <!-- <li>
+            <a href="index.html"><i class="fas fa-home"></i></a>
+          </li> -->
+          <li><a href="grievance.html">Grievance</a></li>
+          <li><a href="life-drk.html">Gallery</a></li>
+          <li><a href="student.html">Students</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="iqac.html">IQAC Cell</a></li>
+          <li>
+            <a href="https://maps.app.goo.gl/AwWBA25zGF9nqQ9FA">Virtual Tour</a>
+          </li>
+          <li>
+            <a href="disclosures.html"> Mandatory Disclosures </a>
+          </li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
 
-
-
-        <div class="nav-container">
-            <img src="../static/Logo.png" alt="DRKIST Logo" class="main-logo">
-            <button class="mobile-menu-toggle" id="mobileToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
-            <nav class="main-nav">
-                <ul class="nav-links">
-                    
-                    <li><a href="../index.html">Home</a></li>
-
-            <li class="dropdown">
-              <a href="#about" class="dropbtn">
-                About Us <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-content">
-                <a href="about.html">About DRKIST</a>
-                <a href="management.html">Management</a>
-                <a href="principal.html">Principal Desk's</a>
-                <a href="organisation.html">Organisation Chart</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="#departments" class="dropbtn">
-                Departments <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-content">
-                <a href="cse.html">Computer Science Engineering</a>
-                <a href="aiml.html">CSE-AI & ML</a>
-                <a href="ds.html">CSE-Data Science</a>
-                <a href="ece.html">Electronics & Communications</a>
-                <a href="eee.html">Electrical & Electronics</a>
-                <a href="mech.html">Mechanical Engineering</a>
-                <a href="hs.html">Humanities and Science</a>
-                <a href="mba.html">MBA</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="#">Academics <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="courses.html">Courses Offered</a>
-                <a href="academic-calendar.html">Academic Calendar</a>
-                <a href="exam-branch.html">Exam Branch</a>
-                <a href="https://drkist.infinityfreeapp.com/">Attendance</a>
-                <a href="https://drkresults.kesug.com/?i=1">Results</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="placements.html">
-                Placements <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-content">
-                <a href="placement-training.html">Placement Trainings</a>
-                <a href="placement-officer.html">Placement Officer</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="#">
-                Facilities <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-content">
-                <a href="library.html">Library</a>
-                <a href="seminar-hall.html">Seminar Hall</a>
-                <div class="sports-submenu">
-                  <a href="#" class="sports-trigger">
-                    Students Clubs <i class="fas fa-chevron-right"></i>
-                  </a>
-                  <div class="sports-items">
-                    <a href="technical.html">Technical</a>
-                    <a href="cultural.html">Cultural and Sports</a>
-                    <a href="societal.html">Societal</a>
-                  </div>
-                </div>
-                <a href="transport.html">Transport</a>
-                <a href="games.html">Games</a>
-                <a href="cafeteria.html">Cafeteria</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="#">NAAC <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <div class="sports-submenu">
-                  <a href="#" class="sports-trigger">
-                    SRR <i class="fas fa-chevron-right"></i>
-                  </a>
-                  <div class="sports-items">
-                    <a href="srr1.html">Criterion 1</a>
-                    <a href="srr2.html">Criterion 2</a>
-                    <a href="srr3.html">Criterion 3</a>
-                    <a href="srr4.html">Criterion 4</a>
-                    <a href="srr5.html">Criterion 5</a>
-                    <a href="srr6.html">Criterion 6</a>
-                    <a href="srr7.html">Criterion 7</a>
-                  </div>
-                </div>
-                <div class="sports-submenu">
-                  <a href="#" class="sports-trigger">
-                    DVV <i class="fas fa-chevron-right"></i>
-                  </a>
-                  <div class="sports-items">
-                    <a href="dvv1.html">Criterion 1</a>
-                    <a href="dvv2.html">Criterion 2</a>
-                    <a href="dvv3.html">Criterion 3</a>
-                    <a href="dvv4.html">Criterion 4</a>
-                    <a href="dvv5.html">Criterion 5</a>
-                    <a href="dvv6.html">Criterion 6</a>
-                    <a href="dvv7.html">Criterion 7</a>
-                  </div>
-                </div>
-                <a href="extended-profile.html">Extended Profile</a>
-              </div>
-            </li>          
-      <div>
-        <a href="naac\Institutional_Grade_Sheet.pdf">
-        <img
-          src="../static/naac1.png"
-          alt="NAAC Logo"
-          class="naac-logo"
-        /></a>
+        <div style="display: flex; align-items: center; gap: 30px">
+          <a href="latest_events.html" class="btn-latest-events">Latest Events</a>
+          <a href="admissions.html" class="admission-pill">Admissions 2026</a>
+        </div>
       </div>
     </div>
-                </ul>
-            </nav>
-        </div>
 
-        <!-- Mobile Navigation -->
-        <div class="mobile-overlay"></div>
-        <nav class="mobile-nav">
-            <button class="mobile-close-btn"><i class="fas fa-times"></i></button>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-        <li class="dropdown mobile-dropdown">
-          <a href="#about" class="dropbtn">About Us <i class="fas fa-chevron-down"></i></a>
-          <div class="mobile-dropdown-content">
+    <div class="nav-container">
+      <a href="index.html">
+        <img src="../static/Logo.png" alt="DRKIST Logo" class="main-logo" />
+      </a>
+
+      <nav class="main-nav-desktop d-none d-lg-block">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">About Us <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <a href="about.html">About DRKIST</a>
+              <a href="management.html">Management</a>
+              <a href="principal.html">Principal Desk's</a>
+              <a href="organisation.html">Organisation Chart</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Departments <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <a href="cse.html">Computer Science Engineering</a>
+              <a href="aiml.html">CSE-AI & ML</a>
+              <a href="ds.html">CSE-Data Science</a>
+              <a href="ece.html">Electronics & Communications</a>
+              <a href="eee.html">Electrical & Electronics</a>
+              <a href="mech.html">Mechanical Engineering</a>
+              <a href="hs.html">Humanities and Science</a>
+              <a href="mba.html">MBA</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Academics <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <a href="courses.html">Courses Offered</a>
+              <a href="academic-calendar.html">Academic Calendar</a>
+              <a href="exam-branch.html">Exam Branch</a>
+              <a href="https://drkist.infinityfreeapp.com/">Attendance</a>
+              <a href="Results/index.php">Results</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Placements <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <a href="placement-training.html">Placement Trainings</a>
+              <a href="placement-officer.html">Placement Officer</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Facilities <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <a href="library.html">Library</a>
+              <a href="seminar-hall.html">Seminar Hall</a>
+              <div class="sports-submenu">
+                <a href="#" class="sports-trigger d-flex justify-content-between align-items-center">
+                  Students Clubs
+                  <i class="fas fa-chevron-right" style="font-size: 10px"></i>
+                </a>
+                <div class="sports-items">
+                  <a href="technical.html">Technical</a>
+                  <a href="cultural.html">Cultural and Sports</a>
+                  <a href="societal.html">Societal</a>
+                </div>
+              </div>
+              <a href="transport.html">Transport</a>
+              <a href="games.html">Games</a>
+              <a href="cafeteria.html">Cafeteria</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">NAAC <i class="fas fa-chevron-down ms-1 small"></i></a>
+            <div class="dropdown-content">
+              <div class="sports-submenu">
+                <a href="#" class="sports-trigger">
+                  SRR <i class="fas fa-chevron-right"></i>
+                </a>
+                <div class="sports-items">
+                  <a href="srr1.html">Criterion 1</a>
+                  <a href="srr2.html">Criterion 2</a>
+                  <a href="srr3.html">Criterion 3</a>
+                  <a href="srr4.html">Criterion 4</a>
+                  <a href="srr5.html">Criterion 5</a>
+                  <a href="srr6.html">Criterion 6</a>
+                  <a href="srr7.html">Criterion 7</a>
+                </div>
+              </div>
+              <div class="sports-submenu">
+                <a href="#" class="sports-trigger">
+                  DVV <i class="fas fa-chevron-right"></i>
+                </a>
+                <div class="sports-items">
+                  <a href="dvv1.html">Criterion 1</a>
+                  <a href="dvv2.html">Criterion 2</a>
+                  <a href="dvv3.html">Criterion 3</a>
+                  <a href="dvv4.html">Criterion 4</a>
+                  <a href="dvv5.html">Criterion 5</a>
+                  <a href="dvv6.html">Criterion 6</a>
+                  <a href="dvv7.html">Criterion 7</a>
+                </div>
+              </div>
+              <a href="extended-profile.html">Extended Profile</a>
+            </div>
+          </li>
+
+          <li>
+            <a href="naac/Institutional_Grade_Sheet.pdf">
+              <img src="../static/naac1.png" alt="NAAC" style="height: 50px" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+     <button class="mobile-menu-toggle d-lg-none" id="mobileToggle" onclick="toggleMobileMenu()">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+    </div>
+    <div class="mobile-main-nav-expand d-lg-none" id="mobileMainNav">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
             <a href="about.html">About DRKIST</a>
             <a href="management.html">Management</a>
             <a href="principal.html">Principal Desk's</a>
             <a href="organisation.html">Organisation Chart</a>
           </div>
         </li>
-
-        <li class="dropdown mobile-dropdown">
-          <a href="#departments" class="dropbtn">Departments <i class="fas fa-chevron-down"></i></a>
-          <div class="mobile-dropdown-content">
+        <li class="dropdown">
+          <a href="#">Departments <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
             <a href="cse.html">Computer Science Engineering</a>
             <a href="aiml.html">CSE-AI & ML</a>
             <a href="ds.html">CSE-Data Science</a>
@@ -1074,171 +737,216 @@
             <a href="mba.html">MBA</a>
           </div>
         </li>
-
-        <li class="dropdown mobile-dropdown">
-          <a href="#" class="dropbtn">Academics <i class="fas fa-chevron-down"></i></a>
-          <div class="mobile-dropdown-content">
+        <li class="dropdown">
+          <a href="#">Academics <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
             <a href="courses.html">Courses Offered</a>
             <a href="academic-calendar.html">Academic Calendar</a>
             <a href="exam-branch.html">Exam Branch</a>
             <a href="https://drkist.infinityfreeapp.com/">Attendance</a>
-            <a href="https://drkresults.kesug.com/?i=1">Results</a>
+            <a href="Results/index.php">Results</a>
           </div>
         </li>
-
-        <li class="dropdown mobile-dropdown">
-          <a href="placements.html" class="dropbtn">Placements <i class="fas fa-chevron-down"></i></a>
-          <div class="mobile-dropdown-content">
+        <li class="dropdown">
+          <a href="#">Placements <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
             <a href="placement-training.html">Placement Trainings</a>
             <a href="placement-officer.html">Placement Officer</a>
           </div>
         </li>
+        <li class="dropdown">
+          <a href="#">Facilities <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
+            <a href="library.html">Library</a>
+            <a href="seminar-hall.html">Seminar Hall</a>
+            <div class="sports-submenu">
+              <a href="#" class="sports-trigger d-flex justify-content-between align-items-center">
+                Students Clubs
+                <i class="fas fa-chevron-right" style="font-size: 10px"></i>
+              </a>
+              <div class="sports-items">
+                <a href="technical.html">Technical</a>
+                <a href="cultural.html">Cultural and Sports</a>
+                <a href="societal.html">Societal</a>
+              </div>
+            </div>
+            <a href="transport.html">Transport</a>
+            <a href="games.html">Games</a>
+            <a href="cafeteria.html">Cafeteria</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">NAAC <i class="fas fa-chevron-down ms-1 small"></i></a>
+          <div class="dropdown-content">
+            <div class="sports-submenu">
+              <a href="#" class="sports-trigger">
+                SRR <i class="fas fa-chevron-right"></i>
+              </a>
+              <div class="sports-items">
+                <a href="srr1.html">Criterion 1</a>
+                <a href="srr2.html">Criterion 2</a>
+                <a href="srr3.html">Criterion 3</a>
+                <a href="srr4.html">Criterion 4</a>
+                <a href="srr5.html">Criterion 5</a>
+                <a href="srr6.html">Criterion 6</a>
+                <a href="srr7.html">Criterion 7</a>
+              </div>
+            </div>
+            <div class="sports-submenu">
+              <a href="#" class="sports-trigger">
+                DVV <i class="fas fa-chevron-right"></i>
+              </a>
+              <div class="sports-items">
+                <a href="dvv1.html">Criterion 1</a>
+                <a href="dvv2.html">Criterion 2</a>
+                <a href="dvv3.html">Criterion 3</a>
+                <a href="dvv4.html">Criterion 4</a>
+                <a href="dvv5.html">Criterion 5</a>
+                <a href="dvv6.html">Criterion 6</a>
+                <a href="dvv7.html">Criterion 7</a>
+              </div>
+            </div>
+            <a href="extended-profile.html">Extended Profile</a>
+          </div>
+        </li>
 
-      <li class="dropdown mobile-dropdown">
-                    <a href="#" class="dropbtn">Facilities <i class="fas fa-chevron-down"></i></a>
-                    <div class="mobile-dropdown-content">
-                        <a href="library.html">Library</a>
-                        <a href="seminar-hall.html">Seminar Hall</a>
-                        <!-- FIXED Student Clubs for Mobile -->
-                        <div class="mobile-student-clubs">
-                            <button class="mobile-clubs-header" type="button">
-                                Student Clubs <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="mobile-clubs-list">
-                                <a href="technical.html">Technical Clubs</a>
-                                <a href="cultural.html">Cultural and Sports Clubs</a>
-                                <a href="societal.html">Societal Clubs</a>
-                            </div>
-                        </div>
-                        <a href="transport.html">Transport</a>
-                        <a href="games.html">Games</a>
-                        <a href="cafeteria.html">Cafeteria</a>
-                    </div>
-                </li>
-                <li class="dropdown mobile-dropdown">
-                    <a href="#" class="dropbtn">NAAC <i class="fas fa-chevron-down"></i></a>
-                    <div class="mobile-dropdown-content">
-                        <div class="mobile-student-clubs">
-                            <button class="mobile-clubs-header" type="button">
-                                SSR <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="mobile-clubs-list">
-                                <a href="srr1.html">Criterion 1</a>
-                                <a href="srr2.html">Criterion 2</a>
-                                <a href="srr3.html">Criterion 3</a>
-                                <a href="srr4.html">Criterion 4</a>
-                                <a href="srr5.html">Criterion 5</a>
-                                <a href="srr6.html">Criterion 6</a>
-                                <a href="srr7.html">Criterion 7</a>
-                            </div>
-                        </div>
-                        <div class="mobile-student-clubs">
-                            <button class="mobile-clubs-header" type="button">
-                                DVV <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="mobile-clubs-list">
-                                <a href="dvv1.html">Criterion 1</a>
-                                <a href="dvv2.html">Criterion 2</a>
-                                <a href="dvv3.html">Criterion 3</a>
-                                <a href="dvv4.html">Criterion 4</a>
-                                <a href="dvv5.html">Criterion 5</a>
-                                <a href="dvv6.html">Criterion 6</a>
-                                <a href="dvv7.html">Criterion 7</a>
-                            </div>
-                        </div>
-                        <a href="extended-profile.html">Extended Profile</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>  
-    </header>
+        <li>
+          <a href="naac/Institutional_Grade_Sheet.pdf">
+            <img src="../static/naac1.png" alt="NAAC" style="height: 50px" />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileOverlay = document.querySelector('.mobile-overlay');
-            const mobileClose = document.querySelector('.mobile-close-btn');
+<script>
 
-            // Toggle mobile menu
-            if (mobileToggle) {
-                mobileToggle.addEventListener('click', function() {
-                    mobileNav.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    document.body.classList.toggle('no-scroll');
-                });
-            }
+  // --- ADD THIS TO YOUR INDEX.PHP SCRIPT ---
 
-            // Close mobile menu
-            if (mobileClose) {
-                mobileClose.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                });
-            }
-
-            // Close when clicking overlay
-            if (mobileOverlay) {
-                mobileOverlay.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    this.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                });
-            }
-
-            // Mobile main dropdowns (About Us, Departments, etc.)
-            document.querySelectorAll('.mobile-dropdown > .dropbtn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const dropdown = this.closest('.mobile-dropdown');
-                    // Close other main dropdowns (but not student clubs)
-                    document.querySelectorAll('.mobile-dropdown').forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                    dropdown.classList.toggle('active');
-                });
-            });
-
-            // Student Clubs submenu for mobile
-            document.querySelectorAll('.mobile-clubs-header').forEach(header => {
-                header.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    this.classList.toggle('active');
-                    const clubsList = this.nextElementSibling;
-                    if (clubsList && clubsList.classList.contains('mobile-clubs-list')) {
-                        clubsList.classList.toggle('active');
-                    }
-                });
-            });
-
-            // Desktop dropdowns
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function() {
-                    const content = this.querySelector('.dropdown-content');
-                    if (content) content.style.display = 'block';
-                });
-                dropdown.addEventListener('mouseleave', function() {
-                    const content = this.querySelector('.dropdown-content');
-                    if (content) content.style.display = 'none';
-                });
-            });
-
-            // Prevent clicks on student clubs links from closing the submenu
-            document.querySelectorAll('.mobile-clubs-list a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    // Let the link navigate normally
-                });
-            });
-        });
+// Listen for clicks on the entire document
+document.addEventListener('click', function(e) {
+    // 1. Logic for Inner Submenus (Students Clubs, NAAC Criteria)
+    const trigger = e.target.closest('.sports-trigger');
+    
+    if (trigger) {
+        e.preventDefault();
+        e.stopPropagation(); // Stops the main dropdown from closing accidentally
         
-        // getting year for footer
-document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+        const parent = trigger.parentElement;
+        const isOpen = parent.classList.contains('inner-open');
+
+        // Close other inner submenus in the same list to keep it clean
+        const allInner = document.querySelectorAll('.sports-submenu');
+        allInner.forEach(menu => menu.classList.remove('inner-open'));
+
+        // If it wasn't open, open it
+        if (!isOpen) {
+            parent.classList.add('inner-open');
+        }
+    } else {
+        // 2. Global Close: If clicking anywhere else, shut all inner submenus
+        document.querySelectorAll('.sports-submenu').forEach(menu => {
+            menu.classList.remove('inner-open');
+        });
+    }
+});
+
+    /**
+     * Toggles the Quick Links drawer on mobile.
+     * Uses the 'active' class to control max-height in CSS.
+     */
+    function toggleMobileQuickLinks() {
+        const expandArea = document.getElementById("mobileExpandArea");
+        const icon = document.getElementById("mobileChevron");
+        const mainNav = document.getElementById("mobileMainNav");
+        const burger = document.getElementById("mobileToggle");
+
+        if (expandArea) {
+            // Close the main hamburger menu if it is currently open
+            if (mainNav && mainNav.classList.contains("active")) {
+                mainNav.classList.remove("active");
+                if (burger) burger.classList.remove("open");
+            }
+
+            expandArea.classList.toggle("active");
+
+            // Handle chevron rotation
+            if (icon) {
+                icon.style.transform = expandArea.classList.contains("active") 
+                    ? "rotate(180deg)" 
+                    : "rotate(0deg)";
+            }
+        }
+    }
+
+function toggleMobileMenu(){
+ const menu = document.getElementById("mobileMainNav");
+ const button = document.getElementById("mobileToggle");
+
+ if(menu){
+   menu.classList.toggle("active");
+   button.classList.toggle("open");
+ }
+}
+    // Shadow effect on scroll
+    window.addEventListener("scroll", function () {
+        const header = document.getElementById("dynamicHeader");
+        if (header) {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+            } else {
+                header.style.boxShadow = "none";
+            }
+        }
+    });
+
+       // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Modular Fetch Logic for Header/Footer/Chatbot
+    const components = [
+       
+        { id: 'footer', url: 'footer.html', script: null },
+        { id: 'chatbot', url: 'chatbot.html', script: 'static/chatbot.js' }
+    ];
+
+    components.forEach(comp => {
+        fetch(comp.url)
+            .then(res => res.text())
+            .then(data => {
+                const container = document.getElementById(comp.id);
+                if (container) {
+                    container.innerHTML = data;
+                    if (comp.script) {
+                        const s = document.createElement('script');
+                        s.src = comp.script;
+                        document.body.appendChild(s);
+                    }
+                }
+            })
+            .catch(err => console.error('Error loading component:', err));
+    });
+
+    // Scroll shadow logic
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector(".main-header");
+        if (header) {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+            } else {
+                header.style.boxShadow = "none";
+            }
+        }
+    });
+</script>
+
 </body>
 </html>
