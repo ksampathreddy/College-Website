@@ -233,7 +233,7 @@ a {
 }
 
 /* 4. Display when parent has the 'inner-open' class */
-.sports-submenu.inner-open > .sports-items {
+.sports-submenu.active-mobile > .sports-items {
   display: block;
   animation: slideDownInPlace 0.3s ease-out;
 }

@@ -958,66 +958,7 @@
 </section>
 
  
-  </section>
-
-<div class="container py-5">
-            <div class="text-center mb-5">
-                <span class="section-caps-tagline">Institutional Updates</span>
-                <h2 class="section-main-title">Official <span style="color: var(--maroon);">Notice Board</span></h2>
-                <div class="statement-underline"></div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="notice-stack">
-                        <?php if (!empty($results)):
-                            foreach (array_slice($results, 0, 6) as $result):
-                                $date = new DateTime($result->created_at);
-                                $isNew = (time() - strtotime($result->created_at) < 172800); // 48 Hours
-                        ?>
-                                <a href="notice-details.php?nid=<?php echo $result->id; ?>" class="notice-card animate__animated animate__fadeInUp">
-                                    <div class="notice-date">
-                                        <span class="d-block h2 fw-extrabold mb-0" style="color: var(--text-dark); line-height: 1;"><?php echo $date->format('d'); ?></span>
-                                        <small class="text-maroon fw-bold text-uppercase" style="font-size: 0.75rem;"><?php echo $date->format('M'); ?></small>
-                                    </div>
-
-                                    <div class="flex-grow-1">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                            <span class="notice-meta">
-                                                <i class="fa-regular fa-calendar-check me-1"></i> <?php echo $date->format('F j, Y'); ?>
-                                            </span>
-                                            <?php if ($isNew): ?>
-                                                <span class="badge rounded-pill" style="background: #fff1f1; color: var(--maroon); border: 1px solid #fee2e2; font-size: 0.65rem;">NEW</span>
-                                            <?php endif; ?>
-                                        </div>
-                                        <h5 class="notice-title mb-0"><?php echo htmlspecialchars($result->noticeTitle); ?></h5>
-                                    </div>
-
-                                    <div class="ms-3 text-muted opacity-25">
-                                        <i class="fa-solid fa-chevron-right fs-4"></i>
-                                    </div>
-                                </a>
-                            <?php endforeach;
-                        else: ?>
-                            <div class="text-center p-5 rounded-4" style="background: var(--bg-light); border: 2px dashed #e2e8f0;">
-                                <i class="fa-solid fa-folder-open fs-1 text-muted mb-3"></i>
-                                <p class="text-muted fw-bold">No active notices found at this moment.</p>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="news-section">
-    <h1>Academic Calendar</h1>
-    <div class="calendar-buttons">
-      <a href="academic-calender/1year.pdf" class="year-btn"><button>B.Tech I YEAR</button></a>
-      <a href="academic-calender/2year.pdf" class="year-btn"><button>B.Tech II YEAR</button></a>
-      <a href="academic-calender/3year.pdf" class="year-btn"><button>B.Tech III YEAR</button></a>
-      <a href="academic-calender/4year.pdf" class="year-btn"><button>B.Tech IV YEAR</button></a>
-    </div>
-    </section>
-
+  <!-- </section> -->
 
     <section class="py-5 bg-light" id="departments">
 
@@ -1089,6 +1030,65 @@
             </div>
         </div>
     </section>
+
+<div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="section-caps-tagline">Institutional Updates</span>
+                <h2 class="section-main-title">Official <span style="color: var(--maroon);">Notice Board</span></h2>
+                <div class="statement-underline"></div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="notice-stack">
+                        <?php if (!empty($results)):
+                            foreach (array_slice($results, 0, 6) as $result):
+                                $date = new DateTime($result->created_at);
+                                $isNew = (time() - strtotime($result->created_at) < 172800); // 48 Hours
+                        ?>
+                                <a href="notice-details.php?nid=<?php echo $result->id; ?>" class="notice-card animate__animated animate__fadeInUp">
+                                    <div class="notice-date">
+                                        <span class="d-block h2 fw-extrabold mb-0" style="color: var(--text-dark); line-height: 1;"><?php echo $date->format('d'); ?></span>
+                                        <small class="text-maroon fw-bold text-uppercase" style="font-size: 0.75rem;"><?php echo $date->format('M'); ?></small>
+                                    </div>
+
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="notice-meta">
+                                                <i class="fa-regular fa-calendar-check me-1"></i> <?php echo $date->format('F j, Y'); ?>
+                                            </span>
+                                            <?php if ($isNew): ?>
+                                                <span class="badge rounded-pill" style="background: #fff1f1; color: var(--maroon); border: 1px solid #fee2e2; font-size: 0.65rem;">NEW</span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <h5 class="notice-title mb-0"><?php echo htmlspecialchars($result->noticeTitle); ?></h5>
+                                    </div>
+
+                                    <div class="ms-3 text-muted opacity-25">
+                                        <i class="fa-solid fa-chevron-right fs-4"></i>
+                                    </div>
+                                </a>
+                            <?php endforeach;
+                        else: ?>
+                            <div class="text-center p-5 rounded-4" style="background: var(--bg-light); border: 2px dashed #e2e8f0;">
+                                <i class="fa-solid fa-folder-open fs-1 text-muted mb-3"></i>
+                                <p class="text-muted fw-bold">No active notices found at this moment.</p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="news-section">
+    <h1>Academic Calendar</h1>
+    <div class="calendar-buttons">
+      <a href="academic-calender/1year.pdf" class="year-btn"><button>B.Tech I YEAR</button></a>
+      <a href="academic-calender/2year.pdf" class="year-btn"><button>B.Tech II YEAR</button></a>
+      <a href="academic-calender/3year.pdf" class="year-btn"><button>B.Tech III YEAR</button></a>
+      <a href="academic-calender/4year.pdf" class="year-btn"><button>B.Tech IV YEAR</button></a>
+    </div>
+    </section>
+
 
     <section class="py-5 bg-white overflow-hidden" id="founder">
         
@@ -1276,7 +1276,7 @@ window.toggleMobileMenu = function() {
 
       // Load JS separately if needed
       const script = document.createElement('script');
-      script.src = 'static/scroll.js';
+      script.src = 'static/header.js';
       document.body.appendChild(script);
     });
     

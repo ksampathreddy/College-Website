@@ -248,7 +248,7 @@
 }
 
 /* 4. Display when parent has the 'inner-open' class */
-.sports-submenu.inner-open > .sports-items {
+.sports-submenu.active-mobile > .sports-items {
     display: block;
     animation: slideDownInPlace 0.3s ease-out;
 }
@@ -515,7 +515,7 @@ display: block !important; /* Force display */
 </head>
 
 <body>
-  <header class="main-header" id="dynamicHeader header">
+  <header class="main-header" id="dynamicHeader">
 <button class="mobile-quick-links-toggle" onclick="toggleMobileQuickLinks()">
   Quick Links <i class="fas fa-chevron-down ms-2" id="mobileChevron"></i>
 </button>
@@ -800,31 +800,27 @@ display: block !important; /* Force display */
   // --- ADD THIS TO YOUR INDEX.PHP SCRIPT ---
 
 // Listen for clicks on the entire document
-document.addEventListener('click', function(e) {
-    // 1. Logic for Inner Submenus (Students Clubs, NAAC Criteria)
-    const trigger = e.target.closest('.sports-trigger');
-    
-    if (trigger) {
+document.addEventListener("click", function(e){
+
+    const trigger = e.target.closest(".sports-trigger");
+
+    if(trigger){
+
         e.preventDefault();
-        e.stopPropagation(); // Stops the main dropdown from closing accidentally
-        
+
         const parent = trigger.parentElement;
-        const isOpen = parent.classList.contains('inner-open');
+        const isOpen = parent.classList.contains("active-mobile");
 
-        // Close other inner submenus in the same list to keep it clean
-        const allInner = document.querySelectorAll('.sports-submenu');
-        allInner.forEach(menu => menu.classList.remove('inner-open'));
-
-        // If it wasn't open, open it
-        if (!isOpen) {
-            parent.classList.add('inner-open');
-        }
-    } else {
-        // 2. Global Close: If clicking anywhere else, shut all inner submenus
-        document.querySelectorAll('.sports-submenu').forEach(menu => {
-            menu.classList.remove('inner-open');
+        document.querySelectorAll(".sports-submenu").forEach(menu=>{
+            menu.classList.remove("active-mobile");
         });
+
+        if(!isOpen){
+            parent.classList.add("active-mobile");
+        }
+
     }
+
 });
 
     /**
