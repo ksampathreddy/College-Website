@@ -27,6 +27,8 @@
             color: var(--text-dark);
             background: #fff;
             overflow-x: hidden;
+            margin-bottom: 0 !important;
+            padding: 0;
         }
 
         /* Hero Viewport - Height Stabilized */
@@ -756,6 +758,9 @@
     .calendar-buttons button:hover {
       background-color: #a80406;
     }
+footer {
+    margin-bottom: 0 !important;
+}
 
     </style>
 </head>
@@ -936,7 +941,7 @@
         </div>
     </section>
 
-    <section id="notice" class="py-5 bg-white">
+    <section id="logo" class="py-5 bg-white">
         
   <section class="accreditation-section">
   <div class="accreditation-container">
@@ -1030,11 +1035,11 @@
             </div>
         </div>
     </section>
-
-<div class="container py-5">
+<section id="notice" class="py-5 bg-white">
+            <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="section-caps-tagline">Institutional Updates</span>
-                <h2 class="section-main-title">Official <span style="color: var(--maroon);">Notice Board</span></h2>
+                <h2 class="section-main-title"><span style="color: var(--maroon);">Notice Board</span></h2>
                 <div class="statement-underline"></div>
             </div>
 
@@ -1079,6 +1084,7 @@
                 </div>
             </div>
         </div>
+   </section>
         <section class="news-section">
     <h1>Academic Calendar</h1>
     <div class="calendar-buttons">
@@ -1136,9 +1142,10 @@
     </section>
     <div id="chatbot"></div>
     <div id="footer"></div>
-<div class="scroll-to-top">
+<!-- <div class="scroll-to-top">
         <img src="../static/ar.png" alt="Scroll to top" id="scrollTopBtn">
-  </div>
+  </div> -->
+<div class="scroll-to-top" id="scrollTopBtn"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
